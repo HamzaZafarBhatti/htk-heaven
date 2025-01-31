@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica'), url('../assets/fonts/Helvetica.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Helvetica Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Oblique'), url('../assets/fonts/Helvetica-Oblique.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Helvetica Compressed';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Compressed'), url('../assets/fonts/helvetica-compressed-5871d14b6903a.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Helvetica Rounded Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Rounded Bold'), url('../assets/fonts/helvetica-rounded-bold-5871d05ead8de.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica'), url('../assets/fonts/Helvetica-Bold.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Helvetica Bold Oblique';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Bold Oblique'), url('../assets/fonts/Helvetica-BoldOblique.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Helvetica Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Helvetica Light'), url('../assets/fonts/helvetica-light-587ebe5a59211.woff') format('woff');
+}
+body{
+    font-family: "Roboto", serif;
+}
+header a.nav-link {
+    font-family: "Roboto", serif;
+    font-weight: 500;
+}
+
+.claim-btn {
+    background-color: #0B8F3B;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 12px 30px;
+}
+
+section.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.66), rgba(0, 0, 0, 0.66)), url(https://acheron.qodeinteractive.com/wp-content/uploads/2024/07/h5-bgd-img1.jpg) no-repeat center center / cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 169px 0;
+}
+
+section.hero-section h2 {
+    color: #007bff;
+    font-size: 52px;
+}
+
+.header-top {
+    background-color: #0B8F3B;
+}
+
+.btn-primary {
+    background-color: #0B8F3B;
+    border-color: #0B8F3B;
+}
+
+a.navbar-brand {
+    color: #0B8F3B;
+}
+
+section.hero-section ul li {
+    margin-bottom: 12px;
+}
+
+section.hero-section ul .fa-circle-check {
+    color: #007bff;
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+section.claim-assistance {
+    padding: 90px 0;
+}
+
+h2.sec-title {
+    color: #007bff;
+    font-size: 40px;
+    line-height: 47px;
+    position: relative;
+    font-family: "Roboto", serif;
+    margin-bottom: 40px;
+}
+
+h2.sec-title:after {
+    background-color: #0B8F3B;
+    bottom: -21px;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 99px;
+}
+section.claim-assistance p.sub-title {
+    font-size: 24px;
+    line-height: 36px;
+    width: 80%;
+}
+section.claim-assistance .assistance-cards .col {
+    margin-bottom: 25px;
+}
+section.claim-assistance .assistance-cards  h4 {
+    /* color: #007bff; */
+    font-size: 24px;
+    line-height: 1.27273em;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+section.claim-assistance .assistance-cards p{
+    color: #505050;
+}
