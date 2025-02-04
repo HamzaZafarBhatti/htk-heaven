@@ -39,6 +39,11 @@ class AdminResource extends Resource
         });
     }
 
+    public static function canAccess(): bool
+    {
+        return auth()->user()->hasRole('Superadmin');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
