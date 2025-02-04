@@ -16,11 +16,11 @@
 </head>
 
 <body>
-    @include('frontend.layout.header')
+    @include('frontend.layout_old.header')
 
     @yield('content')
 
-    @include('frontend.layout.footer')
+    @include('frontend.layout_old.footer')
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
