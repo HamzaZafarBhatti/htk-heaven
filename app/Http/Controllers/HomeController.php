@@ -8,7 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // return view('frontend.index2');
         return view('frontend.index');
     }
     public function how_is_it_free()

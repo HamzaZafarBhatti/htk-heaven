@@ -26019,6 +26019,10 @@ ul li ul .is-new-menu>a>span::after {
   display: block;
   padding: 24.5px 0;
   z-index: 1;
+  max-width: 263px;
+}
+.main-menu-seven__logo img {
+  width: 100%;
 }
 
 .main-menu-seven__main-menu-box {

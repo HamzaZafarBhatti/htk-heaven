@@ -15,19 +15,21 @@
         <ul class="mobile-nav__contact list-unstyled">
             <li>
                 <i class="fa fa-envelope"></i>
-                <a href="mailto:needhelp@packageName__.com">needhelp@insur.com</a>
+                <a href="mailto:{{ $site_settings->email }}">{{ $site_settings->email }}</a>
             </li>
             <li>
                 <i class="fa fa-phone-alt"></i>
-                <a href="tel:666-888-0000">666 888 0000</a>
+                <p class="d-flex flex-column">
+                    <a href="tel:{{ $site_settings->phone }}">{{ $site_settings->phone }}</a>
+                    <a href="tel:{{ $site_settings->mobile }}">{{ $site_settings->mobile }}</a>
+                </p>
             </li>
         </ul><!-- /.mobile-nav__contact -->
         <div class="mobile-nav__top">
             <div class="mobile-nav__social">
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-facebook-square"></a>
-                <a href="#" class="fab fa-pinterest-p"></a>
-                <a href="#" class="fab fa-instagram"></a>
+                <a href="{{ $site_settings->facebook }}" class="fab fa-facebook"></a>
+                <a href="{{ $site_settings->tiktok }}" class="fab fa-tiktok"></a>
+                <a href="{{ $site_settings->whatsapp }}" class="fab fa-whatsapp"></a>
             </div><!-- /.mobile-nav__social -->
 
         </div><!-- /.mobile-nav__top -->

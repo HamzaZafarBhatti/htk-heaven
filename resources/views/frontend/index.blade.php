@@ -15,376 +15,6 @@
 @endphp
 
 @section('content')
-    <header class="main-header-seven">
-        <div class="main-header-seven__top">
-            <div class="container">
-                <div class="main-header-seven__top-inner">
-                    <div class="main-header-seven__top-address">
-                        <ul class="list-unstyled main-header-seven__top-address-list">
-                            <li>
-                                <i class="icon">
-                                    <span class="icon-telephone-call"></span>
-                                </i>
-                                <div class="text">
-                                    <p><a href="tel:008757845682">(00) 875 784 5682</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon">
-                                    <span class="fas fa-envelope"></span>
-                                </i>
-                                <div class="text">
-                                    <p><a href="mailto:Insurinfo@gmail.com">Insurinfo@gmail.com</a></p>
-                                </div>
-                            </li>
-                            <li>
-                                <i class="icon">
-                                    <span class="icon-pin"></span>
-                                </i>
-                                <div class="text">
-                                    <p>238, Arimantab, Moska - USA.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="main-header-seven__top-right">
-                        <h4 class="main-header-seven__solicl-title">Follow Us:</h4>
-                        <div class="main-header-seven__top-social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-skype"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <nav class="main-menu main-menu-seven">
-            <div class="main-menu-seven__wrapper">
-                <div class="container">
-                    <div class="main-menu-seven__wrapper-inner">
-                        <div class="main-menu-seven__logo">
-                            <a href="{{ route('home.index') }}"><img
-                                    src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-seven-logo.png') }}"
-                                    alt=""></a>
-                        </div>
-                        <div class="main-menu-seven__left">
-                            <div class="main-menu-seven__main-menu-box">
-                                <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                                <ul class="main-menu__list">
-                                    <li class="current megamenu megamenu-clickable megamenu-clickable--toggler is-new-menu">
-                                        <a href="{{ route('home.index') }}">Demos</a>
-                                        <ul>
-                                            <li>
-                                                <div class="megamenu-popup">
-                                                    <span class="megamenu-clickable--close">
-                                                        <a href="#"></a>
-                                                    </span><!-- /.megamenu-clickable--close -->
-                                                    <div class="megamenu-popup__content">
-                                                        <div class="demos-one">
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <span class="demos-one__new">new</span>
-                                                                            <!-- /.demos-one__new -->
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-17-06-2023/demos/home-1-9.png') }}"
-                                                                                    alt="Home Dark">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">Multi
-                                                                                        Page </a>
-                                                                                    <a href=""
-                                                                                        class="thm-btn">One
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home page 06</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <span class="demos-one__new">new</span>
-                                                                            <!-- /.demos-one__new -->
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-17-06-2023/demos/home-1-10.png') }}"
-                                                                                    alt="Home Dark">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">Multi
-                                                                                        Page </a>
-                                                                                    <a href=""
-                                                                                        class="thm-btn">One
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home page 07</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-7.png') }}"
-                                                                                    alt="Home Dark">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">Multi
-                                                                                        Page </a>
-                                                                                    <a href=""
-                                                                                        class="thm-btn">One
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home page 04</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-8.png') }}"
-                                                                                    alt="Home Dark">
-                                                                                <div class="demos-one__buttons">
-                                                                                   5') }}"
-                                                                                        class="thm-btn">Multi
-                                                                                        Page </a>
-                                                                                    <a href=""
-                                                                                        class="thm-btn">One
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home page 05</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-1.png') }}"
-                                                                                    alt="Home Page 01">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">Multi
-                                                                                        Page </a>
-                                                                                    <a href=""
-                                                                                        class="thm-btn">One Page
-                                                                                    </a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home page 01</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-2.png') }}"
-                                                                                    alt="Home Page 02">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">Multi
-                                                                                        Page </a>
-                                                                                    <a href=""
-                                                                                        class="thm-btn">One
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home page 02</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-3.png') }}"
-                                                                                    alt="Home page 03">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">Multi
-                                                                                        Page </a>
-                                                                                    <a href=""
-                                                                                        class="thm-btn">One
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home page
-                                                                                    03</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-4.png') }}"
-                                                                                    alt="Home Boxed">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">View
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home boxed</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-5.png') }}"
-                                                                                    alt="Home Dark">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">View
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home dark</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                    <div class="col-md-6 col-lg-4">
-                                                                        <div class="demos-one__single">
-                                                                            <div class="demos-one__image">
-                                                                                <img width="370" height="431"
-                                                                                    src="{{ asset('assets/images/update-10-02-2023/demos/home-1-6.png') }}"
-                                                                                    alt="Home Dark">
-                                                                                <div class="demos-one__buttons">
-                                                                                    <a href=""
-                                                                                        class="thm-btn">View
-                                                                                        Page</a>
-                                                                                </div>
-                                                                                <!-- /.demos-one__buttons -->
-                                                                            </div><!-- /.demos-one__image -->
-                                                                            <div class="demos-one__text">
-                                                                                <h3>Home RTL</h3>
-                                                                            </div><!-- /.demos-one__text -->
-                                                                        </div><!-- /.demos-one__single -->
-                                                                    </div><!-- /.col-md-6 -->
-                                                                </div><!-- /.row -->
-                                                            </div><!-- /.container -->
-                                                        </div><!-- /.demos-one -->
-                                                    </div><!-- /.megamenu-popup__content -->
-                                                </div><!-- /.megamenu-popup -->
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Pages</a>
-                                        <ul>
-                                            <li><a href="{{ route('home.how-is-it-free') }}">How is it Free?</a></li>
-                                            <li class="is-new-menu"><a href="">Sign in</a></li>
-                                            <li class="is-new-menu"><a href="">Make a
-                                                    claim</a>
-                                            </li>
-                                            <li class="is-new-menu"><a href="">Policy
-                                                    proposal</a></li>
-                                            <li><a href="">Portfolio</a></li>
-                                            <li><a href="">Portfolio carousel</a></li>
-                                            <li><a href="">Portfolio details</a></li>
-                                            <li><a href="">Team</a></li>
-                                            <li><a href="">Team carousel</a></li>
-                                            <li><a href="">Team details</a></li>
-                                            <li><a href="">Testimonials</a></li>
-                                            <li><a href="">Teatimonials carousel</a>
-                                            </li>
-                                            <li><a href="">Pricing</a></li>
-                                            <li><a href="">FAQs</a></li>
-                                            <li><a href="">404 error</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Insurance </a>
-                                        <ul>
-                                            <li><a href="">Insurance 01</a></li>
-                                            <li><a href="">Insurance 02</a></li>
-                                            <li><a href="">Insurance 03</a></li>
-                                            <li><a href="">Car insurance</a></li>
-                                            <li><a href="">Life insurance</a></li>
-                                            <li><a href="">Home insurance</a>
-                                            </li>
-                                            <li><a href="">Health insurance</a></li>
-                                            <li><a href="">Business insurance</a></li>
-                                            <li><a href="">Fire insurance</a></li>
-                                            <li><a href="">Marriage insurance</a></li>
-                                            <li><a href="">Travel insurance</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="">Shop</a>
-                                        <ul>
-                                            <li><a href="">Shop</a></li>
-                                            <li><a href="">Shop details</a></li>
-                                            <li><a href="">Cart</a></li>
-                                            <li><a href="">Checkout</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">News</a>
-                                        <ul>
-                                            <li><a href="">News</a></li>
-                                            <li><a href="">News carousel</a></li>
-                                            <li><a href="">News right sidebar</a></li>
-                                            <li class="is-new-menu"><a href="">News left
-                                                    sidebar</a></li>
-                                            <li><a href="">News details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="">Contact </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="main-menu-seven__right">
-                            <div class="main-menu-seven__search-get-quote-btn">
-                                <div class="main-menu-seven__search-box">
-                                    <a href="#"
-                                        class="main-menu-seven__search search-toggler icon-magnifying-glass"></a>
-                                </div>
-                                <div class="main-menu-seven__get-quote-btn-box">
-                                    <a href="}"
-                                        class="thm-btn-three main-menu-seven__get-quote-btn">Get
-                                        a
-                                        Quote <span class="fas fa-paper-plane"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
     <div class="stricky-header stricked-menu main-menu main-menu-seven">
         <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
     </div><!-- /.stricky-header -->
@@ -736,8 +366,7 @@
                             <h3 class="services-seven__hover-title"><a href="">life
                                     insurance</a>
                             </h3>
-                            <a href="}"
-                                class="services-seven__btn-two thm-btn-four">Details<span
+                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
@@ -763,8 +392,7 @@
                             <h3 class="services-seven__hover-title"><a href="">Fire
                                     insurance</a>
                             </h3>
-                            <a href="}"
-                                class="services-seven__btn-two thm-btn-four">Details<span
+                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
@@ -791,8 +419,7 @@
                             <h3 class="services-seven__hover-title"><a href="">Health
                                     Insurance</a>
                             </h3>
-                            <a href="}"
-                                class="services-seven__btn-two thm-btn-four">Details<span
+                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
@@ -818,8 +445,7 @@
                             <h3 class="services-seven__hover-title"><a href="">Home
                                     Insurance</a>
                             </h3>
-                            <a href="}"
-                                class="services-seven__btn-two thm-btn-four">Details<span
+                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
@@ -846,8 +472,7 @@
                             <h3 class="services-seven__hover-title"><a href="">Travel
                                     Insurance</a>
                             </h3>
-                            <a href="}"
-                                class="services-seven__btn-two thm-btn-four">Details<span
+                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
@@ -875,8 +500,7 @@
                             <h3 class="services-seven__hover-title"><a href="">Business
                                     Insurance</a>
                             </h3>
-                            <a href="}"
-                                class="services-seven__btn-two thm-btn-four">Details<span
+                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
@@ -1514,124 +1138,4 @@
         </div>
     </section>
     <!--CTA Five End-->
-
-    <!--Site Footer Four Start-->
-    <footer class="site-footer-four">
-        <div class="site-footer-four__bg"
-            style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/site-footer-four-bg-2.png') }}')">
-        </div>
-        <div class="container">
-            <div class="site-footer-four__top">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                        <div class="footer-widget-four__column footer-widget-four__about">
-                            <div class="footer-widget-four__logo">
-                                <a href="><img
-                                        src="{{ asset('assets/images/update-17-06-2023/resources/footer-logo-three.png') }}"
-                                        alt=""></a>
-                            </div>
-                            <div class="footer-widget-four__about-text-box">
-                                <p class="footer-widget__about-text">Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna</p>
-                            </div>
-                            <div class="site-footer-four__social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-skype"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                        <div class="footer-widget-four__column footer-widget-four__services clearfix">
-                            <h3 class="footer-widget-four__title">Our Services</h3>
-                            <ul class="footer-widget-four__services-list list-unstyled clearfix">
-                                <li>
-                                    <a href="">About</a>
-                                </li>
-                                <li>
-                                    <a href="">Insurance</a>
-                                </li>
-                                <li>
-                                    <a href="">Latest Portfolio</a>
-                                </li>
-                                <li>
-                                    <a href="">Our Faqs</a>
-                                </li>
-                                <li>
-                                    <a href="">Get in Touch</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                        <div class="footer-widget-four__column footer-widget-four__contact">
-                            <h3 class="footer-widget-four__title">Contact us</h3>
-                            <ul class="footer-widget-four__contact-list list-unstyled">
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-telephone-call"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p>Phone:</p>
-                                        <h3><a href="tel:0087578456">(00) 875 784 56</a></h3>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-email"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p>E-mail:</p>
-                                        <h3><a href="mailto:info@gmail.com">info@gmail.com</a></h3>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="footer-widget-four__column footer-widget-four__news">
-                            <h3 class="footer-widget-four__title">news</h3>
-                            <ul class="footer-widget-four__news-list list-unstyled">
-                                <li>
-                                    <div class="footer-widget-four__news-img">
-                                        <img src="{{ asset('assets/images/update-17-06-2023/resources/footer-widget-four-news-img-1.jpg') }}"
-                                            alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h3><a href="">The 8 best things about
-                                                insurance</a></h3>
-                                        <p><span class="fa fa-calendar-alt"></span>05-09-2023</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="footer-widget-four__news-img">
-                                        <img src="{{ asset('assets/images/update-17-06-2023/resources/footer-widget-four-news-img-2.jpg') }}"
-                                            alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h3><a href="">How to make contrary
-                                                to popular</a></h3>
-                                        <p><span class="fa fa-calendar-alt"></span>05-09-2023</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="site-footer-four__bottom">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="site-footer-four__bottom-inner">
-                            <p class="site-footer-four__bottom-text">© All Copyright 2023 by <a
-                                    href="#">Insur.com</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--Site Footer Four End-->
 @endsection
