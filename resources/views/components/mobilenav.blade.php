@@ -6,7 +6,7 @@
 
         <div class="logo-box">
             <a href="{{ route('home.index') }}" aria-label="logo image"><img
-                    src="{{ asset('assets/images/resources/logo-2.png') }}" width="143" alt=""></a>
+                    src="{{ asset('assets/images/resources/mobile-logo.png') }}" width="143" alt=""></a>
         </div>
         <!-- /.logo-box -->
         <div class="mobile-nav__container"></div>

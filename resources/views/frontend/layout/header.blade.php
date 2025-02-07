@@ -49,7 +49,7 @@
                 <div class="main-menu-seven__wrapper-inner">
                     <div class="main-menu-seven__logo">
                         <a href="{{ route('home.index') }}"><img
-                                src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-seven-logo.png') }}"
+                                src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}"
                                 alt=""></a>
                     </div>
                     <div class="main-menu-seven__left">
