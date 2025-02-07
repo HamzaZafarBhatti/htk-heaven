@@ -8,7 +8,7 @@
         '<link rel="stylesheet" href="' . asset('assets/vendors/ion.rangeSlider/css/ion.rangeSlider.min.css') . '" />';
     $css3 =
         '<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">';
-    $css2 = '<link rel="stylesheet" href="' . asset('assets/css/color-5.css') . '" />';
+    $css2 = '<link rel="stylesheet" href="' . asset('assets/css/color-5.css?v=').time() . '" />';
     $script = '<script src="' . asset('assets/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js') . '"></script>
            <script src="' . asset('assets/js/insur.js') . '"></script>';
     $footer = 'false';
