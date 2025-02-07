@@ -19,9 +19,9 @@
                                 incididunt ut labore et dolore magna</p>
                         </div>
                         <div class="site-footer-four__social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-skype"></i></a>
+                            <a href="{{ $site_settings->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $site_settings->tiktok }}"><i class="fab fa-tiktok"></i></a>
+                            <a href="{{ $site_settings->whatsapp }}"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,16 @@
                                 </div>
                                 <div class="content">
                                     <p>Phone:</p>
-                                    <h3><a href="tel:0087578456">(00) 875 784 56</a></h3>
+                                    <h3><a href="tel:{{ $site_settings->phone }}">{{ $site_settings->phone }}</a></h3>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <span class="icon-telephone-call"></span>
+                                </div>
+                                <div class="content">
+                                    <p>Mobile:</p>
+                                    <h3><a href="tel:{{ $site_settings->mobile }}">{{ $site_settings->mobile }}</a></h3>
                                 </div>
                             </li>
                             <li>
@@ -66,7 +75,7 @@
                                 </div>
                                 <div class="content">
                                     <p>E-mail:</p>
-                                    <h3><a href="mailto:info@gmail.com">info@gmail.com</a></h3>
+                                    <h3><a href="mailto:{{ $site_settings->email }}">{{ $site_settings->email }}</a></h3>
                                 </div>
                             </li>
                         </ul>
@@ -107,7 +116,7 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="site-footer-four__bottom-inner">
-                        <p class="site-footer-four__bottom-text">© All Copyright 2023 by <a href="#">Insur.com</a>
+                        <p class="site-footer-four__bottom-text">© All Copyright {{ now()->format('Y') }} by <a href="https://www.upwork.com/freelancers/~01558c47eff3d1eca3" target="_blank">Hamza</a>
                         </p>
                     </div>
                 </div>
