@@ -7,12 +7,14 @@ use App\Filament\Resources\AdminResource\Pages\CreateAdmin;
 use App\Filament\Resources\AdminResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -22,6 +24,10 @@ use Spatie\Permission\Models\Role;
 class AdminResource extends Resource
 {
     protected static ?string $model = User::class;
+
+    protected static ?string $navigationGroup = 'Users';
+
+    protected static ?int $navigationSort  = 1;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
@@ -34,7 +40,7 @@ class AdminResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()->whereHas('roles', function ($query) {
+        return parent::getEloquentQuery()->with('permissions')->whereHas('roles', function ($query) {
             $query->where('name', 'Admin');
         });
     }
@@ -48,10 +54,31 @@ class AdminResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->required(),
-                TextInput::make('email')->required()->email()->unique(ignoreRecord: true),
-                TextInput::make('password')->dehydrated(fn($state) => filled($state))->required(fn($livewire) => $livewire instanceof CreateAdmin)->password()->confirmed(),
-                TextInput::make('password_confirmation')->required(fn($livewire) => $livewire instanceof CreateAdmin)->password(),
+                Section::make()->schema([
+                    TextInput::make('name')
+                        ->required(),
+                    TextInput::make('email')
+                        ->required()
+                        ->email()
+                        ->unique(ignoreRecord: true),
+                    TextInput::make('password')
+                        ->dehydrateStateUsing(fn($state) => bcrypt($state))
+                        ->dehydrated(fn($state) => filled($state))
+                        ->required(fn($livewire) => $livewire instanceof CreateAdmin)
+                        ->password()
+                        ->confirmed(),
+                    TextInput::make('password_confirmation')
+                        ->dehydrateStateUsing(fn($state) => bcrypt($state))
+                        ->dehydrated(fn($state) => filled($state))
+                        ->required(fn($livewire) => $livewire instanceof CreateAdmin)
+                        ->password(),
+                ])->columns(2),
+                Section::make('Assign Permissions')->schema([
+                    Select::make('permissions')
+                        ->multiple()
+                        ->relationship('permissions', 'name')
+                        ->preload(),
+                ])
             ]);
     }
 
@@ -61,6 +88,9 @@ class AdminResource extends Resource
             ->columns([
                 TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('email')->searchable()->sortable(),
+                ViewColumn::make('permissions')
+                    ->label('Permissions')
+                    ->view('filament.tables.columns.user-permissions'),
                 TextColumn::make('created_at')->dateTime()->sortable(),
             ])
             ->filters([

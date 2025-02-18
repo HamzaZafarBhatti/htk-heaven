@@ -39,6 +39,11 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->navigationGroups([
+                'Forms',
+                'Users',
+                'Settings',
+            ])
             ->sidebarCollapsibleOnDesktop()
             ->userMenuItems(
                 [

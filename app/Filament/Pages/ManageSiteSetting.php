@@ -4,6 +4,7 @@ namespace App\Filament\Pages;
 
 use App\Settings\SiteSetting;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
@@ -27,13 +28,15 @@ class ManageSiteSetting extends SettingsPage
     {
         return $form
             ->schema([
-                TextInput::make('email')->email()->required(),
-                TextInput::make('phone')->required(),
-                TextInput::make('mobile')->required(),
-                TextInput::make('address')->required(),
-                TextInput::make('facebook')->url()->required(),
-                TextInput::make('tiktok')->url()->required(),
-                TextInput::make('whatsapp')->url()->required(),
+                Section::make()->schema([
+                    TextInput::make('email')->email()->required(),
+                    TextInput::make('phone')->required(),
+                    TextInput::make('mobile')->required(),
+                    TextInput::make('address')->required(),
+                    TextInput::make('facebook')->url()->required(),
+                    TextInput::make('tiktok')->url()->required(),
+                    TextInput::make('whatsapp')->url()->required(),
+                ])->columns(2),
             ]);
     }
 }
