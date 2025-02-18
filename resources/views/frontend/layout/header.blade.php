@@ -60,7 +60,8 @@
                                     <a href="{{ route('home.index') }}">How it Works</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#" class="{{ Route::is(['home.how-is-it-free', 'home.replacement-vehicle', 'home.accident-repairs']) ? 'current' : '' }}">
+                                    <a href="#"
+                                        class="{{ Route::is(['home.how-is-it-free', 'home.replacement-vehicle', 'home.accident-repairs']) ? 'current' : '' }}">
                                         Our Services
                                     </a>
                                     <ul>
@@ -92,3 +93,7 @@
         </div>
     </nav>
 </header>
+
+<div class="stricky-header stricked-menu main-menu main-menu-seven">
+    <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+</div><!-- /.stricky-header -->

@@ -26,8 +26,8 @@ class FormResource extends Resource
 
     public static function canAccess(): bool
     {
-        // return auth()->user()->hasRole('Superadmin');
-        return false;
+        return auth()->user()->hasRole('Superadmin');
+        // return false;
     }
 
     public static function form(Form $form): Form
@@ -55,7 +55,7 @@ class FormResource extends Resource
                 Tables\Actions\Action::make('Layout')
                     ->color('success')
                     ->icon('heroicon-o-document-text')
-                    ->url(fn(): string => route('admin.forms.layout')),
+                    ->url(fn(): string => route('admin.forms.layout-js')),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

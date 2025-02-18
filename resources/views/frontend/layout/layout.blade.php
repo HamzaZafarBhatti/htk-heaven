@@ -22,14 +22,14 @@
             @include('components.strickyheader')
         @endif
 
+        @include('frontend.layout.header')
+
         @if (isset($subTitle))
             @include('components.pageheader', [
-                'title' => isset($title) ? $title : '',
-                'subTitle' => isset($subTitle) ? $subTitle : '',
+                'title' => $title ?? '',
+                'subTitle' => $subTitle ?? '',
             ])
         @endif
-
-        @include('frontend.layout.header')
 
         @yield('content')
 
@@ -49,7 +49,7 @@
     @include('components.searchpopup')
 
     @include('components.script', [
-        'script' => $script,
+        'script' => $script ?? '',
     ])
 </body>
 

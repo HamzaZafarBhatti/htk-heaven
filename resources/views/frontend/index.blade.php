@@ -8,17 +8,13 @@
         '<link rel="stylesheet" href="' . asset('assets/vendors/ion.rangeSlider/css/ion.rangeSlider.min.css') . '" />';
     $css3 =
         '<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">';
-    $css2 = '<link rel="stylesheet" href="' . asset('assets/css/color-5.css?v=').time() . '" />';
+    $css2 = '<link rel="stylesheet" href="' . asset('assets/css/color-5.css?v=') . time() . '" />';
     $script = '<script src="' . asset('assets/vendors/ion.rangeSlider/js/ion.rangeSlider.min.js') . '"></script>
            <script src="' . asset('assets/js/insur.js') . '"></script>';
     $footer = 'false';
 @endphp
 
 @section('content')
-    <div class="stricky-header stricked-menu main-menu main-menu-seven">
-        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-    </div><!-- /.stricky-header -->
-
     <!--Main Slider Start-->
     <section class="main-slider-seven clearfix">
         <div class="swiper-container thm-swiper__slider"

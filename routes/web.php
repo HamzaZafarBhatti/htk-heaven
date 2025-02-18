@@ -20,7 +20,7 @@ Route::get('/complaints-procedure', [HomeController::class, 'complaints_procedur
 Route::middleware([Authenticate::class])->name('admin.')->prefix('admin')->group(function () {
     Route::name('forms.')->prefix('forms')->group(function () {
         Route::get('/layout', [FormController::class, 'layout'])->name('layout');
-        Route::get('/layout-js', [FormController::class, 'layout2']);
+        Route::get('/layout-js', [FormController::class, 'layout2'])->name('layout-js');
         // Route::get('/{record}/edit', \App\Filament\Resources\FormResource\Pages\EditForm::class)->name('edit');
     });
 });

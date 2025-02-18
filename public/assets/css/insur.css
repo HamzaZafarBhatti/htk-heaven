@@ -23753,7 +23753,7 @@ ul li ul .is-new-menu>a>span::after {
 }
 
 .footer-widget-four__contact-list li .content p {
-  color: #01CDE6;
+  color: var(--insur-primary);
   font-size: 15px;
   font-weight: 500;
 }
