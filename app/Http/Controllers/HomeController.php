@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\CountryEnum;
+use App\Models\InsuranceCoverType;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,7 +22,12 @@ class HomeController extends Controller
     }
     public function accident_repairs()
     {
-        return view('frontend.accident_repairs');
+        $countries = CountryEnum::toArray();
+        $insurance_cover_types = InsuranceCoverType::active()->pluck('name', 'id');
+        return view('frontend.accident_repairs', compact(
+            'countries',
+            'insurance_cover_types'
+        ));
     }
     public function privacy_policy()
     {

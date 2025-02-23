@@ -350,7 +350,7 @@ ul {
 .section-title__title {
   margin: 0;
   color: var(--insur-black);
-  font-size: 45px;
+  font-size: 2rem;
   line-height: 55px;
   font-weight: 700;
   letter-spacing: var(--insur-letter-spacing);
@@ -10031,6 +10031,9 @@ ul {
 }
 
 .comment-form__input-box input[type="text"],
+.comment-form__input-box input[type="date"],
+.comment-form__input-box input[type="time"],
+.comment-form__input-box select,
 .comment-form__input-box input[type="email"] {
   height: 60px;
   width: 100%;
@@ -10050,7 +10053,7 @@ ul {
 .comment-form__input-box textarea {
   font-size: 14px;
   color: var(--insur-gray);
-  height: 180px;
+  height: 120px;
   width: 100%;
   background-color: var(--insur-extra);
   padding: 15px 30px 30px;
@@ -10066,7 +10069,7 @@ ul {
 }
 
 .comment-form__input-box.text-message-box {
-  height: 180px;
+  height: 120px;
 }
 
 /*--------------------------------------------------------------
@@ -26684,4 +26687,8 @@ ul li ul .is-new-menu>a>span::after {
 /* bug fix */
 .about-five__right {
   margin-left: 66px;
+}
+
+.tooltip-inner {
+  background-color: var(--insur-primary);
 }

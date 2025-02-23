@@ -23,4 +23,7 @@
 <script src="{{ asset('assets/vendors/timepicker/timePicker.js') }}"></script>
 <script src="{{ asset('assets/vendors/circleType/jquery.circleType.js') }}"></script>
 <script src="{{ asset('assets/vendors/circleType/jquery.lettering.min.js') }}"></script>
+<script src="{{ asset('assets/vendors/bootstrap/js/popper.min.js') }}"></script>
 <?php echo isset($script) ? $script : ''; ?>
+
+@yield('scripts')

@@ -41,11 +41,12 @@
 
     @if ($rtlMode == '')
         <!-- template styles -->
-        <link rel="stylesheet" href="{{ asset('assets/css/insur.css?v=').time() }}">
-        <link rel="stylesheet" href="{{ asset('assets/css/insur-responsive.css?v=').time() }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/insur.css?v=') . time() }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/insur-responsive.css?v=') . time() }}">
     @endif
 
     <?php echo isset($css) ? $css2 : ''; ?>
 
+    @yield('styles')
 
 </head>

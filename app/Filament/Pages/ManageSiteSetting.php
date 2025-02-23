@@ -21,7 +21,7 @@ class ManageSiteSetting extends SettingsPage
 
     public static function canAccess(): bool
     {
-        return auth()->user()->hasRole('Superadmin');
+        return auth()->user()->hasRole('Superadmin')/*  || auth()->user()->can('edit-site-settings') */;
     }
 
     public function form(Form $form): Form
