@@ -4,6 +4,8 @@ namespace App\Filament\Pages;
 
 use App\Settings\HomePageSetting;
 use Filament\Forms;
+use Filament\Forms\Components\Fieldset;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
@@ -33,19 +35,92 @@ class ManageHomePageSetting extends SettingsPage
             ->schema([
                 Wizard::make()
                     ->schema([
-                        Step::make('Banner')
+                        Step::make('Banners')
                             ->schema([
                                 Section::make()
                                     ->schema([
-                                        TextInput::make('banner_title')
-                                            ->label('Title')
-                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                            ->required(),
-                                        Textarea::make('banner_text')
-                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                            ->label('Text')
-                                            ->required(),
-                                    ])->columns(2),
+                                        Repeater::make('banner_slides')
+                                            ->schema([
+                                                Grid::make(2)
+                                                    ->schema([
+                                                        TextInput::make('title')
+                                                            ->label('Title')
+                                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
+                                                            ->required(),
+                                                        Textarea::make('text')
+                                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
+                                                            ->label('Text')
+                                                            ->required(),
+                                                        FileUpload::make('image')
+                                                            ->image()
+                                                            ->maxWidth(530)
+                                                            ->maxHeight(700)
+                                                            ->directory('banners')
+                                                            ->required(),
+                                                        Fieldset::make('support')
+                                                            ->schema([
+                                                                Select::make('support_icon')
+                                                                    ->options([
+                                                                        'icon-magnifying-glass' => 'Magnifying Glass',
+                                                                        'icon-right-arrow' => 'Right Arrow',
+                                                                        'icon-up-arrow' => 'Up Arrow',
+                                                                        'icon-down-arrow' => 'Down Arrow',
+                                                                        'icon-cashback' => 'Cash Back',
+                                                                        'icon-insurance' => 'Insurance',
+                                                                        'icon-house' => 'House',
+                                                                        'icon-family' => 'Family',
+                                                                        'icon-drive' => 'Drive',
+                                                                        'icon-home' => 'Home',
+                                                                        'icon-heart-beat' => 'Heart Beat',
+                                                                        'icon-fire' => 'Fire',
+                                                                        'icon-briefcase' => 'Briefcase',
+                                                                        'icon-ring' => 'Ring',
+                                                                        'icon-plane' => 'Plane',
+                                                                        'icon-easy-to-use' => 'Easy To Use',
+                                                                        'icon-policy' => 'Policy',
+                                                                        'icon-contract' => 'Contract',
+                                                                        'icon-fund' => 'Fund',
+                                                                        'icon-group' => 'Group',
+                                                                        'icon-insurance-1' => 'Insurance 1',
+                                                                        'icon-success' => 'Success',
+                                                                        'icon-life-insurance' => 'Life Insurance',
+                                                                        'icon-folder' => 'Folder',
+                                                                        'icon-telephone' => 'Telephone',
+                                                                        'icon-email' => 'Email',
+                                                                        'icon-telephone-call' => 'Telephone Call',
+                                                                        'icon-pin' => 'Pin',
+                                                                        'icon-cash-flow' => 'Cash Flow',
+                                                                        'icon-profits' => 'Profits',
+                                                                        'icon-insurance-2' => 'Insurance 2',
+                                                                        'icon-select' => 'Select',
+                                                                        'icon-meeting' => 'Meeting',
+                                                                        'icon-agreement' => 'Agreement',
+                                                                        'icon-insurance-agent' => 'Insurance Agent',
+                                                                        'icon-tick' => 'Tick',
+                                                                        'icon-money-back' => 'Money Back',
+                                                                        'icon-employees' => 'Employees',
+                                                                        'icon-mission' => 'Mission',
+                                                                        'icon-computer' => 'Computer',
+                                                                        'icon-chat' => 'Chat',
+                                                                        'icon-file' => 'File',
+                                                                        'icon-plus' => 'Plus',
+                                                                        'icon-shield' => 'Shield',
+                                                                    ])
+                                                                    ->required(),
+                                                                TextInput::make('support_title')
+                                                                    ->label('Title')
+                                                                    ->required(),
+                                                                TextInput::make('support_text')
+                                                                    ->label('Text')
+                                                                    ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
+                                                                    ->required(),
+                                                            ])
+                                                            ->columns(3)
+                                                    ]),
+                                            ])
+                                            ->addActionLabel('Add Banner Slide')
+                                            ->collapsible(),
+                                    ]),
                             ]),
                         Step::make('About Us')
                             ->schema([

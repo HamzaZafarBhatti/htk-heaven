@@ -17,8 +17,9 @@
 @section('content')
     <!--Main Slider Start-->
     <section class="main-slider-seven clearfix">
-        <div class="swiper-container thm-swiper__slider"
-            data-swiper-options='{"slidesPerView": 1, "loop": true,
+        @if ($homepage_settings->banner_slides)
+            <div class="swiper-container thm-swiper__slider"
+                data-swiper-options='{"slidesPerView": 1, "loop": true,
                 "effect": "fade",
                 "pagination": {
                 "el": "#main-slider-pagination",
@@ -32,59 +33,58 @@
                 "autoplay": {
                 "delay": 5000
                 }}'>
-            <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                    <div class="main-slider-seven__bg"
-                        style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/main-slider-seven-bg.jpg') }}')">
-                    </div>
-                    <div class="main-slider-seven__shape-bg"
-                        style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/main-slider-seven-shape-bg.png') }}')">
-                    </div>
-                    <div class="main-slider-seven__img">
-                        <img src="{{ asset('assets/images/update-17-06-2023/resources/main-slider-seven-img-1.jpg') }}"
-                            alt="">
-                        <div class="main-slider-seven__support">
-                            <div class="main-slider-seven__support-icon">
-                                <i class="fas fa-headphones"></i>
+                <div class="swiper-wrapper">
+                    @foreach ($homepage_settings->banner_slides as $item)
+                        <div class="swiper-slide">
+                            <div class="main-slider-seven__bg"
+                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/main-slider-seven-bg.jpg') }}')">
                             </div>
-                            <div class="main-slider-seven__support-content">
-                                <h5 class="main-slider-seven__support-title">Free Consultation</h5>
-                                <p class="main-slider-seven__support-number">Call Us:<a href="tel:">+(915)
-                                        541-2456</a></p>
+                            <div class="main-slider-seven__shape-bg"
+                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/main-slider-seven-shape-bg.png') }}')">
                             </div>
-                        </div>
-                    </div>
-                    <div class="main-slider-seven__shape-1 float-bob-y">
-                        <img src="{{ asset('assets/images/update-17-06-2023/shapes/main-slider-seven-shape-1.png') }}"
-                            alt="">
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="main-slider-seven__content">
-                                    <h2 class="main-slider-seven__title">{!! $homepage_settings->banner_title !!}</h2>
-                                    <p class="main-slider-seven__text">{!! $homepage_settings->banner_text !!}</p>
-                                    <div class="main-slider-seven__email">
-                                        <form class="main-slider-seven__email-box" data-url="MC_FORM_URL">
-                                            <div class="main-slider-seven__email-input-box">
-                                                <input type="email" placeholder="enter your email" name="email">
-                                                <div class="main-slider-seven__email-icon">
-                                                    <span class="icon-email"></span>
-                                                </div>
+                            <div class="main-slider-seven__img">
+                                <img src="{{ asset('storage/' . $item['image']) }}" alt="">
+                                <div class="main-slider-seven__support">
+                                    <div class="main-slider-seven__support-icon">
+                                        <i class="{{ $item['support_icon'] }}"></i>
+                                    </div>
+                                    <div class="main-slider-seven__support-content">
+                                        <h5 class="main-slider-seven__support-title">{{ $item['support_title'] }}</h5>
+                                        <p class="main-slider-seven__support-number">{{ $item['support_text'] }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-slider-seven__shape-1 float-bob-y">
+                                <img src="{{ asset('assets/images/update-17-06-2023/shapes/main-slider-seven-shape-1.png') }}"
+                                    alt="">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="main-slider-seven__content">
+                                            <h2 class="main-slider-seven__title">{!! $item['title'] !!}</h2>
+                                            <p class="main-slider-seven__text">{!! $item['text'] !!}</p>
+                                            <div class="main-slider-seven__email">
+                                                <form class="main-slider-seven__email-box" data-url="MC_FORM_URL">
+                                                    <div class="main-slider-seven__email-input-box">
+                                                        <input type="email" placeholder="enter your email" name="email">
+                                                        <div class="main-slider-seven__email-icon">
+                                                            <span class="icon-email"></span>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="main-slider-seven__contact-btn">Contact
+                                                        Us</button>
+                                                </form>
+                                                <div class="mc-form__response"></div>
                                             </div>
-                                            <button type="submit" class="main-slider-seven__contact-btn">Contact
-                                                Us</button>
-                                        </form>
-                                        <div class="mc-form__response"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
 
-                <div class="swiper-slide">
+                    {{-- <div class="swiper-slide">
                     <div class="main-slider-seven__bg"
                         style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/main-slider-seven-bg.jpg') }}')">
                     </div>
@@ -182,23 +182,24 @@
                             </div>
                         </div>
                     </div>
+                </div> --}}
+
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="main-slider-seven__nav">
+                    <div class="swiper-button-prev" id="main-slider__swiper-button-next">
+                        <span>Next</span>
+                        <i class="icon-right-arrow1"></i>
+                    </div>
+                    <div class="swiper-button-next" id="main-slider__swiper-button-prev">
+                        <i class="icon-right-arrow"></i>
+                        <span>Prev</span>
+                    </div>
                 </div>
 
             </div>
-
-            <!-- If we need navigation buttons -->
-            <div class="main-slider-seven__nav">
-                <div class="swiper-button-prev" id="main-slider__swiper-button-next">
-                    <span>Next</span>
-                    <i class="icon-right-arrow1"></i>
-                </div>
-                <div class="swiper-button-next" id="main-slider__swiper-button-prev">
-                    <i class="icon-right-arrow"></i>
-                    <span>Prev</span>
-                </div>
-            </div>
-
-        </div>
+        @endif
     </section>
     <!--Main Slider End-->
 

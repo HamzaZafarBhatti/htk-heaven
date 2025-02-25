@@ -7,8 +7,7 @@ use Spatie\LaravelSettings\Settings;
 class HomePageSetting extends Settings
 {
     //banner
-    public string $banner_title;
-    public string $banner_text;
+    public array $banner_slides;
     //about us
     public string $aboutus_tagline;
     public string $aboutus_title;

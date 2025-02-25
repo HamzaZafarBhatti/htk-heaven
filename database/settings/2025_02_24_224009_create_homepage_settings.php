@@ -7,8 +7,7 @@ return new class extends SettingsMigration
     public function up(): void
     {
         //banner
-        $this->migrator->add('homepage.banner_title', '');
-        $this->migrator->add('homepage.banner_text', '');
+        $this->migrator->add('homepage.banner_slides', []);
         //about us
         $this->migrator->add('homepage.aboutus_tagline', '');
         $this->migrator->add('homepage.aboutus_title', '');
