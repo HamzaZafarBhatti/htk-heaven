@@ -38,8 +38,10 @@ class ManageHomePageSetting extends SettingsPage
                                     ->schema([
                                         TextInput::make('banner_title')
                                             ->label('Title')
+                                            ->helperText('You can use <b>HTML</b> tags here.')
                                             ->required(),
                                         Textarea::make('banner_text')
+                                            ->helperText('You can use <b>HTML</b> tags here.')
                                             ->label('Text')
                                             ->required(),
                                     ])->columns(2),
@@ -112,6 +114,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ])
                                                     ->required(),
                                                 TextInput::make('title')
+                                                    ->helperText('You can use <b>HTML</b> tags here.')
                                                     ->required(),
                                             ])
                                             ->addActionLabel('Add Service')
@@ -139,6 +142,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->required(),
                                         Textarea::make('claim_status_text')
                                             ->label('Text')
+                                            ->helperText('You can use <b>HTML</b> tags here.')
                                             ->required(),
                                     ]),
                             ]),
@@ -162,6 +166,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->required(),
                                                 TextArea::make('text')
                                                     ->label('Text')
+                                                    ->helperText('You can use <b>HTML</b> tags here.')
                                                     ->required(),
                                             ])
                                             ->addActionLabel('Add Service')
@@ -275,6 +280,7 @@ class ManageHomePageSetting extends SettingsPage
                                         TextInput::make('title')
                                             ->required(),
                                         TextArea::make('text')
+                                            ->helperText('You can use <b>HTML</b> tags here.')
                                             ->required(),
                                     ])
                                     ->maxItems(3)
