@@ -63,11 +63,8 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="main-slider-seven__content">
-                                    <h2 class="main-slider-seven__title">Life More Relaxed With <br>
-                                        Smart <span>Insurance.</span></h2>
-                                    <p class="main-slider-seven__text">Lorem Ipsum has been the industry's standard
-                                        dummy text ever since unknown <br> printer took a galley of type and
-                                        scrambled it to make.</p>
+                                    <h2 class="main-slider-seven__title">{!! $homepage_settings->banner_title !!}</h2>
+                                    <p class="main-slider-seven__text">{!! $homepage_settings->banner_text !!}</p>
                                     <div class="main-slider-seven__email">
                                         <form class="main-slider-seven__email-box" data-url="MC_FORM_URL">
                                             <div class="main-slider-seven__email-input-box">
@@ -116,11 +113,8 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="main-slider-seven__content">
-                                    <h2 class="main-slider-seven__title">Life More Relaxed With <br>
-                                        Smart <span>Insurance.</span></h2>
-                                    <p class="main-slider-seven__text">Lorem Ipsum has been the industry's standard
-                                        dummy text ever since unknown <br> printer took a galley of type and
-                                        scrambled it to make.</p>
+                                    <h2 class="main-slider-seven__title">{!! $homepage_settings->banner_title !!}</h2>
+                                    <p class="main-slider-seven__text">{!! $homepage_settings->banner_text !!}</p>
                                     <div class="main-slider-seven__email">
                                         <form class="main-slider-seven__email-box" data-url="MC_FORM_URL">
                                             <div class="main-slider-seven__email-input-box">
@@ -169,11 +163,8 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="main-slider-seven__content">
-                                    <h2 class="main-slider-seven__title">Life More Relaxed With <br>
-                                        Smart <span>Insurance.</span></h2>
-                                    <p class="main-slider-seven__text">Lorem Ipsum has been the industry's standard
-                                        dummy text ever since unknown <br> printer took a galley of type and
-                                        scrambled it to make.</p>
+                                    <h2 class="main-slider-seven__title">{!! $homepage_settings->banner_title !!}</h2>
+                                    <p class="main-slider-seven__text">{!! $homepage_settings->banner_text !!}</p>
                                     <div class="main-slider-seven__email">
                                         <form class="main-slider-seven__email-box" data-url="MC_FORM_URL">
                                             <div class="main-slider-seven__email-input-box">
@@ -245,59 +236,41 @@
                 <div class="col-xl-7">
                     <div class="about-eight__right">
                         <div class="section-title-five text-left">
-                            <span class="section-title-five__tagline">About our company</span>
-                            <h2 class="section-title-five__title">Providing the best insurance policy to customers
+                            <span class="section-title-five__tagline">{{ $homepage_settings->aboutus_tagline }}</span>
+                            <h2 class="section-title-five__title">{{ $homepage_settings->aboutus_title }}
                             </h2>
                         </div>
-                        <p class="about-eight__text">Standard dummy text ever since the unknown printer took galley
-                            of scramble make a type specimen book has the been industr standard dummy text ever
-                            since printer took type make type specimen book.</p>
-                        <ul class="list-unstyled about-eight__service">
-                            <li>
-                                <div class="icon">
-                                    <span class="icon-insurance-2"></span>
-                                </div>
-                                <div class="text">
-                                    <p>Fast & Easy <br> Process</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <span class="icon-agreement"></span>
-                                </div>
-                                <div class="text">
-                                    <p>Control Over <br> Policy</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <span class="icon-cashback"></span>
-                                </div>
-                                <div class="text">
-                                    <p>Save your <br> Mony</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="list-unstyled about-eight__points">
-                            <li>
-                                <div class="icon">
-                                    <span class="icon-tick"></span>
-                                </div>
-                                <div class="text">
-                                    <p>Duis aute irure dolor in reprehenderit in</p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <span class="icon-tick"></span>
-                                </div>
-                                <div class="text">
-                                    <p>Duis aute irure dolor in reprehenderit in</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <p class="about-eight__text">{{ $homepage_settings->aboutus_text }}</p>
+                        @if ($homepage_settings->aboutus_services)
+                            <ul class="list-unstyled about-eight__service">
+                                @foreach ($homepage_settings->aboutus_services as $item)
+                                    <li>
+                                        <div class="icon">
+                                            <span class="{{ $item['icon'] }}"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>{!! $item['title'] !!}</p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        @if ($homepage_settings->aboutus_points)
+                            <ul class="list-unstyled about-eight__points">
+                                @foreach ($homepage_settings->aboutus_points as $item)
+                                    <li>
+                                        <div class="icon">
+                                            <span class="icon-tick"></span>
+                                        </div>
+                                        <div class="text">
+                                            <p>{{ $item['point'] }}</p>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                         <div class="about-eight__btn-box">
-                            <a href="}" class="about-eight__btn thm-btn-four">Discover More<span
+                            <a href="#!" class="about-eight__btn thm-btn-four">Discover More<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
@@ -320,9 +293,8 @@
         </div>
         <div class="container">
             <div class="reg-insurance__inner">
-                <h3 class="reg-insurance__title">Register For Insurance Today</h3>
-                <p class="reg-insurance__text">Lorem Ipsum has been the industry's standard dummy text <br>
-                    ever since unknown printer</p>
+                <h3 class="reg-insurance__title">{{ $homepage_settings->claim_status_title }}</h3>
+                <p class="reg-insurance__text">{!! $homepage_settings->claim_status_text !!}</p>
                 <div class="reg-insurance__btn-box">
                     <a href="}" class="reg-insurance__btn-one thm-btn-four">Register Free<span
                             class="fas fa-arrow-right"></span></a>
@@ -338,171 +310,37 @@
     <section class="services-seven">
         <div class="container">
             <div class="section-title-five text-center">
-                <span class="section-title-five__tagline">OUR SERVICES</span>
-                <h2 class="section-title-five__title">We Provide Best Services</h2>
+                <span class="section-title-five__tagline">{{ $homepage_settings->services_tagline }}</span>
+                <h2 class="section-title-five__title">{{ $homepage_settings->services_title }}</h2>
             </div>
-            <div class="row">
-                <!--Services Seven Single Start-->
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="services-seven__single">
-                        <h3 class="services-seven__title"><a href="">Life Insurance</a></h3>
-                        <p class="services-seven__text">Lorem ipsum dolor amet, consectetur <br>
-                            adipiscing elit, sed eiusmod tempor <br>
-                            incididunt labore..</p>
-                        <a href="}" class="services-seven__btn thm-btn-four">Details<span
-                                class="fas fa-arrow-right"></span></a>
-                        <div class="services-seven__img">
-                            <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-1.png') }}"
-                                alt="">
-                        </div>
-                        <div class="services-seven__hover-box">
-                            <div class="services-seven__hover-bg"
-                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-1.jpg') }}')">
+            @if ($homepage_settings->service_items)
+                <div class="row">
+                    @foreach ($homepage_settings->service_items as $item)
+                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                            data-wow-delay="{{ $loop->iteration * 100 }}ms">
+                            <div class="services-seven__single">
+                                <h3 class="services-seven__title"><a href="">{{ $item['title'] }}</a></h3>
+                                <p class="services-seven__text">{!! $item['text'] !!}</p>
+                                <a href="}" class="services-seven__btn thm-btn-four">Details<span
+                                        class="fas fa-arrow-right"></span></a>
+                                <div class="services-seven__img">
+                                    <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-1.png') }}"
+                                        alt="">
+                                </div>
+                                <div class="services-seven__hover-box">
+                                    <div class="services-seven__hover-bg"
+                                        style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-1.jpg') }}')">
+                                    </div>
+                                    <h3 class="services-seven__hover-title"><a href="">{{ $item['title'] }}</a>
+                                    </h3>
+                                    <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
+                                            class="fas fa-arrow-right"></span></a>
+                                </div>
                             </div>
-                            <h3 class="services-seven__hover-title"><a href="">life
-                                    insurance</a>
-                            </h3>
-                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
-                                    class="fas fa-arrow-right"></span></a>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <!--Services Seven Single End-->
-                <!--Services Seven Single Start-->
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                    <div class="services-seven__single">
-                        <h3 class="services-seven__title"><a href="">Fire Insurance</a></h3>
-                        <p class="services-seven__text">Lorem ipsum dolor amet, consectetur <br>
-                            adipiscing elit, sed eiusmod tempor <br>
-                            incididunt labore..</p>
-                        <a href="}" class="services-seven__btn thm-btn-four">Details<span
-                                class="fas fa-arrow-right"></span></a>
-                        <div class="services-seven__img">
-                            <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-2.png') }}"
-                                alt="">
-                        </div>
-                        <div class="services-seven__hover-box">
-                            <div class="services-seven__hover-bg"
-                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-2.jpg') }}')">
-                            </div>
-                            <h3 class="services-seven__hover-title"><a href="">Fire
-                                    insurance</a>
-                            </h3>
-                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
-                                    class="fas fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services Seven Single End-->
-                <!--Services Seven Single Start-->
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="services-seven__single">
-                        <h3 class="services-seven__title"><a href="">Health Insurance</a>
-                        </h3>
-                        <p class="services-seven__text">Lorem ipsum dolor amet, consectetur <br>
-                            adipiscing elit, sed eiusmod tempor <br>
-                            incididunt labore..</p>
-                        <a href="}" class="services-seven__btn thm-btn-four">Details<span
-                                class="fas fa-arrow-right"></span></a>
-                        <div class="services-seven__img">
-                            <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-3.png') }}"
-                                alt="">
-                        </div>
-                        <div class="services-seven__hover-box">
-                            <div class="services-seven__hover-bg"
-                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-3.jpg') }}')">
-                            </div>
-                            <h3 class="services-seven__hover-title"><a href="">Health
-                                    Insurance</a>
-                            </h3>
-                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
-                                    class="fas fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services Seven Single End-->
-                <!--Services Seven Single Start-->
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                    <div class="services-seven__single">
-                        <h3 class="services-seven__title"><a href="">Home Insurance</a></h3>
-                        <p class="services-seven__text">Lorem ipsum dolor amet, consectetur <br>
-                            adipiscing elit, sed eiusmod tempor <br>
-                            incididunt labore..</p>
-                        <a href="}" class="services-seven__btn thm-btn-four">Details<span
-                                class="fas fa-arrow-right"></span></a>
-                        <div class="services-seven__img">
-                            <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-4.png') }}"
-                                alt="">
-                        </div>
-                        <div class="services-seven__hover-box">
-                            <div class="services-seven__hover-bg"
-                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-4.jpg') }}')">
-                            </div>
-                            <h3 class="services-seven__hover-title"><a href="">Home
-                                    Insurance</a>
-                            </h3>
-                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
-                                    class="fas fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services Seven Single End-->
-                <!--Services Seven Single Start-->
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="500ms">
-                    <div class="services-seven__single">
-                        <h3 class="services-seven__title"><a href="">Travel Insurance</a>
-                        </h3>
-                        <p class="services-seven__text">Lorem ipsum dolor amet, consectetur <br>
-                            adipiscing elit, sed eiusmod tempor <br>
-                            incididunt labore..</p>
-                        <a href="}" class="services-seven__btn thm-btn-four">Details<span
-                                class="fas fa-arrow-right"></span></a>
-                        <div class="services-seven__img">
-                            <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-5.png') }}"
-                                alt="">
-                        </div>
-                        <div class="services-seven__hover-box">
-                            <div class="services-seven__hover-bg"
-                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-5.jpg') }}')">
-                            </div>
-                            <h3 class="services-seven__hover-title"><a href="">Travel
-                                    Insurance</a>
-                            </h3>
-                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
-                                    class="fas fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services Seven Single End-->
-                <!--Services Seven Single Start-->
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="600ms">
-                    <div class="services-seven__single">
-                        <h3 class="services-seven__title"><a href="">Business
-                                Insurance</a>
-                        </h3>
-                        <p class="services-seven__text">Lorem ipsum dolor amet, consectetur <br>
-                            adipiscing elit, sed eiusmod tempor <br>
-                            incididunt labore..</p>
-                        <a href="}" class="services-seven__btn thm-btn-four">Details<span
-                                class="fas fa-arrow-right"></span></a>
-                        <div class="services-seven__img">
-                            <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-6.png') }}"
-                                alt="">
-                        </div>
-                        <div class="services-seven__hover-box">
-                            <div class="services-seven__hover-bg"
-                                style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-6.jpg') }}')">
-                            </div>
-                            <h3 class="services-seven__hover-title"><a href="">Business
-                                    Insurance</a>
-                            </h3>
-                            <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
-                                    class="fas fa-arrow-right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                <!--Services Seven Single End-->
-            </div>
+            @endif
         </div>
     </section>
     <!--Services Seven End-->
@@ -666,70 +504,34 @@
         <div class="container">
             <div class="why-choose-six__top">
                 <div class="section-title-five text-left">
-                    <span class="section-title-five__tagline">WHY YOU CHOOSE US</span>
-                    <h2 class="section-title-five__title">Why Always Choose Insures!</h2>
+                    <span class="section-title-five__tagline">{{ $homepage_settings->why_us_tagline }}</span>
+                    <h2 class="section-title-five__title">{{ $homepage_settings->why_us_title }}</h2>
                 </div>
                 <div class="why-choose-six__btn-box">
                     <a href="}" class="why-choose-six__btn thm-btn-four">View More<span
                             class="fas fa-arrow-right"></span></a>
                 </div>
             </div>
-            <div class="row">
-                <!--Why Choose Six Single Start-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
-                    <div class="why-choose-six__single">
-                        <div class="why-choose-six__single-bg"
-                            style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/why-choose-six-single-bg.jpg') }}')">
-                        </div>
-                        <div class="why-choose-six__content">
-                            <div class="why-choose-six__icon">
-                                <span class="icon-cashback"></span>
+            @if ($homepage_settings->why_us_items)
+                <div class="row">
+                    @foreach ($homepage_settings->why_us_items as $item)
+                        <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="{{ $loop->iteration * 100 }}ms">
+                            <div class="why-choose-six__single">
+                                <div class="why-choose-six__single-bg"
+                                    style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/why-choose-six-single-bg.jpg') }}')">
+                                </div>
+                                <div class="why-choose-six__content">
+                                    <div class="why-choose-six__icon">
+                                        <span class="{{ $item['icon'] }}"></span>
+                                    </div>
+                                    <h4 class="why-choose-six__title"><a href="">{{ $item['title'] }}</a></h4>
+                                    <p class="why-choose-six__text">{{ $item['text'] }}</p>
+                                </div>
                             </div>
-                            <h4 class="why-choose-six__title"><a href="">Anytime Money Back</a></h4>
-                            <p class="why-choose-six__text">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore dolore</p>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <!--Why Choose Six Single End-->
-                <!--Why Choose Six Single Start-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                    <div class="why-choose-six__single">
-                        <div class="why-choose-six__single-bg"
-                            style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/why-choose-six-single-bg.jpg') }}')">
-                        </div>
-                        <div class="why-choose-six__content">
-                            <div class="why-choose-six__icon">
-                                <span class="icon-insurance"></span>
-                            </div>
-                            <h4 class="why-choose-six__title"><a href="">100% Safe Money</a></h4>
-                            <p class="why-choose-six__text">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore dolore</p>
-                        </div>
-                    </div>
-                </div>
-                <!--Why Choose Six Single End-->
-                <!--Why Choose Six Single Start-->
-                <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="why-choose-six__single">
-                        <div class="why-choose-six__single-bg"
-                            style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/why-choose-six-single-bg.jpg') }}')">
-                        </div>
-                        <div class="why-choose-six__content">
-                            <div class="why-choose-six__icon">
-                                <span class="icon-profits"></span>
-                            </div>
-                            <h4 class="why-choose-six__title"><a href="">Fast Process</a></h4>
-                            <p class="why-choose-six__text">Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore dolore</p>
-                        </div>
-                    </div>
-                </div>
-                <!--Why Choose Six Single End-->
-            </div>
+            @endif
         </div>
     </section>
     <!--Why Choose Six End-->
@@ -744,87 +546,54 @@
             <div class="row">
                 <div class="col-xl-7">
                     <div class="testimonial-seven__left">
-                        <h3 class="testimonial-seven__title">OUR LOVELY CUSTOMER</h3>
-                        <div class="testimonial-seven__carousel-outer">
-                            <div class="testimonial-seven__quote">
-                                <img src="{{ asset('assets/images/update-17-06-2023/icon/testimonial-seven-quote-icon.png') }}"
-                                    alt="">
-                            </div>
-                            <div class="testimonial-seven__carousel owl-carousel owl-theme thm-owl__carousel"
-                                data-owl-options='{
-                                "loop": true,
-                                "autoplay": true,
-                                "margin": 36,
-                                "nav": true,
-                                "dots": false,
-                                "smartSpeed": 500,
-                                "autoplayTimeout": 10000,
-                                "navText": ["<span class=\"icon-right-arrow\"></span>","<span class=\"icon-right-arrow1\"></span>"],
-                                "responsive": {
-                                    "0": {
-                                        "items": 1
-                                    },
-                                    "768": {
-                                        "items": 1
-                                    },
-                                    "992": {
-                                        "items": 1
-                                    },
-                                    "1320": {
-                                        "items": 1
+                        <h3 class="testimonial-seven__title">{{ $homepage_settings->feedback_title }}</h3>
+                        @if ($homepage_settings->feedback_items)
+                            <div class="testimonial-seven__carousel-outer">
+                                <div class="testimonial-seven__quote">
+                                    <img src="{{ asset('assets/images/update-17-06-2023/icon/testimonial-seven-quote-icon.png') }}"
+                                        alt="">
+                                </div>
+                                <div class="testimonial-seven__carousel owl-carousel owl-theme thm-owl__carousel"
+                                    data-owl-options='{
+                                    "loop": true,
+                                    "autoplay": true,
+                                    "margin": 36,
+                                    "nav": true,
+                                    "dots": false,
+                                    "smartSpeed": 500,
+                                    "autoplayTimeout": 10000,
+                                    "navText": ["<span class=\"icon-right-arrow\"></span>","<span class=\"icon-right-arrow1\"></span>"],
+                                    "responsive": {
+                                        "0": {
+                                            "items": 1
+                                        },
+                                        "768": {
+                                            "items": 1
+                                        },
+                                        "992": {
+                                            "items": 1
+                                        },
+                                        "1320": {
+                                            "items": 1
+                                        }
                                     }
-                                }
-                            }'>
-                                <!--Testimonial Seven Single Start-->
-                                <div class="item">
-                                    <div class="testimonial-seven__single">
-                                        <p class="testimonial-seven__text">“Galley of type and scrambled it to make
-                                            type
-                                            specimen
-                                            book. It has survived not only five centuries, but also
-                                            the leap into electronic typesetting chunks first true
-                                            generator on the Internet.</p>
-                                        <div class="testimonial-seven__client">
-                                            <h4 class="testimonial-seven__client-name">Remedios Linared</h4>
-                                            <p class="testimonial-seven__client-sub-title">Web Developer</p>
+                                }'>
+                                    @foreach ($homepage_settings->feedback_items as $item)
+                                        <div class="item">
+                                            <div class="testimonial-seven__single">
+                                                <p class="testimonial-seven__text">{{ $item['feedback'] }}</p>
+                                                <div class="testimonial-seven__client">
+                                                    <h4 class="testimonial-seven__client-name">
+                                                        {{ $item['customer_name'] }}</h4>
+                                                    <p class="testimonial-seven__client-sub-title">
+                                                        {{ $item['customer_job'] ?? '' }}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endforeach
                                 </div>
-                                <!--Testimonial Seven Single End-->
-                                <!--Testimonial Seven Single Start-->
-                                <div class="item">
-                                    <div class="testimonial-seven__single">
-                                        <p class="testimonial-seven__text">“Galley of type and scrambled it to make
-                                            type
-                                            specimen
-                                            book. It has survived not only five centuries, but also
-                                            the leap into electronic typesetting chunks first true
-                                            generator on the Internet.</p>
-                                        <div class="testimonial-seven__client">
-                                            <h4 class="testimonial-seven__client-name">Jimmy Nisim</h4>
-                                            <p class="testimonial-seven__client-sub-title">Web Developer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Testimonial Seven Single End-->
-                                <!--Testimonial Seven Single Start-->
-                                <div class="item">
-                                    <div class="testimonial-seven__single">
-                                        <p class="testimonial-seven__text">“Galley of type and scrambled it to make
-                                            type
-                                            specimen
-                                            book. It has survived not only five centuries, but also
-                                            the leap into electronic typesetting chunks first true
-                                            generator on the Internet.</p>
-                                        <div class="testimonial-seven__client">
-                                            <h4 class="testimonial-seven__client-name">Luis Allen</h4>
-                                            <p class="testimonial-seven__client-sub-title">Web Developer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Testimonial Seven Single End-->
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="col-xl-5">
@@ -1043,72 +812,35 @@
     <section class="process-two">
         <div class="container">
             <div class="section-title-five text-center">
-                <span class="section-title-five__tagline">WHY YOU CHOOSE US</span>
-                <h2 class="section-title-five__title">Why Always Choose Insures!</h2>
+                <span class="section-title-five__tagline">{{ $homepage_settings->process_tagline }}</span>
+                <h2 class="section-title-five__title">{{ $homepage_settings->process_text }}</h2>
             </div>
             <div class="process-two__inner">
-                <ul class="process-two__list list-unstyled">
-                    <li>
-                        <div class="process-two__single">
-                            <div class="process-two__arrow">
-                                <i class="fas fa-angle-double-right"></i>
-                            </div>
-                            <div class="process-two__img-border">
-                                <div class="process-two__img">
-                                    <img src="{{ asset('assets/images/update-17-06-2023/resources/process-2-1.jpg') }}"
-                                        alt="">
-                                    <div class="process-two__count"></div>
+                @if ($homepage_settings->process_items)
+                    <ul class="process-two__list list-unstyled">
+                        @foreach ($homepage_settings->process_items as $item)
+                            <li>
+                                <div class="process-two__single">
+                                    <div class="process-two__arrow">
+                                        <i class="fas fa-angle-double-right"></i>
+                                    </div>
+                                    <div class="process-two__img-border">
+                                        <div class="process-two__img">
+                                            <img src="{{ asset('assets/images/update-17-06-2023/resources/process-2-1.jpg') }}"
+                                                alt="">
+                                            <div class="process-two__count"></div>
+                                        </div>
+                                    </div>
+                                    <h3 class="process-two__title">{{ $item['title'] }}</h3>
+                                    <p class="process-two__text">{!! $item['text'] !!}</p>
+                                    <div class="process-two__btn">
+                                        <a href=""><span class="fa fa-arrow-right"></span>view details</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <h3 class="process-two__title">Get A Quotetation</h3>
-                            <p class="process-two__text">Many desktop publishing packages and web <br> page editors
-                                now
-                                use Lorem Ipsum</p>
-                            <div class="process-two__btn">
-                                <a href="><span class="fa fa-arrow-right"></span>view details</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="process-two__single">
-                            <div class="process-two__arrow">
-                                <i class="fas fa-angle-double-right"></i>
-                            </div>
-                            <div class="process-two__img-border">
-                                <div class="process-two__img">
-                                    <img src="{{ asset('assets/images/update-17-06-2023/resources/process-2-2.jpg') }}"
-                                        alt="">
-                                    <div class="process-two__count"></div>
-                                </div>
-                            </div>
-                            <h3 class="process-two__title">Complete The Aplication</h3>
-                            <p class="process-two__text">Many desktop publishing packages and web <br> page editors
-                                now
-                                use Lorem Ipsum</p>
-                            <div class="process-two__btn">
-                                <a href="><span class="fa fa-arrow-right"></span>view details</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="process-two__single">
-                            <div class="process-two__img-border">
-                                <div class="process-two__img">
-                                    <img src="{{ asset('assets/images/update-17-06-2023/resources/process-2-3.jpg') }}"
-                                        alt="">
-                                    <div class="process-two__count"></div>
-                                </div>
-                            </div>
-                            <h3 class="process-two__title">Get Insured & Covarage</h3>
-                            <p class="process-two__text">Many desktop publishing packages and web <br>page editors
-                                now
-                                use Lorem Ipsum</p>
-                            <div class="process-two__btn">
-                                <a href="><span class="fa fa-arrow-right"></span>view details</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
         </div>
     </section>
