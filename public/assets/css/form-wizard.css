@@ -1,0 +1,168 @@
+/* ==========================================================================
+     #BUTTON
+     ========================================================================== */
+.btn-next-con {
+    text-align: right;
+    padding-top: 30px;
+}
+
+.btn-next,
+.btn-back,
+.btn-last {
+    display: inline-block;
+    -webkit-box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.15);
+    line-height: 45px;
+    padding: 0 60px;
+    -webkit-border-radius: 22.5px;
+    -moz-border-radius: 22.5px;
+    border-radius: 22.5px;
+    background: #36c240;
+    font-size: 16px;
+    color: #fff;
+    font-family: inherit;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.btn-back {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    background: #ccc;
+    margin-right: 10px;
+}
+
+.btn-next:hover,
+.btn-back:hover,
+.btn-last:hover {
+    background: #22ae2c;
+}
+
+@media (max-width: 767px) {
+    .btn-next,
+    .btn-back,
+    .btn-last {
+        display: block;
+        text-align: center;
+    }
+}
+
+.btn-back:hover {
+    background: #7c7c7c;
+}
+
+@media (max-width: 767px) {
+    .btn-back {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}
+
+/* ==========================================================================
+     #TAB
+     ========================================================================== */
+.tab-content > .tab-pane {
+    display: none;
+}
+
+.tab-content > .tab-pane.active {
+    display: block;
+}
+
+.nav-tab {
+    height: 0;
+    visibility: hidden;
+}
+/* ==========================================================================
+     #PROGRESS
+     ========================================================================== */
+.progress {
+    height: 35px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    border: 1px solid #e5e5e5;
+}
+
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 35px;
+    color: #fff;
+    text-align: center;
+    -webkit-border-radius: 17.5px;
+    -moz-border-radius: 17.5px;
+    border-radius: 17.5px;
+    background-color: var(--insur-base);
+    -webkit-transition: width 0.6s ease;
+    -o-transition: width 0.6s ease;
+    -moz-transition: width 0.6s ease;
+    transition: width 0.6s ease;
+    position: relative;
+}
+
+.progress-val {
+    font-size: 15px;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    -webkit-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.filepond--credits {
+    display: none;
+}
+
+.radio-container input {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.radio-container label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 6rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 1.15rem;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.radio-container input[type="radio"]:checked + label {
+    background: #f1f1f1;
+    border-color: var(--insur-primary);
+}
+
+.radio-container input[type="radio"]:focus + label {
+    border: 2px solid var(--insur-primary);
+}
+
+label.error {
+    color: #dc3545 !important;
+}
+
+a.privacy {
+    color: #0d6efd;
+    text-decoration: underline;
+}

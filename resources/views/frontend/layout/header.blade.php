@@ -61,14 +61,14 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="#"
-                                        class="{{ Route::is(['home.how-is-it-free', 'home.replacement-vehicle', 'home.accident-repairs']) ? 'current' : '' }}">
+                                        class="{{ Route::is(['home.how-is-it-free', 'home.replacement-vehicle', 'home.report-claim']) ? 'current' : '' }}">
                                         Our Services
                                     </a>
                                     <ul>
                                         <li><a href="{{ route('home.how-is-it-free') }}">How is it Free?</a></li>
                                         <li><a href="{{ route('home.replacement-vehicle') }}">Replacement Vehicle</a>
                                         </li>
-                                        <li><a href="{{ route('home.accident-repairs') }}">Accident Repairs</a>
+                                        <li><a href="{{ route('home.report-claim') }}">Accident Repairs</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -82,7 +82,7 @@
                                     class="main-menu-seven__search search-toggler icon-magnifying-glass"></a>
                             </div>
                             <div class="main-menu-seven__get-quote-btn-box">
-                                <a href="{{ route('home.accident-repairs') }}"
+                                <a href="{{ route('home.report-claim') }}"
                                     class="thm-btn-three main-menu-seven__get-quote-btn">Report a
                                     Claim<span class="fas fa-paper-plane"></span></a>
                             </div>

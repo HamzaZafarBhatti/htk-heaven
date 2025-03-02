@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Enums\CountryEnum;
+use App\Http\Requests\AccidentClaimRequest;
+use App\Mail\AccidentClaimSubmitEmail;
 use App\Models\InsuranceCoverType;
+use App\Services\AccidentClaimService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -20,6 +25,30 @@ class HomeController extends Controller
     {
         return view('frontend.replacement_vehicle');
     }
+    public function report_claim()
+    {
+        return view('frontend.report_claim');
+    }
+    public function report_claim_store(AccidentClaimRequest $request, AccidentClaimService $accidentClaimService)
+    {
+        $data = $request->validated();
+        try {
+            $accident_claim = $accidentClaimService->store($data);
+            try {
+                Mail::to($accident_claim->email)->send(new AccidentClaimSubmitEmail(
+                    name: $accident_claim->full_name,
+                    car_registration_number: $accident_claim->car_registration_number,
+                ));
+                // Mail::to($accident_claim->email)->send(new AccidentClaimSubmitEmail($details));
+            } catch (\Throwable $th) {
+                Log::error($th->getMessage());
+            }
+            return redirect()->route('home.thankyou-page');
+        } catch (\Throwable $th) {
+            Log::error($th->getMessage());
+            return back()->with('error', 'Something went wrong!');
+        }
+    }
     public function accident_repairs()
     {
         $countries = CountryEnum::toArray();
@@ -28,6 +57,10 @@ class HomeController extends Controller
             'countries',
             'insurance_cover_types'
         ));
+    }
+    public function thankyou_page()
+    {
+        // return view('frontend.thankyou_page');
     }
     public function privacy_policy()
     {

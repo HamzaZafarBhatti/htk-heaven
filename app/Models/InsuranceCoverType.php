@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Auditable as AuditingAuditable;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class InsuranceCoverType extends Model
+class InsuranceCoverType extends Model implements Auditable
 {
-    use SoftDeletes;
+    use SoftDeletes, AuditingAuditable;
     //
     protected $fillable = [
         'name',
