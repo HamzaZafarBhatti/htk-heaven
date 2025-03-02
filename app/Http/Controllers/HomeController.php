@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Enums\CountryEnum;
 use App\Http\Requests\AccidentClaimRequest;
 use App\Mail\AccidentClaimSubmitEmail;
+use App\Mail\AdminAccidentClaimSubmitEmail;
 use App\Models\InsuranceCoverType;
 use App\Services\AccidentClaimService;
 use Illuminate\Http\Request;
@@ -39,7 +40,12 @@ class HomeController extends Controller
                     name: $accident_claim->full_name,
                     car_registration_number: $accident_claim->car_registration_number,
                 ));
-                // Mail::to($accident_claim->email)->send(new AccidentClaimSubmitEmail($details));
+                Mail::to($accident_claim->email)->send(new AdminAccidentClaimSubmitEmail(
+                    name: $accident_claim->full_name,
+                    car_registration_number: $accident_claim->car_registration_number,
+                    phone: $accident_claim->phone,
+                    email: $accident_claim->email,
+                ));
             } catch (\Throwable $th) {
                 Log::error($th->getMessage());
             }
