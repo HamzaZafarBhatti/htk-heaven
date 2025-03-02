@@ -8,6 +8,7 @@ use App\Mail\AccidentClaimSubmitEmail;
 use App\Mail\AdminAccidentClaimSubmitEmail;
 use App\Models\InsuranceCoverType;
 use App\Services\AccidentClaimService;
+use App\Settings\SiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -30,7 +31,7 @@ class HomeController extends Controller
     {
         return view('frontend.report_claim');
     }
-    public function report_claim_store(AccidentClaimRequest $request, AccidentClaimService $accidentClaimService)
+    public function report_claim_store(AccidentClaimRequest $request, AccidentClaimService $accidentClaimService, SiteSetting $siteSetting)
     {
         $data = $request->validated();
         try {
@@ -40,7 +41,7 @@ class HomeController extends Controller
                     name: $accident_claim->full_name,
                     car_registration_number: $accident_claim->car_registration_number,
                 ));
-                Mail::to($accident_claim->email)->send(new AdminAccidentClaimSubmitEmail(
+                Mail::to($siteSetting->email)->send(new AdminAccidentClaimSubmitEmail(
                     name: $accident_claim->full_name,
                     car_registration_number: $accident_claim->car_registration_number,
                     phone: $accident_claim->phone,
