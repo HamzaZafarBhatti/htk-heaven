@@ -12,8 +12,8 @@ class AccidentClaim extends Model implements Auditable
     use SoftDeletes, AuditingAuditable;
 
     protected $fillable = [
-        'email',
         'full_name',
+        'email',
         'phone',
         'accident_date',
         'car_registration_number',
@@ -26,5 +26,6 @@ class AccidentClaim extends Model implements Auditable
 
     protected $casts = [
         'pictures' => 'array',
+        'accident_date' => 'date',
     ];
 }
