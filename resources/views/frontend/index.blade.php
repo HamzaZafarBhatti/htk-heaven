@@ -227,7 +227,6 @@
                                         class="fas fa-arrow-right"></span></a>
                                 <div class="services-seven__img">
                                     <img src="{{ asset('storage/' . $item['image']) }}" alt="">
-                                    alt="">
                                 </div>
                                 <div class="services-seven__hover-box">
                                     <div class="services-seven__hover-bg"
