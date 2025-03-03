@@ -49,58 +49,20 @@ enum IconsEnum: string
     case Plus = 'Plus';
     case Shield = 'Shield';
 
-    public function getLabel(): string
-    {
-        return match ($this) {
-            self::MagnifyingGlass => 'Magnifying Glass',
-            self::RightArrow => 'Right Arrow',
-            self::UpArrow => 'Up Arrow',
-            self::DownArrow => 'Down Arrow',
-            self::Cashback => 'Cashback',
-            self::Insurance => 'Insurance',
-            self::House => 'House',
-            self::Family => 'Family',
-            self::Drive => 'Drive',
-            self::Home => 'Home',
-            self::HeartBeat => 'Heart Beat',
-            self::Fire => 'Fire',
-            self::Briefcase => 'Briefcase',
-            self::Ring => 'Ring',
-            self::Plane => 'Plane',
-            self::EasyToUse => 'Easy To Use',
-            self::Policy => 'Policy',
-            self::Contract => 'Contract',
-            self::Fund => 'Fund',
-            self::Group => 'Group',
-            self::Insurance1 => 'Insurance 1',
-            self::Success => 'Success',
-            self::LifeInsurance => 'Life Insurance',
-            self::Folder => 'Folder',
-            self::Telephone => 'Telephone',
-            self::Email => 'Email',
-            self::TelephoneCall => 'Telephone Call',
-            self::Pin => 'Pin',
-            self::CashFlow => 'Cash Flow',
-            self::Profits => 'Profits',
-            self::Insurance2 => 'Insurance 2',
-            self::Select => 'Select',
-            self::Meeting => 'Meeting',
-            self::Agreement => 'Agreement',
-            self::InsuranceAgent => 'Insurance Agent',
-            self::Tick => 'Tick',
-            self::MoneyBack => 'Money Back',
-            self::Employees => 'Employees',
-            self::Mission => 'Mission',
-            self::Computer => 'Computer',
-            self::Chat => 'Chat',
-            self::File => 'File',
-            self::Plus => 'Plus',
-            self::Shield => 'Shield',
-        };
-    }
-
     public static function toArray(): array
     {
-        return array_column(self::cases(), 'value', 'name');
+        $result = [];
+        foreach (self::cases() as $case) {
+            $result[self::stringToIconClass($case->name)] = $case->value;
+        }
+        return $result;
+    }
+
+    public static function stringToIconClass($input): string
+    {
+        // Insert a hyphen before uppercase letters and convert to lowercase
+        $input = strtolower(preg_replace('/([A-Z])/', '-$1', $input));
+
+        return 'icon' . $input;
     }
 }
