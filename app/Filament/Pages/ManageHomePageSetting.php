@@ -19,6 +19,7 @@ use Filament\Forms\Components\Wizard\Step;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
 use Illuminate\Support\HtmlString;
+use Illuminate\Validation\Rule;
 
 class ManageHomePageSetting extends SettingsPage
 {
@@ -54,7 +55,7 @@ class ManageHomePageSetting extends SettingsPage
                                                             ->helperText(new HtmlString('Recommended size: 530x700'))
                                                             ->image()
                                                             ->rules([
-                                                                'dimensions:max_height=700,max_width=530',
+                                                                Rule::dimensions()->maxWidth(530)->maxHeight(700),
                                                             ])
                                                             ->directory('banners'),
                                                         Fieldset::make('support')
@@ -89,7 +90,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->helperText(new HtmlString('Recommended size: 500x562'))
                                                     ->image()
                                                     ->rules([
-                                                        'dimensions:max_height=562,max_width=500',
+                                                        Rule::dimensions()->maxHeight(562)->maxWidth(500),
                                                     ])
                                                     ->directory('aboutus'),
                                                 FileUpload::make('aboutus_background_image_right')
@@ -97,7 +98,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->helperText(new HtmlString('Recommended size: 456x496'))
                                                     ->image()
                                                     ->rules([
-                                                        'dimensions:max_height=496,max_width=456',
+                                                        Rule::dimensions()->maxHeight(496)->maxWidth(456),
                                                     ])
                                                     ->directory('aboutus'),
                                                 FileUpload::make('aboutus_main_image_top')
@@ -105,7 +106,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->helperText(new HtmlString('Recommended size: 453x300'))
                                                     ->image()
                                                     ->rules([
-                                                        'dimensions:max_height=300,max_width=453',
+                                                        Rule::dimensions()->maxHeight(300)->maxWidth(453),
                                                     ])
                                                     ->directory('aboutus'),
                                                 FileUpload::make('aboutus_main_image_bottom')
@@ -113,7 +114,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->helperText(new HtmlString('Recommended size: 330x390'))
                                                     ->image()
                                                     ->rules([
-                                                        'dimensions:max_height=390,max_width=330',
+                                                        Rule::dimensions()->maxHeight(390)->maxWidth(330),
                                                     ])
                                                     ->directory('aboutus'),
                                                 TextInput::make('aboutus_experience')
@@ -159,7 +160,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->helperText(new HtmlString('Recommended size: 1920x400'))
                                             ->image()
                                             ->rules([
-                                                'dimensions:max_height=400,max_width=1920',
+                                                Rule::dimensions()->maxHeight(400)->maxWidth(1920),
                                             ])
                                             ->directory('claimstatus'),
                                     ]),
@@ -187,7 +188,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->helperText(new HtmlString('Recommended size: 245×236'))
                                                     ->image()
                                                     ->rules([
-                                                        'dimensions:max_height=236,max_width=245',
+                                                        Rule::dimensions()->maxHeight(236)->maxWidth(245),
                                                     ])
                                                     ->directory('services'),
                                                 FileUpload::make('hover_image')
@@ -195,7 +196,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->helperText(new HtmlString('Recommended size: 416×276'))
                                                     ->image()
                                                     ->rules([
-                                                        'dimensions:max_height=276,max_width=416',
+                                                        Rule::dimensions()->maxHeight(276)->maxWidth(416),
                                                     ])
                                                     ->directory('services'),
                                                 TextInput::make('url_slug')
@@ -232,7 +233,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->helperText(new HtmlString('Recommended size: 416×350'))
                                             ->image()
                                             ->rules([
-                                                'dimensions:max_height=350,max_width=416',
+                                                Rule::dimensions()->maxHeight(350)->maxWidth(416),
                                             ])
                                             ->directory('whyus'),
                                     ])
@@ -248,7 +249,7 @@ class ManageHomePageSetting extends SettingsPage
                                     ->helperText(new HtmlString('Recommended size: 456×496'))
                                     ->image()
                                     ->rules([
-                                        'dimensions:max_height=496,max_width=456',
+                                        Rule::dimensions()->maxHeight(496)->maxWidth(456),
                                     ])
                                     ->directory('feedback'),
                                 Repeater::make('feedback_items')
@@ -279,7 +280,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->helperText(new HtmlString('Recommended size: 230×230'))
                                             ->image()
                                             ->rules([
-                                                'dimensions:max_height=230,max_width=230',
+                                                Rule::dimensions()->maxHeight(230)->maxWidth(230),
                                             ])
                                             ->directory('process'),
                                     ])
