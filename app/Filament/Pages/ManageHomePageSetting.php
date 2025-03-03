@@ -201,7 +201,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->directory('services'),
                                                 TextInput::make('url_slug')
                                                     ->label('URL Slug')
-                                                    ->url(),
+                                                    ->prefix(config('app_url') . '/service/'),
                                             ])
                                             ->addActionLabel('Add Service')
                                             ->grid(2)
