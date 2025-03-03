@@ -46,32 +46,26 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->schema([
                                                         TextInput::make('title')
                                                             ->label('Title')
-                                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                                            ->required(),
+                                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.')),
                                                         Textarea::make('text')
                                                             ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                                            ->label('Text')
-                                                            ->required(),
+                                                            ->label('Text'),
                                                         FileUpload::make('image')
                                                             ->helperText(new HtmlString('Recommended size: 530x700'))
                                                             ->image()
                                                             ->rules([
                                                                 'dimensions:max_height=700,max_width=530',
                                                             ])
-                                                            ->directory('banners')
-                                                            ->required(),
+                                                            ->directory('banners'),
                                                         Fieldset::make('support')
                                                             ->schema([
                                                                 Select::make('support_icon')
-                                                                    ->options(IconsEnum::toArray())
-                                                                    ->required(),
+                                                                    ->options(IconsEnum::toArray()),
                                                                 TextInput::make('support_title')
-                                                                    ->label('Title')
-                                                                    ->required(),
+                                                                    ->label('Title'),
                                                                 TextInput::make('support_text')
                                                                     ->label('Text')
-                                                                    ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                                                    ->required(),
+                                                                    ->helperText(new HtmlString('You can use <b>HTML</b> tags here.')),
                                                             ])
                                                             ->columns(3)
                                                     ]),
@@ -87,11 +81,9 @@ class ManageHomePageSetting extends SettingsPage
                                         Grid::make(2)
                                             ->schema([
                                                 TextInput::make('aboutus_tagline')
-                                                    ->label('Tagline')
-                                                    ->required(),
+                                                    ->label('Tagline'),
                                                 TextInput::make('aboutus_title')
-                                                    ->label('Title')
-                                                    ->required(),
+                                                    ->label('Title'),
                                                 FileUpload::make('aboutus_background_image_left')
                                                     ->label('Background Image Left')
                                                     ->helperText(new HtmlString('Recommended size: 500x562'))
@@ -99,8 +91,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->rules([
                                                         'dimensions:max_height=562,max_width=500',
                                                     ])
-                                                    ->directory('aboutus')
-                                                    ->required(),
+                                                    ->directory('aboutus'),
                                                 FileUpload::make('aboutus_background_image_right')
                                                     ->label('Background Image Right')
                                                     ->helperText(new HtmlString('Recommended size: 456x496'))
@@ -108,8 +99,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->rules([
                                                         'dimensions:max_height=496,max_width=456',
                                                     ])
-                                                    ->directory('aboutus')
-                                                    ->required(),
+                                                    ->directory('aboutus'),
                                                 FileUpload::make('aboutus_main_image_top')
                                                     ->label('Main Image Top')
                                                     ->helperText(new HtmlString('Recommended size: 453x300'))
@@ -117,8 +107,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->rules([
                                                         'dimensions:max_height=300,max_width=453',
                                                     ])
-                                                    ->directory('aboutus')
-                                                    ->required(),
+                                                    ->directory('aboutus'),
                                                 FileUpload::make('aboutus_main_image_bottom')
                                                     ->label('Main Image Bottom')
                                                     ->helperText(new HtmlString('Recommended size: 330x390'))
@@ -126,25 +115,20 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->rules([
                                                         'dimensions:max_height=390,max_width=330',
                                                     ])
-                                                    ->directory('aboutus')
-                                                    ->required(),
+                                                    ->directory('aboutus'),
                                                 TextInput::make('aboutus_experience')
                                                     ->label('Experience (years)')
-                                                    ->numeric()
-                                                    ->required(),
+                                                    ->numeric(),
                                             ]),
                                         Textarea::make('aboutus_text')
-                                            ->label('Text')
-                                            ->required(),
+                                            ->label('Text'),
                                         Repeater::make('aboutus_services')
                                             ->label('Services')
                                             ->schema([
                                                 Select::make('icon')
-                                                    ->options(IconsEnum::toArray())
-                                                    ->required(),
+                                                    ->options(IconsEnum::toArray()),
                                                 TextInput::make('title')
-                                                    ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                                    ->required(),
+                                                    ->helperText(new HtmlString('You can use <b>HTML</b> tags here.')),
                                             ])
                                             ->addActionLabel('Add Service')
                                             ->defaultItems(3)
@@ -155,8 +139,7 @@ class ManageHomePageSetting extends SettingsPage
                                         Repeater::make('aboutus_points')
                                             ->label('Points')
                                             ->schema([
-                                                TextInput::make('point')
-                                                    ->required(),
+                                                TextInput::make('point'),
                                             ])
                                             ->addActionLabel('Add Point')
                                             ->collapsible()
@@ -167,12 +150,10 @@ class ManageHomePageSetting extends SettingsPage
                                 Section::make()
                                     ->schema([
                                         TextInput::make('claim_status_title')
-                                            ->label('Title')
-                                            ->required(),
+                                            ->label('Title'),
                                         Textarea::make('claim_status_text')
                                             ->label('Text')
-                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                            ->required(),
+                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.')),
                                         FileUpload::make('claim_status_background_image')
                                             ->label('Background Image')
                                             ->helperText(new HtmlString('Recommended size: 1920x400'))
@@ -180,8 +161,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->rules([
                                                 'dimensions:max_height=400,max_width=1920',
                                             ])
-                                            ->directory('claimstatus')
-                                            ->required(),
+                                            ->directory('claimstatus'),
                                     ]),
                             ]),
                         Step::make('Services')
@@ -191,21 +171,17 @@ class ManageHomePageSetting extends SettingsPage
                                         Grid::make(2)
                                             ->schema([
                                                 TextInput::make('services_tagline')
-                                                    ->label('Tagline')
-                                                    ->required(),
+                                                    ->label('Tagline'),
                                                 TextInput::make('services_title')
-                                                    ->label('Title')
-                                                    ->required(),
+                                                    ->label('Title'),
                                             ]),
                                         Repeater::make('service_items')
                                             ->schema([
                                                 TextInput::make('title')
-                                                    ->label('Title')
-                                                    ->required(),
+                                                    ->label('Title'),
                                                 TextArea::make('text')
                                                     ->label('Text')
-                                                    ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                                    ->required(),
+                                                    ->helperText(new HtmlString('You can use <b>HTML</b> tags here.')),
                                                 FileUpload::make('image')
                                                     ->label('Image')
                                                     ->helperText(new HtmlString('Recommended size: 245×236'))
@@ -213,8 +189,7 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->rules([
                                                         'dimensions:max_height=236,max_width=245',
                                                     ])
-                                                    ->directory('services')
-                                                    ->required(),
+                                                    ->directory('services'),
                                                 FileUpload::make('hover_image')
                                                     ->label('Hover Image')
                                                     ->helperText(new HtmlString('Recommended size: 416×276'))
@@ -222,12 +197,10 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->rules([
                                                         'dimensions:max_height=276,max_width=416',
                                                     ])
-                                                    ->directory('services')
-                                                    ->required(),
+                                                    ->directory('services'),
                                                 TextInput::make('url_slug')
                                                     ->label('URL Slug')
-                                                    ->url()
-                                                    ->required(),
+                                                    ->url(),
                                             ])
                                             ->addActionLabel('Add Service')
                                             ->grid(2)
@@ -239,26 +212,21 @@ class ManageHomePageSetting extends SettingsPage
                                 Grid::make(2)
                                     ->schema([
                                         TextInput::make('why_us_tagline')
-                                            ->label('Tagline')
-                                            ->required(),
+                                            ->label('Tagline'),
                                         TextInput::make('why_us_title')
-                                            ->label('Title')
-                                            ->required(),
+                                            ->label('Title'),
                                     ]),
                                 Repeater::make('why_us_items')
                                     ->schema([
                                         Grid::make(2)
                                             ->schema([
                                                 Select::make('icon')
-                                                    ->options(IconsEnum::toArray())
-                                                    ->required(),
+                                                    ->options(IconsEnum::toArray()),
                                                 TextInput::make('title')
-                                                    ->label('Title')
-                                                    ->required(),
+                                                    ->label('Title'),
                                             ]),
                                         TextArea::make('text')
-                                            ->label('Text')
-                                            ->required(),
+                                            ->label('Text'),
                                         FileUpload::make('hover_image')
                                             ->label('Hover Image')
                                             ->helperText(new HtmlString('Recommended size: 416×350'))
@@ -266,8 +234,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->rules([
                                                 'dimensions:max_height=350,max_width=416',
                                             ])
-                                            ->directory('whyus')
-                                            ->required(),
+                                            ->directory('whyus'),
                                     ])
                                     ->addActionLabel('Add Item')
                                     ->collapsible()
@@ -275,8 +242,7 @@ class ManageHomePageSetting extends SettingsPage
                         Step::make('Testimonials')
                             ->schema([
                                 TextInput::make('feedback_title')
-                                    ->label('Title')
-                                    ->required(),
+                                    ->label('Title'),
                                 FileUpload::make('feedback_background_image')
                                     ->label('Background Image')
                                     ->helperText(new HtmlString('Recommended size: 456×496'))
@@ -284,18 +250,15 @@ class ManageHomePageSetting extends SettingsPage
                                     ->rules([
                                         'dimensions:max_height=496,max_width=456',
                                     ])
-                                    ->directory('feedback')
-                                    ->required(),
+                                    ->directory('feedback'),
                                 Repeater::make('feedback_items')
                                     ->schema([
                                         Grid::make(2)
                                             ->schema([
-                                                TextInput::make('customer_name')
-                                                    ->required(),
+                                                TextInput::make('customer_name'),
                                                 TextInput::make('customer_job'),
                                             ]),
-                                        TextArea::make('feedback')
-                                            ->required(),
+                                        TextArea::make('feedback'),
                                     ])
                                     ->addActionLabel('Add Feedback')
                                     ->collapsible()
@@ -303,18 +266,14 @@ class ManageHomePageSetting extends SettingsPage
                         Step::make('Process')
                             ->schema([
                                 TextInput::make('process_tagline')
-                                    ->label('Tagline')
-                                    ->required(),
+                                    ->label('Tagline'),
                                 TextArea::make('process_text')
-                                    ->label('text')
-                                    ->required(),
+                                    ->label('text'),
                                 Repeater::make('process_items')
                                     ->schema([
-                                        TextInput::make('title')
-                                            ->required(),
+                                        TextInput::make('title'),
                                         TextArea::make('text')
-                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
-                                            ->required(),
+                                            ->helperText(new HtmlString('You can use <b>HTML</b> tags here.')),
                                         FileUpload::make('image')
                                             ->label('Image')
                                             ->helperText(new HtmlString('Recommended size: 230×230'))
@@ -322,8 +281,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->rules([
                                                 'dimensions:max_height=230,max_width=230',
                                             ])
-                                            ->directory('process')
-                                            ->required(),
+                                            ->directory('process'),
                                     ])
                                     ->maxItems(3)
                                     ->addActionLabel('Add Step')
