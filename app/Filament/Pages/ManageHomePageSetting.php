@@ -2,6 +2,7 @@
 
 namespace App\Filament\Pages;
 
+use App\Enums\IconsEnum;
 use App\Settings\HomePageSetting;
 use Filament\Forms;
 use Filament\Forms\Components\Fieldset;
@@ -52,60 +53,17 @@ class ManageHomePageSetting extends SettingsPage
                                                             ->label('Text')
                                                             ->required(),
                                                         FileUpload::make('image')
+                                                            ->helperText(new HtmlString('Recommended size: 530x700'))
                                                             ->image()
-                                                            ->maxWidth(530)
-                                                            ->maxHeight(700)
+                                                            ->rules([
+                                                                'dimensions:max_height=700,max_width=530',
+                                                            ])
                                                             ->directory('banners')
                                                             ->required(),
                                                         Fieldset::make('support')
                                                             ->schema([
                                                                 Select::make('support_icon')
-                                                                    ->options([
-                                                                        'icon-magnifying-glass' => 'Magnifying Glass',
-                                                                        'icon-right-arrow' => 'Right Arrow',
-                                                                        'icon-up-arrow' => 'Up Arrow',
-                                                                        'icon-down-arrow' => 'Down Arrow',
-                                                                        'icon-cashback' => 'Cash Back',
-                                                                        'icon-insurance' => 'Insurance',
-                                                                        'icon-house' => 'House',
-                                                                        'icon-family' => 'Family',
-                                                                        'icon-drive' => 'Drive',
-                                                                        'icon-home' => 'Home',
-                                                                        'icon-heart-beat' => 'Heart Beat',
-                                                                        'icon-fire' => 'Fire',
-                                                                        'icon-briefcase' => 'Briefcase',
-                                                                        'icon-ring' => 'Ring',
-                                                                        'icon-plane' => 'Plane',
-                                                                        'icon-easy-to-use' => 'Easy To Use',
-                                                                        'icon-policy' => 'Policy',
-                                                                        'icon-contract' => 'Contract',
-                                                                        'icon-fund' => 'Fund',
-                                                                        'icon-group' => 'Group',
-                                                                        'icon-insurance-1' => 'Insurance 1',
-                                                                        'icon-success' => 'Success',
-                                                                        'icon-life-insurance' => 'Life Insurance',
-                                                                        'icon-folder' => 'Folder',
-                                                                        'icon-telephone' => 'Telephone',
-                                                                        'icon-email' => 'Email',
-                                                                        'icon-telephone-call' => 'Telephone Call',
-                                                                        'icon-pin' => 'Pin',
-                                                                        'icon-cash-flow' => 'Cash Flow',
-                                                                        'icon-profits' => 'Profits',
-                                                                        'icon-insurance-2' => 'Insurance 2',
-                                                                        'icon-select' => 'Select',
-                                                                        'icon-meeting' => 'Meeting',
-                                                                        'icon-agreement' => 'Agreement',
-                                                                        'icon-insurance-agent' => 'Insurance Agent',
-                                                                        'icon-tick' => 'Tick',
-                                                                        'icon-money-back' => 'Money Back',
-                                                                        'icon-employees' => 'Employees',
-                                                                        'icon-mission' => 'Mission',
-                                                                        'icon-computer' => 'Computer',
-                                                                        'icon-chat' => 'Chat',
-                                                                        'icon-file' => 'File',
-                                                                        'icon-plus' => 'Plus',
-                                                                        'icon-shield' => 'Shield',
-                                                                    ])
+                                                                    ->options(IconsEnum::toArray())
                                                                     ->required(),
                                                                 TextInput::make('support_title')
                                                                     ->label('Title')
@@ -134,6 +92,46 @@ class ManageHomePageSetting extends SettingsPage
                                                 TextInput::make('aboutus_title')
                                                     ->label('Title')
                                                     ->required(),
+                                                FileUpload::make('aboutus_background_image_left')
+                                                    ->label('Background Image Left')
+                                                    ->helperText(new HtmlString('Recommended size: 500x562'))
+                                                    ->image()
+                                                    ->rules([
+                                                        'dimensions:max_height=562,max_width=500',
+                                                    ])
+                                                    ->directory('aboutus')
+                                                    ->required(),
+                                                FileUpload::make('aboutus_background_image_right')
+                                                    ->label('Background Image Right')
+                                                    ->helperText(new HtmlString('Recommended size: 456x496'))
+                                                    ->image()
+                                                    ->rules([
+                                                        'dimensions:max_height=496,max_width=456',
+                                                    ])
+                                                    ->directory('aboutus')
+                                                    ->required(),
+                                                FileUpload::make('aboutus_main_image_top')
+                                                    ->label('Main Image Top')
+                                                    ->helperText(new HtmlString('Recommended size: 453x300'))
+                                                    ->image()
+                                                    ->rules([
+                                                        'dimensions:max_height=300,max_width=453',
+                                                    ])
+                                                    ->directory('aboutus')
+                                                    ->required(),
+                                                FileUpload::make('aboutus_main_image_bottom')
+                                                    ->label('Main Image Bottom')
+                                                    ->helperText(new HtmlString('Recommended size: 330x390'))
+                                                    ->image()
+                                                    ->rules([
+                                                        'dimensions:max_height=390,max_width=330',
+                                                    ])
+                                                    ->directory('aboutus')
+                                                    ->required(),
+                                                TextInput::make('aboutus_experience')
+                                                    ->label('Experience (years)')
+                                                    ->numeric()
+                                                    ->required(),
                                             ]),
                                         Textarea::make('aboutus_text')
                                             ->label('Text')
@@ -142,52 +140,7 @@ class ManageHomePageSetting extends SettingsPage
                                             ->label('Services')
                                             ->schema([
                                                 Select::make('icon')
-                                                    ->options([
-                                                        'icon-magnifying-glass' => 'Magnifying Glass',
-                                                        'icon-right-arrow' => 'Right Arrow',
-                                                        'icon-up-arrow' => 'Up Arrow',
-                                                        'icon-down-arrow' => 'Down Arrow',
-                                                        'icon-cashback' => 'Cash Back',
-                                                        'icon-insurance' => 'Insurance',
-                                                        'icon-house' => 'House',
-                                                        'icon-family' => 'Family',
-                                                        'icon-drive' => 'Drive',
-                                                        'icon-home' => 'Home',
-                                                        'icon-heart-beat' => 'Heart Beat',
-                                                        'icon-fire' => 'Fire',
-                                                        'icon-briefcase' => 'Briefcase',
-                                                        'icon-ring' => 'Ring',
-                                                        'icon-plane' => 'Plane',
-                                                        'icon-easy-to-use' => 'Easy To Use',
-                                                        'icon-policy' => 'Policy',
-                                                        'icon-contract' => 'Contract',
-                                                        'icon-fund' => 'Fund',
-                                                        'icon-group' => 'Group',
-                                                        'icon-insurance-1' => 'Insurance 1',
-                                                        'icon-success' => 'Success',
-                                                        'icon-life-insurance' => 'Life Insurance',
-                                                        'icon-folder' => 'Folder',
-                                                        'icon-telephone' => 'Telephone',
-                                                        'icon-email' => 'Email',
-                                                        'icon-telephone-call' => 'Telephone Call',
-                                                        'icon-pin' => 'Pin',
-                                                        'icon-cash-flow' => 'Cash Flow',
-                                                        'icon-profits' => 'Profits',
-                                                        'icon-insurance-2' => 'Insurance 2',
-                                                        'icon-select' => 'Select',
-                                                        'icon-meeting' => 'Meeting',
-                                                        'icon-agreement' => 'Agreement',
-                                                        'icon-insurance-agent' => 'Insurance Agent',
-                                                        'icon-tick' => 'Tick',
-                                                        'icon-money-back' => 'Money Back',
-                                                        'icon-employees' => 'Employees',
-                                                        'icon-mission' => 'Mission',
-                                                        'icon-computer' => 'Computer',
-                                                        'icon-chat' => 'Chat',
-                                                        'icon-file' => 'File',
-                                                        'icon-plus' => 'Plus',
-                                                        'icon-shield' => 'Shield',
-                                                    ])
+                                                    ->options(IconsEnum::toArray())
                                                     ->required(),
                                                 TextInput::make('title')
                                                     ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
@@ -220,6 +173,15 @@ class ManageHomePageSetting extends SettingsPage
                                             ->label('Text')
                                             ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
                                             ->required(),
+                                        FileUpload::make('claim_status_background_image')
+                                            ->label('Background Image')
+                                            ->helperText(new HtmlString('Recommended size: 1920x400'))
+                                            ->image()
+                                            ->rules([
+                                                'dimensions:max_height=400,max_width=1920',
+                                            ])
+                                            ->directory('claimstatus')
+                                            ->required(),
                                     ]),
                             ]),
                         Step::make('Services')
@@ -244,6 +206,28 @@ class ManageHomePageSetting extends SettingsPage
                                                     ->label('Text')
                                                     ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
                                                     ->required(),
+                                                FileUpload::make('image')
+                                                    ->label('Image')
+                                                    ->helperText(new HtmlString('Recommended size: 245×236'))
+                                                    ->image()
+                                                    ->rules([
+                                                        'dimensions:max_height=236,max_width=245',
+                                                    ])
+                                                    ->directory('services')
+                                                    ->required(),
+                                                FileUpload::make('hover_image')
+                                                    ->label('Hover Image')
+                                                    ->helperText(new HtmlString('Recommended size: 416×276'))
+                                                    ->image()
+                                                    ->rules([
+                                                        'dimensions:max_height=276,max_width=416',
+                                                    ])
+                                                    ->directory('services')
+                                                    ->required(),
+                                                TextInput::make('url_slug')
+                                                    ->label('URL Slug')
+                                                    ->url()
+                                                    ->required(),
                                             ])
                                             ->addActionLabel('Add Service')
                                             ->grid(2)
@@ -266,52 +250,7 @@ class ManageHomePageSetting extends SettingsPage
                                         Grid::make(2)
                                             ->schema([
                                                 Select::make('icon')
-                                                    ->options([
-                                                        'icon-magnifying-glass' => 'Magnifying Glass',
-                                                        'icon-right-arrow' => 'Right Arrow',
-                                                        'icon-up-arrow' => 'Up Arrow',
-                                                        'icon-down-arrow' => 'Down Arrow',
-                                                        'icon-cashback' => 'Cash Back',
-                                                        'icon-insurance' => 'Insurance',
-                                                        'icon-house' => 'House',
-                                                        'icon-family' => 'Family',
-                                                        'icon-drive' => 'Drive',
-                                                        'icon-home' => 'Home',
-                                                        'icon-heart-beat' => 'Heart Beat',
-                                                        'icon-fire' => 'Fire',
-                                                        'icon-briefcase' => 'Briefcase',
-                                                        'icon-ring' => 'Ring',
-                                                        'icon-plane' => 'Plane',
-                                                        'icon-easy-to-use' => 'Easy To Use',
-                                                        'icon-policy' => 'Policy',
-                                                        'icon-contract' => 'Contract',
-                                                        'icon-fund' => 'Fund',
-                                                        'icon-group' => 'Group',
-                                                        'icon-insurance-1' => 'Insurance 1',
-                                                        'icon-success' => 'Success',
-                                                        'icon-life-insurance' => 'Life Insurance',
-                                                        'icon-folder' => 'Folder',
-                                                        'icon-telephone' => 'Telephone',
-                                                        'icon-email' => 'Email',
-                                                        'icon-telephone-call' => 'Telephone Call',
-                                                        'icon-pin' => 'Pin',
-                                                        'icon-cash-flow' => 'Cash Flow',
-                                                        'icon-profits' => 'Profits',
-                                                        'icon-insurance-2' => 'Insurance 2',
-                                                        'icon-select' => 'Select',
-                                                        'icon-meeting' => 'Meeting',
-                                                        'icon-agreement' => 'Agreement',
-                                                        'icon-insurance-agent' => 'Insurance Agent',
-                                                        'icon-tick' => 'Tick',
-                                                        'icon-money-back' => 'Money Back',
-                                                        'icon-employees' => 'Employees',
-                                                        'icon-mission' => 'Mission',
-                                                        'icon-computer' => 'Computer',
-                                                        'icon-chat' => 'Chat',
-                                                        'icon-file' => 'File',
-                                                        'icon-plus' => 'Plus',
-                                                        'icon-shield' => 'Shield',
-                                                    ])
+                                                    ->options(IconsEnum::toArray())
                                                     ->required(),
                                                 TextInput::make('title')
                                                     ->label('Title')
@@ -319,6 +258,15 @@ class ManageHomePageSetting extends SettingsPage
                                             ]),
                                         TextArea::make('text')
                                             ->label('Text')
+                                            ->required(),
+                                        FileUpload::make('hover_image')
+                                            ->label('Hover Image')
+                                            ->helperText(new HtmlString('Recommended size: 416×350'))
+                                            ->image()
+                                            ->rules([
+                                                'dimensions:max_height=350,max_width=416',
+                                            ])
+                                            ->directory('whyus')
                                             ->required(),
                                     ])
                                     ->addActionLabel('Add Item')
@@ -328,6 +276,15 @@ class ManageHomePageSetting extends SettingsPage
                             ->schema([
                                 TextInput::make('feedback_title')
                                     ->label('Title')
+                                    ->required(),
+                                FileUpload::make('feedback_background_image')
+                                    ->label('Background Image')
+                                    ->helperText(new HtmlString('Recommended size: 456×496'))
+                                    ->image()
+                                    ->rules([
+                                        'dimensions:max_height=496,max_width=456',
+                                    ])
+                                    ->directory('feedback')
                                     ->required(),
                                 Repeater::make('feedback_items')
                                     ->schema([
@@ -357,6 +314,15 @@ class ManageHomePageSetting extends SettingsPage
                                             ->required(),
                                         TextArea::make('text')
                                             ->helperText(new HtmlString('You can use <b>HTML</b> tags here.'))
+                                            ->required(),
+                                        FileUpload::make('image')
+                                            ->label('Image')
+                                            ->helperText(new HtmlString('Recommended size: 230×230'))
+                                            ->image()
+                                            ->rules([
+                                                'dimensions:max_height=230,max_width=230',
+                                            ])
+                                            ->directory('process')
                                             ->required(),
                                     ])
                                     ->maxItems(3)

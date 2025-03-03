@@ -24050,6 +24050,7 @@ ul li ul .is-new-menu>a>span::after {
   flex-wrap: wrap;
   margin-top: 42px;
   margin-bottom: 47px;
+  row-gap: 1rem;
 }
 
 .about-eight__service li {
