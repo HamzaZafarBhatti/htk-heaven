@@ -105,10 +105,10 @@
     <!--About Eight Start-->
     <section class="about-eight">
         <div class="about-eight__img-three float-bob-x">
-            <img src="{{ asset('assets/images/update-17-06-2023/resources/about-eight-img-3.png') }}" alt="">
+            <img src="{{ asset('storage/' . $homepage_settings->aboutus_background_image_left) }}" alt="">
         </div>
         <div class="about-eight__img-four float-bob-y">
-            <img src="{{ asset('assets/images/update-17-06-2023/resources/about-eight-img-4.png') }}" alt="">
+            <img src="{{ asset('storage/' . $homepage_settings->aboutus_background_image_right) }}" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -116,18 +116,19 @@
                     <div class="about-eight__left">
                         <div class="about-eight__img-box">
                             <div class="about-eight__img">
-                                <img src="{{ asset('assets/images/update-17-06-2023/resources/about-eight-img-1.jpg') }}"
+                                <img src="{{ asset('storage/' . $homepage_settings->aboutus_main_image_top) }}"
                                     alt="">
+                                alt="">
                             </div>
                             <div class="about-eight__img-two">
-                                <img src="{{ asset('assets/images/update-17-06-2023/resources/about-eight-img-2.jpg') }}"
+                                <img src="{{ asset('storage/' . $homepage_settings->aboutus_main_image_bottom) }}"
                                     alt="">
                             </div>
                             <div class="about-eight__experience">
                                 <div class="about-eight__experience-shape"
                                     style="background-image: url('{{ asset('assets/images/update-17-06-2023/shapes/about-eight-experience-shape-1.png') }}')">
                                 </div>
-                                <h3>22</h3>
+                                <h3>{{ $homepage_settings->aboutus_experience }}</h3>
                                 <p>Years Experience</p>
                             </div>
                         </div>
@@ -186,7 +187,7 @@
             style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/reg-insurance-bg.jpg') }}')">
         </div>
         <div class="reg-insurance__shape-1 float-bob-y"
-            style="background-image: url('{{ asset('assets/images/update-17-06-2023/shapes/reg-insurance-shape-1.png') }}')">
+            style="background-image: url('{{ asset('storage/' . $homepage_settings->claim_status_background_image) }}')">
         </div>
         <div class="reg-insurance__shape-2 float-bob-x">
             <img src="{{ asset('assets/images/update-17-06-2023/shapes/reg-insurance-shape-2.png') }}" alt="">
@@ -221,19 +222,21 @@
                             <div class="services-seven__single">
                                 <h3 class="services-seven__title"><a href="">{{ $item['title'] }}</a></h3>
                                 <p class="services-seven__text">{!! $item['text'] !!}</p>
-                                <a href="}" class="services-seven__btn thm-btn-four">Details<span
+                                <a href="{{ route('service.show', $item['url_slug']) }}"
+                                    class="services-seven__btn thm-btn-four">Details<span
                                         class="fas fa-arrow-right"></span></a>
                                 <div class="services-seven__img">
-                                    <img src="{{ asset('assets/images/update-17-06-2023/services/services-7-1.png') }}"
-                                        alt="">
+                                    <img src="{{ asset('storage/' . $item['image']) }}" alt="">
+                                    alt="">
                                 </div>
                                 <div class="services-seven__hover-box">
                                     <div class="services-seven__hover-bg"
-                                        style="background-image: url('{{ asset('assets/images/update-17-06-2023/services/services-seven-hover-bg-1.jpg') }}')">
+                                        style="background-image: url('{{ asset('storage/' . $item['hover_image']) }}')">
                                     </div>
                                     <h3 class="services-seven__hover-title"><a href="">{{ $item['title'] }}</a>
                                     </h3>
-                                    <a href="}" class="services-seven__btn-two thm-btn-four">Details<span
+                                    <a href="{{ route('service.show', $item['url_slug']) }}"
+                                        class="services-seven__btn-two thm-btn-four">Details<span
                                             class="fas fa-arrow-right"></span></a>
                                 </div>
                             </div>
@@ -418,7 +421,7 @@
                         <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="{{ $loop->iteration * 100 }}ms">
                             <div class="why-choose-six__single">
                                 <div class="why-choose-six__single-bg"
-                                    style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/why-choose-six-single-bg.jpg') }}')">
+                                    style="background-image: url('{{ asset('storage/' . $item['hover_image']) }}');">
                                 </div>
                                 <div class="why-choose-six__content">
                                     <div class="why-choose-six__icon">
@@ -439,8 +442,7 @@
     <!--Testimonial Seven Start-->
     <section class="testimonial-seven">
         <div class="testimonial-seven__sec-img float-bob-x">
-            <img src="{{ asset('assets/images/update-17-06-2023/testimonial/testimonial-seven-sec-img-1.png') }}"
-                alt="">
+            <img src="{{ asset('storage/' . $homepage_settings->feedback_background_image) }}" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -726,8 +728,7 @@
                                     </div>
                                     <div class="process-two__img-border">
                                         <div class="process-two__img">
-                                            <img src="{{ asset('assets/images/update-17-06-2023/resources/process-2-1.jpg') }}"
-                                                alt="">
+                                            <img src="{{ asset('storage/' . $item['image']) }}" alt="">
                                             <div class="process-two__count"></div>
                                         </div>
                                     </div>

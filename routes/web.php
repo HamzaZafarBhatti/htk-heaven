@@ -19,8 +19,7 @@ Route::get('/cookie-policy', [HomeController::class, 'cookie_policy'])->name('ho
 Route::get('/terms-and-conditions', [HomeController::class, 'terms_and_conditions'])->name('home.terms-and-conditions');
 Route::get('/complaints-procedure', [HomeController::class, 'complaints_procedure'])->name('home.complaints-procedure');
 Route::get('/thankyou', [HomeController::class, 'thankyou_page'])->name('home.thankyou-page');
-Route::post('/upload', [UploadController::class, 'upload'])->name('upload');
-Route::post('/upload/revert', [UploadController::class, 'revert'])->name('upload.revert');
+Route::get('/service/{slug}', [HomeController::class, 'service_show'])->name('service.show');
 
 
 Route::middleware([Authenticate::class])->name('admin.')->prefix('admin')->group(function () {
