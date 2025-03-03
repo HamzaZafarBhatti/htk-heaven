@@ -222,7 +222,7 @@
                             <div class="services-seven__single">
                                 <h3 class="services-seven__title"><a href="">{{ $item['title'] }}</a></h3>
                                 <p class="services-seven__text">{!! $item['text'] !!}</p>
-                                <a href="{{ route('service.show', $item['url_slug']) }}"
+                                <a href="{{ route('service.show', ['slug' => $item['url_slug']]) }}"
                                     class="services-seven__btn thm-btn-four">Details<span
                                         class="fas fa-arrow-right"></span></a>
                                 <div class="services-seven__img">
@@ -235,7 +235,7 @@
                                     </div>
                                     <h3 class="services-seven__hover-title"><a href="">{{ $item['title'] }}</a>
                                     </h3>
-                                    <a href="{{ route('service.show', $item['url_slug']) }}"
+                                    <a href="{{ route('service.show', ['slug' => $item['url_slug']]) }}"
                                         class="services-seven__btn-two thm-btn-four">Details<span
                                             class="fas fa-arrow-right"></span></a>
                                 </div>
