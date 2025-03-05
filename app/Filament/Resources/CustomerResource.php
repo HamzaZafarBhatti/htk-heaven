@@ -2,10 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RoleResource\Pages;
-use App\Filament\Resources\RoleResource\RelationManagers;
+use App\Filament\Resources\CustomerResource\Pages;
+use App\Filament\Resources\CustomerResource\RelationManagers;
+use App\Models\User;
 use Filament\Forms;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -13,21 +13,29 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Spatie\Permission\Models\Role;
 
-class RoleResource extends Resource
+class CustomerResource extends Resource
 {
-    protected static ?string $model = Role::class;
+    protected static ?string $model = User::class;
 
     protected static ?string $navigationGroup = 'Users';
 
-    protected static ?int $navigationSort  = 3;
+    protected static ?int $navigationSort  = 1;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    public static function canAccess(): bool
+    protected static ?string $navigationLabel = 'Customers';
+
+    public static function getBreadcrumb(): string
     {
-        return auth()->user()->hasRole('Superadmin');
+        return 'Customers';
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->whereHas('roles', function ($query) {
+            $query->where('name', 'Customer');
+        });
     }
 
     public static function form(Form $form): Form
@@ -35,7 +43,6 @@ class RoleResource extends Resource
         return $form
             ->schema([
                 //
-                TextInput::make('name')->required()->unique(),
             ]);
     }
 
@@ -43,15 +50,15 @@ class RoleResource extends Resource
     {
         return $table
             ->columns([
-                //
-                TextColumn::make('name')->sortable()->searchable(),
+                TextColumn::make('name')->searchable()->sortable(),
+                TextColumn::make('email')->searchable()->sortable(),
+                TextColumn::make('created_at')->dateTime()->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -70,9 +77,9 @@ class RoleResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListRoles::route('/'),
-            // 'create' => Pages\CreateRole::route('/create'),
-            // 'edit' => Pages\EditRole::route('/{record}/edit'),
+            'index' => Pages\ListCustomers::route('/'),
+            'create' => Pages\CreateCustomer::route('/create'),
+            'edit' => Pages\EditCustomer::route('/{record}/edit'),
         ];
     }
 }
