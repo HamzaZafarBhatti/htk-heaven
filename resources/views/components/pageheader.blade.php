@@ -1,6 +1,5 @@
 <section class="page-header">
-    <div class="page-header-bg"
-        style="background-image: url('{{ asset('assets/images/backgrounds/page-header-bg.jpg') }}')">
+    <div class="page-header-bg" style="background-image: url('{{ asset('storage/' . $header_image) }}')">
 
     </div>
     <div class="page-header-shape-1"><img src="{{ asset('assets/images/shapes/page-header-shape-1.png') }}" alt="">

@@ -28,6 +28,7 @@
             @include('components.pageheader', [
                 'title' => $title ?? '',
                 'subTitle' => $subTitle ?? '',
+                'header_image' => $headerImage ?? '',
             ])
         @endif
 

@@ -7,6 +7,7 @@ use App\Http\Requests\AccidentClaimRequest;
 use App\Mail\AccidentClaimSubmitEmail;
 use App\Mail\AdminAccidentClaimSubmitEmail;
 use App\Models\InsuranceCoverType;
+use App\Models\Service;
 use App\Services\AccidentClaimService;
 use App\Settings\SiteSetting;
 use Illuminate\Http\Request;
@@ -84,5 +85,13 @@ class HomeController extends Controller
     public function complaints_procedure()
     {
         return view('frontend.complaints_procedure');
+    }
+
+    public function service_show($slug)
+    {
+        $service = Service::whereSlug($slug)->firstOrFail();
+        // $faq_chunks = collect($service->faqs)->chunk(2);
+        // return $faq_chunks->first();
+        return view('frontend.service_show', compact('service'));
     }
 }
