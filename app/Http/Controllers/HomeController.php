@@ -90,8 +90,6 @@ class HomeController extends Controller
     public function service_show($slug)
     {
         $service = Service::whereSlug($slug)->firstOrFail();
-        // $faq_chunks = collect($service->faqs)->chunk(2);
-        // return $faq_chunks->first();
         return view('frontend.service_show', compact('service'));
     }
 }
