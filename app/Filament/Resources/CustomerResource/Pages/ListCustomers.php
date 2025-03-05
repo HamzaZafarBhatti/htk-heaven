@@ -19,6 +19,6 @@ class ListCustomers extends ListRecords
 
     public function getTitle(): string
     {
-        return 'Admins';
+        return 'Customers';
     }
 }
