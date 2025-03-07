@@ -27091,3 +27091,7 @@ ul li ul .is-new-menu > a > span::after {
 .tooltip-inner {
     background-color: var(--insur-primary);
 }
+
+.invalid-feedback {
+    display: block;
+}
