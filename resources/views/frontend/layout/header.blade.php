@@ -77,14 +77,18 @@
                     </div>
                     <div class="main-menu-seven__right">
                         <div class="main-menu-seven__search-get-quote-btn">
-                            <div class="main-menu-seven__search-box">
-                                <a href="#"
-                                    class="main-menu-seven__search search-toggler icon-magnifying-glass"></a>
-                            </div>
                             <div class="main-menu-seven__get-quote-btn-box">
                                 <a href="{{ route('home.report-claim') }}"
                                     class="thm-btn-three main-menu-seven__get-quote-btn">Report a
                                     Claim<span class="fas fa-paper-plane"></span></a>
+                            </div>
+                            <div class="main-menu-seven__search-box">
+                                @auth
+                                    <a href="#" class="main-menu-seven__search search-toggler fas fa-user"></a>
+                                @else
+                                    <a href="{{ route('login') }}" class="thm-btn-three">Sign In <span
+                                            class="fas fa-sign-in-alt"></span></a>
+                                @endauth
                             </div>
                         </div>
                     </div>

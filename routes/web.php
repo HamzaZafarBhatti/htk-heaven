@@ -2,9 +2,20 @@
 
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UploadController;
+use App\Http\Controllers\ProfileController;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
@@ -12,7 +23,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/how-is-it-free', [HomeController::class, 'how_is_it_free'])->name('home.how-is-it-free');
 Route::get('/replacement-vehicle', [HomeController::class, 'replacement_vehicle'])->name('home.replacement-vehicle');
 Route::get('/accident-repairs', [HomeController::class, 'accident_repairs'])->name('home.accident-repairs');
-Route::get('/report-claim', [HomeController::class, 'report_claim'])->name('home.report-claim');
 Route::post('/report-claim', [HomeController::class, 'report_claim_store']);
 Route::get('/privacy-policy', [HomeController::class, 'privacy_policy'])->name('home.privacy-policy');
 Route::get('/cookie-policy', [HomeController::class, 'cookie_policy'])->name('home.cookie-policy');
@@ -22,6 +32,11 @@ Route::get('/thankyou', [HomeController::class, 'thankyou_page'])->name('home.th
 Route::get('/service/{slug?}', [HomeController::class, 'service_show'])->name('service.show');
 
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/report-claim', [HomeController::class, 'report_claim'])->name('home.report-claim');
+});
+
+
 Route::middleware([Authenticate::class])->name('admin.')->prefix('admin')->group(function () {
     Route::name('forms.')->prefix('forms')->group(function () {
         Route::get('/layout', [FormController::class, 'layout'])->name('layout');
@@ -29,3 +44,5 @@ Route::middleware([Authenticate::class])->name('admin.')->prefix('admin')->group
         // Route::get('/{record}/edit', \App\Filament\Resources\FormResource\Pages\EditForm::class)->name('edit');
     });
 });
+
+require __DIR__ . '/auth.php';

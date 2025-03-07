@@ -9,6 +9,7 @@ use App\Mail\AdminAccidentClaimSubmitEmail;
 use App\Models\InsuranceCoverType;
 use App\Models\Service;
 use App\Services\AccidentClaimService;
+use App\Settings\HomePageSetting;
 use App\Settings\SiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -16,9 +17,11 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(HomePageSetting $homepageSettings)
     {
-        return view('frontend.index');
+        return view('frontend.index', [
+            'homepageSettings' => $homepageSettings,
+        ]);
     }
     public function how_is_it_free()
     {

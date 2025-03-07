@@ -17,7 +17,7 @@
 @section('content')
     <!--Main Slider Start-->
     <section class="main-slider-seven clearfix">
-        @if ($homepage_settings->banner_slides)
+        @if ($homepageSettings->banner_slides)
             <div class="swiper-container thm-swiper__slider"
                 data-swiper-options='{"slidesPerView": 1, "loop": true,
                 "effect": "fade",
@@ -34,7 +34,7 @@
                 "delay": 5000
                 }}'>
                 <div class="swiper-wrapper">
-                    @foreach ($homepage_settings->banner_slides as $item)
+                    @foreach ($homepageSettings->banner_slides as $item)
                         <div class="swiper-slide">
                             <div class="main-slider-seven__bg"
                                 style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/main-slider-seven-bg.jpg') }}')">
@@ -105,10 +105,10 @@
     <!--About Eight Start-->
     <section class="about-eight">
         <div class="about-eight__img-three float-bob-x">
-            <img src="{{ asset('storage/' . $homepage_settings->aboutus_background_image_left) }}" alt="">
+            <img src="{{ asset('storage/' . $homepageSettings->aboutus_background_image_left) }}" alt="">
         </div>
         <div class="about-eight__img-four float-bob-y">
-            <img src="{{ asset('storage/' . $homepage_settings->aboutus_background_image_right) }}" alt="">
+            <img src="{{ asset('storage/' . $homepageSettings->aboutus_background_image_right) }}" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -116,19 +116,19 @@
                     <div class="about-eight__left">
                         <div class="about-eight__img-box">
                             <div class="about-eight__img">
-                                <img src="{{ asset('storage/' . $homepage_settings->aboutus_main_image_top) }}"
+                                <img src="{{ asset('storage/' . $homepageSettings->aboutus_main_image_top) }}"
                                     alt="">
                                 alt="">
                             </div>
                             <div class="about-eight__img-two">
-                                <img src="{{ asset('storage/' . $homepage_settings->aboutus_main_image_bottom) }}"
+                                <img src="{{ asset('storage/' . $homepageSettings->aboutus_main_image_bottom) }}"
                                     alt="">
                             </div>
                             <div class="about-eight__experience">
                                 <div class="about-eight__experience-shape"
                                     style="background-image: url('{{ asset('assets/images/update-17-06-2023/shapes/about-eight-experience-shape-1.png') }}')">
                                 </div>
-                                <h3>{{ $homepage_settings->aboutus_experience }}</h3>
+                                <h3>{{ $homepageSettings->aboutus_experience }}</h3>
                                 <p>Years Experience</p>
                             </div>
                         </div>
@@ -137,14 +137,14 @@
                 <div class="col-xl-7">
                     <div class="about-eight__right">
                         <div class="section-title-five text-left">
-                            <span class="section-title-five__tagline">{{ $homepage_settings->aboutus_tagline }}</span>
-                            <h2 class="section-title-five__title">{{ $homepage_settings->aboutus_title }}
+                            <span class="section-title-five__tagline">{{ $homepageSettings->aboutus_tagline }}</span>
+                            <h2 class="section-title-five__title">{{ $homepageSettings->aboutus_title }}
                             </h2>
                         </div>
-                        <p class="about-eight__text">{{ $homepage_settings->aboutus_text }}</p>
-                        @if ($homepage_settings->aboutus_services)
+                        <p class="about-eight__text">{{ $homepageSettings->aboutus_text }}</p>
+                        @if ($homepageSettings->aboutus_services)
                             <ul class="list-unstyled about-eight__service">
-                                @foreach ($homepage_settings->aboutus_services as $item)
+                                @foreach ($homepageSettings->aboutus_services as $item)
                                     <li>
                                         <div class="icon">
                                             <span class="{{ $item['icon'] }}"></span>
@@ -156,9 +156,9 @@
                                 @endforeach
                             </ul>
                         @endif
-                        @if ($homepage_settings->aboutus_points)
+                        @if ($homepageSettings->aboutus_points)
                             <ul class="list-unstyled about-eight__points">
-                                @foreach ($homepage_settings->aboutus_points as $item)
+                                @foreach ($homepageSettings->aboutus_points as $item)
                                     <li>
                                         <div class="icon">
                                             <span class="icon-tick"></span>
@@ -187,19 +187,19 @@
             style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/reg-insurance-bg.jpg') }}')">
         </div>
         <div class="reg-insurance__shape-1 float-bob-y"
-            style="background-image: url('{{ asset('storage/' . $homepage_settings->claim_status_background_image) }}')">
+            style="background-image: url('{{ asset('storage/' . $homepageSettings->claim_status_background_image) }}')">
         </div>
         <div class="reg-insurance__shape-2 float-bob-x">
             <img src="{{ asset('assets/images/update-17-06-2023/shapes/reg-insurance-shape-2.png') }}" alt="">
         </div>
         <div class="container">
             <div class="reg-insurance__inner">
-                <h3 class="reg-insurance__title">{{ $homepage_settings->claim_status_title }}</h3>
-                <p class="reg-insurance__text">{!! $homepage_settings->claim_status_text !!}</p>
+                <h3 class="reg-insurance__title">{{ $homepageSettings->claim_status_title }}</h3>
+                <p class="reg-insurance__text">{!! $homepageSettings->claim_status_text !!}</p>
                 <div class="reg-insurance__btn-box">
-                    <a href="}" class="reg-insurance__btn-one thm-btn-four">Register Free<span
+                    <a href="{{ route('register') }}" class="reg-insurance__btn-one thm-btn-four">Register Free<span
                             class="fas fa-arrow-right"></span></a>
-                    <a href="}" class="reg-insurance__btn-two thm-btn-four">Sign In<span
+                    <a href="{{ route('login') }}" class="reg-insurance__btn-two thm-btn-four">Sign In<span
                             class="fas fa-arrow-right"></span></a>
                 </div>
             </div>
@@ -211,12 +211,12 @@
     <section class="services-seven">
         <div class="container">
             <div class="section-title-five text-center">
-                <span class="section-title-five__tagline">{{ $homepage_settings->services_tagline }}</span>
-                <h2 class="section-title-five__title">{{ $homepage_settings->services_title }}</h2>
+                <span class="section-title-five__tagline">{{ $homepageSettings->services_tagline }}</span>
+                <h2 class="section-title-five__title">{{ $homepageSettings->services_title }}</h2>
             </div>
-            @if ($homepage_settings->service_items)
+            @if ($homepageSettings->service_items)
                 <div class="row">
-                    @foreach ($homepage_settings->service_items as $item)
+                    @foreach ($homepageSettings->service_items as $item)
                         <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
                             data-wow-delay="{{ $loop->iteration * 100 }}ms">
                             <div class="services-seven__single">
@@ -406,17 +406,17 @@
         <div class="container">
             <div class="why-choose-six__top">
                 <div class="section-title-five text-left">
-                    <span class="section-title-five__tagline">{{ $homepage_settings->why_us_tagline }}</span>
-                    <h2 class="section-title-five__title">{{ $homepage_settings->why_us_title }}</h2>
+                    <span class="section-title-five__tagline">{{ $homepageSettings->why_us_tagline }}</span>
+                    <h2 class="section-title-five__title">{{ $homepageSettings->why_us_title }}</h2>
                 </div>
                 <div class="why-choose-six__btn-box">
                     <a href="}" class="why-choose-six__btn thm-btn-four">View More<span
                             class="fas fa-arrow-right"></span></a>
                 </div>
             </div>
-            @if ($homepage_settings->why_us_items)
+            @if ($homepageSettings->why_us_items)
                 <div class="row">
-                    @foreach ($homepage_settings->why_us_items as $item)
+                    @foreach ($homepageSettings->why_us_items as $item)
                         <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="{{ $loop->iteration * 100 }}ms">
                             <div class="why-choose-six__single">
                                 <div class="why-choose-six__single-bg"
@@ -441,14 +441,14 @@
     <!--Testimonial Seven Start-->
     <section class="testimonial-seven">
         <div class="testimonial-seven__sec-img float-bob-x">
-            <img src="{{ asset('storage/' . $homepage_settings->feedback_background_image) }}" alt="">
+            <img src="{{ asset('storage/' . $homepageSettings->feedback_background_image) }}" alt="">
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-7">
                     <div class="testimonial-seven__left">
-                        <h3 class="testimonial-seven__title">{{ $homepage_settings->feedback_title }}</h3>
-                        @if ($homepage_settings->feedback_items)
+                        <h3 class="testimonial-seven__title">{{ $homepageSettings->feedback_title }}</h3>
+                        @if ($homepageSettings->feedback_items)
                             <div class="testimonial-seven__carousel-outer">
                                 <div class="testimonial-seven__quote">
                                     <img src="{{ asset('assets/images/update-17-06-2023/icon/testimonial-seven-quote-icon.png') }}"
@@ -479,7 +479,7 @@
                                         }
                                     }
                                 }'>
-                                    @foreach ($homepage_settings->feedback_items as $item)
+                                    @foreach ($homepageSettings->feedback_items as $item)
                                         <div class="item">
                                             <div class="testimonial-seven__single">
                                                 <p class="testimonial-seven__text">{{ $item['feedback'] }}</p>
@@ -713,13 +713,13 @@
     <section class="process-two">
         <div class="container">
             <div class="section-title-five text-center">
-                <span class="section-title-five__tagline">{{ $homepage_settings->process_tagline }}</span>
-                <h2 class="section-title-five__title">{{ $homepage_settings->process_text }}</h2>
+                <span class="section-title-five__tagline">{{ $homepageSettings->process_tagline }}</span>
+                <h2 class="section-title-five__title">{{ $homepageSettings->process_text }}</h2>
             </div>
             <div class="process-two__inner">
-                @if ($homepage_settings->process_items)
+                @if ($homepageSettings->process_items)
                     <ul class="process-two__list list-unstyled">
-                        @foreach ($homepage_settings->process_items as $item)
+                        @foreach ($homepageSettings->process_items as $item)
                             <li>
                                 <div class="process-two__single">
                                     <div class="process-two__arrow">
