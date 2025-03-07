@@ -1,7 +1,7 @@
 @extends('frontend.layout.layout')
 
 @php
-    $headTitle = 'Sign In';
+    $headTitle = 'Register';
     $counterone = 'false';
     $header = 'false';
     $script = '<script src="' . asset('assets/js/insur.js') . '"></script>';
