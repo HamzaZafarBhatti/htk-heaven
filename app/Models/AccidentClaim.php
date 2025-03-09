@@ -19,6 +19,7 @@ class AccidentClaim extends Model implements Auditable
         'car_registration_number',
         'accident_fault', // my-fault, somebody-else, fifty-fifty, not-sure
         'accident_location', // england/wales, scotland, northern-ireland
+        'accident_postcode',
         'is_car_roadworthy', // yes, no, not-sure
         'pictures',
         'privacy_policy_accepted'

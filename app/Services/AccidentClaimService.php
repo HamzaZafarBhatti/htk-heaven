@@ -14,6 +14,7 @@ class AccidentClaimService
         $accident_claim->full_name = $data['full_name'];
         $accident_claim->phone = $data['phone'];
         $accident_claim->accident_date = $data['accident_date'];
+        $accident_claim->accident_postcode = $data['accident_postcode'];
         $accident_claim->car_registration_number = $data['car_registration_number'];
         $accident_claim->accident_fault = $data['accident_fault'];
         $accident_claim->accident_location = $data['accident_location'];

@@ -22,6 +22,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Get;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -54,44 +55,59 @@ class RoadTrafficAccidentResource extends Resource
                             Section::make()
                                 ->schema([
                                     DatePicker::make('accident_reporting_date')
-                                        ->native(false),
+                                        ->native(false)
+                                        ->required(),
                                     TextInput::make('driver_reference')
-                                        ->label('Driver Reference (Driver Number)'),
+                                        ->label('Driver Reference (Driver Number)')
+                                        ->required(),
                                     TextInput::make('agreement_reference')
-                                        ->label('Agreement Reference Number'),
+                                        ->label('Agreement Reference Number')
+                                        ->required(),
                                 ])->columns(3),
                             Section::make('Driver Details')
                                 ->schema([
                                     Fieldset::make('Name')
                                         ->schema([
-                                            TextInput::make('title'),
-                                            TextInput::make('first_name'),
-                                            TextInput::make('last_name'),
+                                            TextInput::make('title')
+                                                ->required(),
+                                            TextInput::make('first_name')
+                                                ->required(),
+                                            TextInput::make('last_name')
+                                                ->required(),
                                         ])->columns(3),
                                     TextInput::make('email')
-                                        ->email(),
-                                    TextInput::make('phone'),
+                                        ->email()
+                                        ->required(),
+                                    TextInput::make('phone')
+                                        ->required(),
                                     DatePicker::make('dob')
                                         ->native(false)
-                                        ->label('Date of Birth'),
+                                        ->label('Date of Birth')
+                                        ->required(),
                                     TextInput::make('occupation'),
                                     Fieldset::make('Address')
                                         ->schema([
-                                            TextInput::make('address_line_1'),
-                                            TextInput::make('address_line_2'),
+                                            TextInput::make('address_line_1')
+                                                ->required(),
+                                            TextInput::make('address_line_2')
+                                                ->required(),
                                             Grid::make()
                                                 ->schema([
-                                                    TextInput::make('city'),
+                                                    TextInput::make('city')
+                                                        ->required(),
                                                     TextInput::make('postal_code')
-                                                        ->label('Postal / Zip Code'),
+                                                        ->label('Postal / Zip Code')
+                                                        ->required(),
                                                     Select::make('country')
                                                         ->options(CountryEnum::toArray())
                                                         ->searchable()
-                                                        ->default('GB'),
+                                                        ->default('GB')
+                                                        ->required(),
                                                 ])->columns(3),
                                         ]),
                                     TextInput::make('nin')
-                                        ->label('National Insurance Number'),
+                                        ->label('National Insurance Number')
+                                        ->required(),
                                     TextInput::make('injury_type')
                                         ->label('Type of Injury'),
                                     Grid::make()
@@ -120,15 +136,20 @@ class RoadTrafficAccidentResource extends Resource
                                     Grid::make()
                                         ->schema([
                                             TextInput::make('vehicle_registration_number')
-                                                ->label('Vehicle Registration'),
+                                                ->label('Vehicle Registration')
+                                                ->required(),
                                             TextInput::make('vehicle_make')
-                                                ->label('Make'),
+                                                ->label('Make')
+                                                ->required(),
                                             TextInput::make('vehicle_model')
-                                                ->label('Model'),
+                                                ->label('Model')
+                                                ->required(),
                                             TextInput::make('vehicle_colour')
-                                                ->label('Colour'),
+                                                ->label('Colour')
+                                                ->required(),
                                             TextInput::make('vehicle_year')
-                                                ->label('Year'),
+                                                ->label('Year')
+                                                ->required(),
                                         ])
                                         ->columns(5),
                                     Toggle::make('is_vehicle_road_worthy')
@@ -207,7 +228,8 @@ class RoadTrafficAccidentResource extends Resource
                                 ->schema([
                                     TextInput::make('passengers_count')
                                         ->label("Number of Pessengers in HTK Driver's Vehicle")
-                                        ->numeric(),
+                                        ->numeric()
+                                        ->required(),
                                     TextInput::make('tp_passengers_count')
                                         ->label("Number of Pessenger in Third Party's Vehicle")
                                         ->numeric(),
@@ -271,11 +293,14 @@ class RoadTrafficAccidentResource extends Resource
                                     Grid::make()
                                         ->schema([
                                             DatePicker::make('accident_date')
-                                                ->native(false),
+                                                ->native(false)
+                                                ->required(),
                                             TimePicker::make('accident_time')
-                                                ->seconds(false),
+                                                ->seconds(false)
+                                                ->required(),
                                             TextInput::make('accident_location')
-                                                ->label('Location / Postcode'),
+                                                ->label('Location / Postcode')
+                                                ->required(),
                                         ])->columns(3),
                                     TextInput::make('journey_purpose')
                                         ->label('Purpose of Journey'),
@@ -340,6 +365,7 @@ class RoadTrafficAccidentResource extends Resource
                                 ->columns(2),
                         ]),
                 ])
+                    ->skippable()
                     ->columnSpanFull(),
             ]);
     }
@@ -348,26 +374,69 @@ class RoadTrafficAccidentResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('rta_number')
+                    ->label('RTA Number')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('full_name')
+                    ->label('Name')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('accident_date')->date(),
+                TextColumn::make('accident_location')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('driver_wearing_seat_belt')
+                    ->label('Driver Wearing Seat Belt?')
+                    ->sortable(),
+                TextColumn::make('status')
+                    ->formatStateUsing(fn(string $state): string => match ($state) {
+                        'pending' => 'Pending',
+                        'in_progress' => 'In Progress',
+                        'approved' => 'Approved',
+                        'completed' => 'Completed',
+                        'rejected' => 'Rejected',
+                        default => $state,
+                    })
+                    ->badge()
+                    ->color(fn(string $state): string => match ($state) {
+                        'pending' => 'gray',
+                        'in_progress' => 'warning',
+                        'approved' => 'success',
+                        'completed' => 'info',
+                        'rejected' => 'danger',
+                    })
+                    ->sortable(),
+                TextColumn::make('vehicle_registration_number')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('insurance_company')
+                    ->description(fn(RoadTrafficAccident $record): string => $record->insurance_policy_number)
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('created_at')->date(),
             ])
             ->filters([
-                //
+                Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ForceDeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ]);
     }
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
@@ -377,5 +446,13 @@ class RoadTrafficAccidentResource extends Resource
             'create' => Pages\CreateRoadTrafficAccident::route('/create'),
             'edit' => Pages\EditRoadTrafficAccident::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
     }
 }

@@ -22,7 +22,7 @@ Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'i
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/how-is-it-free', [HomeController::class, 'how_is_it_free'])->name('home.how-is-it-free');
 Route::get('/replacement-vehicle', [HomeController::class, 'replacement_vehicle'])->name('home.replacement-vehicle');
-Route::get('/accident-repairs', [HomeController::class, 'accident_repairs'])->name('home.accident-repairs');
+Route::get('/report-claim', [HomeController::class, 'report_claim'])->name('home.report-claim');
 Route::post('/report-claim', [HomeController::class, 'report_claim_store']);
 Route::get('/privacy-policy', [HomeController::class, 'privacy_policy'])->name('home.privacy-policy');
 Route::get('/cookie-policy', [HomeController::class, 'cookie_policy'])->name('home.cookie-policy');
@@ -33,7 +33,7 @@ Route::get('/service/{slug?}', [HomeController::class, 'service_show'])->name('s
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/report-claim', [HomeController::class, 'report_claim'])->name('home.report-claim');
+    Route::get('/accident-repairs', [HomeController::class, 'accident_repairs'])->name('home.accident-repairs');
 });
 
 

@@ -188,19 +188,26 @@
                                                 <input type="email" name="email" required>
                                             </div>
                                         </div>
-                                        <div class="col-xl-4">
-                                            <div class="comment-form__input-box">
-                                                <label>Car registration <span class="text-danger">*</span></label>
-                                                <input type="text" name="car_registration_number" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-4">
+                                        <div class="col-xl-6">
                                             <div class="comment-form__input-box">
                                                 <label>Full name <span class="text-danger">*</span></label>
                                                 <input type="text" name="full_name" required>
                                             </div>
                                         </div>
-                                        <div class="col-xl-4">
+                                        <div class="col-xl-6">
+                                            <div class="comment-form__input-box">
+                                                <label>Car registration <span class="text-danger">*</span></label>
+                                                <input type="text" name="car_registration_number" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="comment-form__input-box">
+                                                <label>Accident Location Postcode <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" name="accident_postcode" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
                                             <div class="comment-form__input-box">
                                                 <label>When did the accident happen? <span
                                                         class="text-danger">*</span></label>
