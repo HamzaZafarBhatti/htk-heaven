@@ -17,7 +17,7 @@ class AccidentClaimService
         $accident_claim->accident_postcode = $data['accident_postcode'];
         $accident_claim->car_registration_number = $data['car_registration_number'];
         $accident_claim->accident_fault = $data['accident_fault'];
-        $accident_claim->accident_location = $data['accident_location'];
+        // $accident_claim->accident_location = $data['accident_location'];
         $accident_claim->is_car_roadworthy = $data['is_car_roadworthy'];
         $uploadedPaths = [];
         if (request()->hasFile('pictures')) {

@@ -54,6 +54,7 @@ class AccidentClaimResource extends Resource
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('accident_date')
+                    ->formatStateUsing(fn(string $state): string => \Carbon\Carbon::parse($state)->format('M d, Y'))
                     ->searchable()
                     ->sortable(),
             ])

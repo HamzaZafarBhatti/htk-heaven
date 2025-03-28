@@ -118,7 +118,6 @@
                             <div class="about-eight__img">
                                 <img src="{{ asset('storage/' . $homepageSettings->aboutus_main_image_top) }}"
                                     alt="">
-                                alt="">
                             </div>
                             <div class="about-eight__img-two">
                                 <img src="{{ asset('storage/' . $homepageSettings->aboutus_main_image_bottom) }}"

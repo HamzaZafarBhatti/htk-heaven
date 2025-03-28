@@ -28,12 +28,12 @@ class AccidentClaimRequest extends FormRequest
             'accident_date' => 'required|date',
             'car_registration_number' => 'required|string',
             'accident_fault' => 'required|string',
-            'accident_location' => 'required|string',
+            // 'accident_location' => 'required|string',
             'accident_postcode' => 'required|string',
             'is_car_roadworthy' => 'required|string',
             'pictures' => 'array',
             'pictures.*' => 'image|mimes:jpg,jpeg,png|max:2048',
-            'privacy_policy_accepted' => 'boolean',
+            'privacy_policy_accepted' => 'required|boolean',
         ];
     }
 }

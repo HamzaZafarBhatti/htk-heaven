@@ -27095,3 +27095,10 @@ ul li ul .is-new-menu > a > span::after {
 .invalid-feedback {
     display: block;
 }
+
+.text-primary {
+    color: var(--insur-primary) !important;
+}
+.text-base {
+    color: var(--insur-base) !important;
+}

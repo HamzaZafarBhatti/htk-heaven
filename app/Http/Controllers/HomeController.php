@@ -92,7 +92,9 @@ class HomeController extends Controller
 
     public function service_show($slug)
     {
-        $service = Service::whereSlug($slug)->firstOrFail();
-        return view('frontend.service_show', compact('service'));
+        // $service = Service::whereSlug($slug)->firstOrFail();
+        $serviceName = ucfirst(str_replace('-', ' ', $slug));
+
+        return view("frontend.services.$slug", compact('serviceName'));
     }
 }

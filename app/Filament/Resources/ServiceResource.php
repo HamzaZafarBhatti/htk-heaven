@@ -29,6 +29,12 @@ class ServiceResource extends Resource
     protected static ?string $model = Service::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    
+    public static function canAccess(): bool
+    {
+        return false;
+        return auth()->user()->hasRole('Superadmin');
+    }
 
     public static function form(Form $form): Form
     {
