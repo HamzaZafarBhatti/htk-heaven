@@ -5017,6 +5017,7 @@ ul {
     letter-spacing: 0.1em;
     line-height: 24px;
     font-weight: 500;
+    margin-bottom: 1rem;
 }
 
 .tracking__title {
@@ -5024,7 +5025,8 @@ ul {
     color: var(--insur-white);
     font-weight: 700;
     letter-spacing: var(--insur-letter-spacing);
-    line-height: 47px;
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
 .tracking__btn-box {
@@ -20479,7 +20481,7 @@ body.boxed-wrapper {
     position: relative;
     display: flex;
     align-items: center;
-    max-width: 248px;
+    max-width: 290px;
     width: 100%;
 }
 

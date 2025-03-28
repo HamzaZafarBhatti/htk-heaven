@@ -84,6 +84,68 @@
         .thm-btn {
             background-color: var(--insur-primary);
         }
+
+        @media (max-width: 576px) {
+            .section-1 .insurance-details__opportunities-points-title {
+                margin-top: 1rem !important;
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
+
+            .tracking__inner .tracking__icon {
+                display: none;
+            }
+
+            .tracking__inner .tracking__content {
+                margin: 0;
+            }
+
+            .tracking__title {
+                font-size: 30px;
+                line-height: 1.2;
+                text-align: center;
+            }
+
+            .tracking__sub-title {
+                text-align: center;
+            }
+
+            .insurance-details__points-left::before {
+                display: none;
+            }
+
+            .insurance-details__points li {
+                flex-direction: column;
+            }
+
+            .insurance-details__points-left {
+                flex-direction: column;
+            }
+
+            .insurance-details__points-title {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .insurance-details__points-right p {
+                text-align: center;
+                padding-left: 0;
+                padding-top: 15px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+            .insurance-details__opportunities {
+                flex-direction: row;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+            .insurance-details__opportunities {
+                flex-direction: row;
+            }
+        }
     </style>
 @endsection
 
@@ -91,7 +153,7 @@
     <section class="about-four">
         <div class="container">
             <div class="content">
-                <div class="insurance-details__opportunities row mt-0">
+                <div class="insurance-details__opportunities row mt-0 section-1">
                     <div class="col-md-5">
                         <div class="insurance-details__opportunities-img">
                             <img src="{{ asset('assets/images/update-10-02-2023/resources/insurance-details-opportunities-img.jpg') }}"
@@ -99,59 +161,57 @@
                         </div>
                     </div>
                     <div class="col-md-7">
-                        <div class="">
-                            <h3 class="insurance-details__opportunities-points-title">Recovering Your Vehicle From An
-                                Accident That Wasn't Your Fault</h3>
-                            <p class="insurance-details__opportunities-points-text">One of our Accident Management Services
-                                is recovering the customer's vehicle after a non-fault accident. Anyone can get stressed
-                                once their car collides with another driver's vehicle. In such cases, reach out to our
-                                professionals instead of contacting your insurer. We will efficiently and quickly recover
-                                your automobile and get you back on the roads without causing financial distress in record
-                                time. Our services are available 24/7 for all the not-at-fault clients nationwide.</p>
-                            <p class="insurance-details__opportunities-points-text">
-                                Besides that, our other Accident Management Services include:
-                            </p>
-                            <ul class="insurance-details__opportunities-list list-unstyled">
-                                <li>
-                                    <div class="icon">
-                                        <span class="fa fa-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p>Claims Handling</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="fa fa-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p>Comparable Vehicle</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="fa fa-check"></span>
-                                    </div>
-                                    <div class="text">
-                                        <p>Vehicle Repair</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <h3 class="insurance-details__opportunities-points-title">Recovering Your Vehicle From An
+                            Accident That Wasn't Your Fault</h3>
+                        <p class="insurance-details__opportunities-points-text">One of our Accident Management Services
+                            is recovering the customer's vehicle after a non-fault accident. Anyone can get stressed
+                            once their car collides with another driver's vehicle. In such cases, reach out to our
+                            professionals instead of contacting your insurer. We will efficiently and quickly recover
+                            your automobile and get you back on the roads without causing financial distress in record
+                            time. Our services are available 24/7 for all the not-at-fault clients nationwide.</p>
+                        <p class="insurance-details__opportunities-points-text">
+                            Besides that, our other Accident Management Services include:
+                        </p>
+                        <ul class="insurance-details__opportunities-list list-unstyled">
+                            <li>
+                                <div class="icon">
+                                    <span class="fa fa-check"></span>
+                                </div>
+                                <div class="text">
+                                    <p>Claims Handling</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <span class="fa fa-check"></span>
+                                </div>
+                                <div class="text">
+                                    <p>Comparable Vehicle</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <span class="fa fa-check"></span>
+                                </div>
+                                <div class="text">
+                                    <p>Vehicle Repair</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="tracking__inner">
                     <div class="tracking-shape-1 float-bob-y">
-                        <img src="http://127.0.0.1:8001/assets/images/shapes/tracking-shape-1.png" alt="">
+                        <img src="{{ asset('assets/images/shapes/tracking-shape-1.png') }}" alt="">
                     </div>
                     <div class="tracking-shape-2 float-bob-x">
-                        <img src="http://127.0.0.1:8001/assets/images/shapes/tracking-shape-2.png" alt="">
+                        <img src="{{ asset('assets/images/shapes/tracking-shape-2.png') }}" alt="">
                     </div>
                     <div class="tracking-shape-3 float-bob-x">
-                        <img src="http://127.0.0.1:8001/assets/images/shapes/tracking-shape-3.png" alt="">
+                        <img src="{{ asset('assets/images/shapes/tracking-shape-3.png') }}" alt="">
                     </div>
                     <div class="tracking-shape-4 float-bob-y">
-                        <img src="http://127.0.0.1:8001/assets/images/shapes/tracking-shape-4.png" alt="">
+                        <img src="{{ asset('assets/images/shapes/tracking-shape-4.png') }}" alt="">
                     </div>
                     <div class="tracking__left">
                         <div class="d-flex">
@@ -195,7 +255,7 @@
                             <li>
                                 <div class="insurance-details__points-left">
                                     <div class="insurance-details__points-icon">
-                                        <span class="fas fa-phone-square"></span>
+                                        <span class="fas fa-phone-square text-center" style="width: 44px;"></span>
                                     </div>
                                     <h3 class="insurance-details__points-title">Contact SAS</h3>
                                 </div>
