@@ -408,13 +408,13 @@
                         <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
                             <div class="accrodion active">
                                 <div class="accrodion-title">
-                                    <h4><span>?</span> Who will recover my vehicle post-accident?</h4>
+                                    <h4><span>?</span> What do you know about claims management?</h4>
                                 </div>
                                 <div class="accrodion-content">
                                     <div class="inner">
-                                        <p>After a non-fault accident, the best possible you will left with is Swift
-                                            Accident Solutions. We will manage accident recovery for you from beginning to
-                                            end without any cost.</p>
+                                        <p>Claims handling is a service provided to a customer meeting a non-faulty accident
+                                            and filing a non-fault insurance claim. The team managing the claim proceeds
+                                            against the at-fault driver's insurer and recovers the accident cost.</p>
                                     </div><!-- /.inner -->
                                 </div>
                             </div>
@@ -426,15 +426,67 @@
                         <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-2">
                             <div class="accrodion active">
                                 <div class="accrodion-title">
-                                    <h4><span>?</span> Will it be appropriate to contact our insurer for accident recovery?
-                                    </h4>
+                                    <h4><span>?</span> Who can use your claims management service?</h4>
                                 </div>
                                 <div class="accrodion-content">
                                     <div class="inner">
-                                        <p>It isn't recommended as long as you are not guilty after an accident. It is so
-                                            because your insurer can start a claim against your own policy apart from
-                                            recovering your vehicle. It can be considered your protection; however, it can
-                                            negatively affect your insurance and risk your no-claims bonus.</p>
+                                        <p>All the people involved in an accident who aren't at fault can avail of our
+                                            claims handling service free of cost across the UK.</p>
+                                    </div><!-- /.inner -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="faq-one__single">
+                        <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-3">
+                            <div class="accrodion active">
+                                <div class="accrodion-title">
+                                    <h4><span>?</span> What is included in your claims handling procedure?</h4>
+                                </div>
+                                <div class="accrodion-content">
+                                    <div class="inner">
+                                        <p>The claims handling process includes everything about a non-fault claim from
+                                            start to end. It includes drafting your case, collecting evidence, and
+                                            negotiating with the at-fault driver's insurer to reach a final settlement to
+                                            recover accident costs. At Swift Accident Solutions, a dedicated claim handler
+                                            will manage the things listed below.</p>
+                                        <ul class="insurance-details__opportunities-list list-unstyled">
+                                            <li>
+                                                <div class="text-primary">
+                                                    <span class="fa fa-check"></span>
+                                                </div>
+                                                <div class="ms-3">
+                                                    <p>Arrange your like-4-like replacement vehicle.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="text-primary">
+                                                    <span class="fa fa-check"></span>
+                                                </div>
+                                                <div class="ms-3">
+                                                    <p>Organize your damaged vehicle repair.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="text-primary">
+                                                    <span class="fa fa-check"></span>
+                                                </div>
+                                                <div class="ms-3">
+                                                    <p>Handle evidence and negotiate with the at-fault driver's insurance
+                                                        company.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="text-primary">
+                                                    <span class="fa fa-check"></span>
+                                                </div>
+                                                <div class="ms-3">
+                                                    <p>Claims accident costs and get your vehicle back on the road.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div><!-- /.inner -->
                                 </div>
                             </div>
