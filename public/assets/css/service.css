@@ -1,0 +1,175 @@
+.insurance-details__opportunities-img {
+    max-width: unset;
+}
+
+.tracking__inner {
+    background-color: var(--insur-primary);
+    border-radius: 20px;
+}
+
+.tracking__sub-title {
+    color: var(--insur-white);
+    font-size: 16px;
+    text-transform: none;
+}
+
+.tracking__left {
+    flex-direction: column;
+}
+
+.why-list li {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.why-list li div {
+    display: flex;
+    align-items: center;
+}
+
+.why-list li > p {
+    margin-left: 30px;
+}
+
+.insurance-details__age-box {
+    display: block;
+    margin: 55px 0 0;
+}
+
+.procedure-container {
+    background-color: var(--insur-black);
+    padding: 4rem 1rem;
+}
+
+.procedure-container p,
+.procedure-container h4,
+.procedure-container h5 {
+    color: var(--insur-white);
+}
+
+.procedure-title {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+}
+
+.step-cards {
+    border: none;
+    background: linear-gradient(
+        to bottom,
+        #0b8f3b 0,
+        rgb(255 255 255 / 0%) 100%
+    );
+    padding: 4rem;
+    border-radius: 2rem;
+}
+
+.step-cards .icon {
+    color: #007bff;
+    mix-blend-mode: hue;
+}
+
+.thm-btn {
+    background-color: var(--insur-primary);
+}
+
+.testimonial-one__text {
+    font-size: 26px;
+    line-height: 1.2;
+    position: relative;
+    font-weight: 700;
+}
+
+.testimonial-one__single:hover .testimonial-one__text {
+    color: var(--insur-black);
+}
+
+.tracking_icon {
+    color: var(--insur-primary);
+    font-size: 44px;
+    margin-bottom: 1rem;
+}
+
+.tracking_item {
+    background: var(--insur-white);
+    padding: 3rem 2rem;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.testimonial-one__single-inner {
+    display: flex;
+    align-items: center;
+    height: 182px;
+    max-height: 182px;
+}
+.disclaimer {
+    text-align: center;
+    border: 1px solid var(--insur-base);
+    border-radius: 1rem;
+    padding: 10px;
+    color: var(--insur-base);
+    font-weight: 700;
+}
+
+@media (max-width: 576px) {
+    .section-1 .insurance-details__opportunities-points-title {
+        margin-top: 1rem !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .tracking__inner .tracking__icon {
+        display: none;
+    }
+
+    .tracking__inner .tracking__content {
+        margin: 0;
+    }
+
+    .tracking__title {
+        font-size: 30px;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .tracking__sub-title {
+        text-align: center;
+    }
+
+    .insurance-details__points-left::before {
+        display: none;
+    }
+
+    .insurance-details__points li {
+        flex-direction: column;
+    }
+
+    .insurance-details__points-left {
+        flex-direction: column;
+    }
+
+    .insurance-details__points-title {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .insurance-details__points-right p {
+        text-align: center;
+        padding-left: 0;
+        padding-top: 15px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .insurance-details__opportunities {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .insurance-details__opportunities {
+        flex-direction: row;
+    }
+}
