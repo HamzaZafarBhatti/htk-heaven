@@ -34,7 +34,7 @@
     <section class="about-four">
         <div class="container">
             <div class="content">
-                <div class="insurance-details__opportunities row mt-0">
+                <div class="insurance-details__opportunities row mt-0 section-1">
                     <div class="col-md-5">
                         <div class="insurance-details__opportunities-img">
                             <img src="{{ asset('assets/images/update-10-02-2023/resources/insurance-details-opportunities-img.jpg') }}"
