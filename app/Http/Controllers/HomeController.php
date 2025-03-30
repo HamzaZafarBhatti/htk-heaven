@@ -71,7 +71,7 @@ class HomeController extends Controller
     }
     public function thankyou_page()
     {
-        // return view('frontend.thankyou_page');
+        return view('frontend.thankyou_page');
     }
     public function privacy_policy()
     {

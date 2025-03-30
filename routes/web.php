@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('/how-is-it-free', [HomeController::class, 'how_is_it_free'])->name('home.how-is-it-free');
+// Route::get('/how-is-it-free', [HomeController::class, 'how_is_it_free'])->name('home.how-is-it-free');
 Route::get('/replacement-vehicle', [HomeController::class, 'replacement_vehicle'])->name('home.replacement-vehicle');
 Route::get('/report-claim', [HomeController::class, 'report_claim'])->name('home.report-claim');
 Route::post('/report-claim', [HomeController::class, 'report_claim_store']);

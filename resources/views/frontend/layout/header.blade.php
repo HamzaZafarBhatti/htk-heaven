@@ -61,11 +61,11 @@
                                 </li>
                                 <li class="dropdown">
                                     <a href="#"
-                                        class="{{ Route::is(['home.how-is-it-free', 'home.replacement-vehicle', 'home.report-claim']) ? 'current' : '' }}">
+                                        class="{{ Route::is([/* 'home.how-is-it-free', */ 'home.replacement-vehicle', 'home.report-claim']) ? 'current' : '' }}">
                                         Our Services
                                     </a>
                                     <ul>
-                                        <li><a href="{{ route('home.how-is-it-free') }}">How is it Free?</a></li>
+                                        {{-- <li><a href="{{ route('home.how-is-it-free') }}">How is it Free?</a></li> --}}
                                         <li><a href="{{ route('home.replacement-vehicle') }}">Replacement Vehicle</a>
                                         </li>
                                         <li><a href="{{ route('home.report-claim') }}">Accident Repairs</a>
