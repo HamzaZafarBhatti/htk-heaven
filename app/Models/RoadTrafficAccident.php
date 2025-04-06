@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\RTAStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -115,6 +116,7 @@ class RoadTrafficAccident extends Model implements Auditable
     }
 
     protected $casts = [
+        'status' => RTAStatusEnum::class,
         'pictures' => 'array',
         'others' => 'array',
     ];

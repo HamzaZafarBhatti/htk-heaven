@@ -63,11 +63,9 @@ class RoadTrafficAccidentResource extends Resource
                                         ->native(false)
                                         ->required(),
                                     TextInput::make('driver_reference')
-                                        ->label('Driver Reference (Driver Number)')
-                                        ->required(),
+                                        ->label('Driver Reference (Driver Number)'),
                                     TextInput::make('agreement_reference')
-                                        ->label('Agreement Reference Number')
-                                        ->required(),
+                                        ->label('Agreement Reference Number'),
                                 ])->columns(3),
                             Section::make('Driver Details')
                                 ->schema([
@@ -94,8 +92,7 @@ class RoadTrafficAccidentResource extends Resource
                                         ->schema([
                                             TextInput::make('address_line_1')
                                                 ->required(),
-                                            TextInput::make('address_line_2')
-                                                ->required(),
+                                            TextInput::make('address_line_2'),
                                             Grid::make()
                                                 ->schema([
                                                     TextInput::make('city')
@@ -233,8 +230,7 @@ class RoadTrafficAccidentResource extends Resource
                                 ->schema([
                                     TextInput::make('passengers_count')
                                         ->label("Number of Pessengers in HTK Driver's Vehicle")
-                                        ->numeric()
-                                        ->required(),
+                                        ->numeric(),
                                     TextInput::make('tp_passengers_count')
                                         ->label("Number of Pessenger in Third Party's Vehicle")
                                         ->numeric(),
@@ -392,18 +388,9 @@ class RoadTrafficAccidentResource extends Resource
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('status')
-                    ->formatStateUsing(fn(string $state): string => match ($state) {
-                        'pending' => 'Pending',
-                        'in_progress' => 'In Progress',
-                        'completed' => 'Completed',
-                        default => $state,
-                    })
+                    ->formatStateUsing(fn(RtaStatusEnum $state): string => $state->getLabel())
                     ->badge()
-                    ->color(fn(string $state): string => match ($state) {
-                        'pending' => 'gray',
-                        'in_progress' => 'info',
-                        'completed' => 'success',
-                    })
+                    ->color(fn(RtaStatusEnum $state): string => $state->getColor())
                     ->sortable(),
                 TextColumn::make('created_at')->date(),
             ])

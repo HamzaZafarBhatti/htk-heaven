@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('road_traffic_accident_witnesses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('road_traffic_accident_id')->constrained(table: 'road_traffic_accidents', indexName: 'rta_witness_road_traffic_accident_id_foreign')->cascadeOnDelete()->name;
+            $table->foreignId('road_traffic_accident_id')->constrained(table: 'road_traffic_accidents', indexName: 'rta_witness_road_traffic_accident_id_foreign')->cascadeOnDelete();
             // independant witness
             $table->string('witness_title')->nullable();
             $table->string('witness_first_name')->nullable();

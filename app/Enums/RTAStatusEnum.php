@@ -17,6 +17,15 @@ enum RTAStatusEnum: string
         };
     }
 
+    public function getColor(): string
+    {
+        return match ($this) {
+            self::PENDING => "gray",
+            self::IN_PROGRESS => "info",
+            self::COMPLETED => "success",
+        };
+    }
+
     public static function toArray(): array
     {
         return array_column(
