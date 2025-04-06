@@ -64,11 +64,11 @@ return new class extends Migration
             $table->text('circumstances')->nullable();
             $table->text('notes')->nullable();
             // pictures
-            $table->json('pictures')->default('[]');
+            $table->json('pictures')->default(null);
             $table->string('insurance_certificate')->nullable();
             $table->string('contract')->nullable();
             $table->string('id_proof')->nullable();
-            $table->json('others')->default('[]');
+            $table->json('others')->default(null);
             // signature
             $table->text('signature')->nullable();
             $table->date('signature_date')->nullable();
