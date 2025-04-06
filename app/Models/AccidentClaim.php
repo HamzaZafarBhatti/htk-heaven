@@ -22,6 +22,7 @@ class AccidentClaim extends Model implements Auditable
         'accident_postcode',
         'is_car_roadworthy', // yes, no, not-sure
         'pictures',
+        'user_id',
         'privacy_policy_accepted'
     ];
 

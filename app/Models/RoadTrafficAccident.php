@@ -67,7 +67,19 @@ class RoadTrafficAccident extends Model implements Auditable
         'others',
         'signature',
         'signature_date',
+        'user_id',
+        'accident_claim_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function accident_claim()
+    {
+        return $this->belongsTo(AccidentClaim::class, 'accident_claim_id');
+    }
 
     public function cover_type()
     {
@@ -82,6 +94,11 @@ class RoadTrafficAccident extends Model implements Auditable
     public function witness(): HasOne
     {
         return $this->hasOne(RoadTrafficAccidentWitness::class, 'road_traffic_accident_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(RoadTrafficAccidentComment::class, 'road_traffic_accident_id');
     }
 
     public function getFullNameAttribute(): string

@@ -10315,6 +10315,7 @@ ul {
 .comment-form__input-box input[type="text"],
 .comment-form__input-box input[type="date"],
 .comment-form__input-box input[type="time"],
+.comment-form__input-box input[type="password"],
 .comment-form__input-box select,
 .comment-form__input-box input[type="email"] {
     height: 60px;

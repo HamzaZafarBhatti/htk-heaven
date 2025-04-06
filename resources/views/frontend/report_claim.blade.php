@@ -205,7 +205,9 @@
                                         <div class="col-xl-6">
                                             <div class="comment-form__input-box">
                                                 <label>Email <span class="text-danger">*</span></label>
-                                                <input type="email" name="email" required>
+                                                <input type="email" name="email"
+                                                    @if (!empty($user)) value="{{ $user->email }}" readonly @endif
+                                                    required>
                                                 @error('email')
                                                     <label class="invalid-feedback eror">{{ $message }}</label>
                                                 @enderror
@@ -214,7 +216,9 @@
                                         <div class="col-xl-6">
                                             <div class="comment-form__input-box">
                                                 <label>Full name <span class="text-danger">*</span></label>
-                                                <input type="text" name="full_name" required>
+                                                <input type="text" name="full_name"
+                                                    @if (!empty($user)) value="{{ $user->name }}" readonly @endif
+                                                    required>
                                                 @error('full_name')
                                                     <label class="invalid-feedback eror">{{ $message }}</label>
                                                 @enderror

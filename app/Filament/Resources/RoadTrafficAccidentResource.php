@@ -3,15 +3,19 @@
 namespace App\Filament\Resources;
 
 use App\Enums\CountryEnum;
+use App\Enums\RTAStatusEnum;
 use App\Filament\Resources\RoadTrafficAccidentResource\Pages;
 use App\Filament\Resources\RoadTrafficAccidentResource\RelationManagers;
 use App\Models\RoadTrafficAccident;
+use App\Models\RoadTrafficAccidentComment;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Fieldset;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -20,6 +24,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -32,10 +37,6 @@ class RoadTrafficAccidentResource extends Resource
     protected static ?string $model = RoadTrafficAccident::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-
-    protected static ?string $navigationGroup = 'Forms';
-
-    protected static ?int $navigationSort  = 2;
 
     public static function canAccess(): bool
     {
@@ -52,6 +53,10 @@ class RoadTrafficAccidentResource extends Resource
                 Wizard::make([
                     Wizard\Step::make('Driver Details')
                         ->schema([
+                            Hidden::make('user_id')
+                                ->default(fn() => request()->get('user_id')),
+                            Hidden::make('accident_claim_id')
+                                ->default(fn() => request()->get('accident_claim_id')),
                             Section::make()
                                 ->schema([
                                     DatePicker::make('accident_reporting_date')
@@ -386,44 +391,75 @@ class RoadTrafficAccidentResource extends Resource
                 TextColumn::make('accident_location')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('driver_wearing_seat_belt')
-                    ->label('Driver Wearing Seat Belt?')
-                    ->sortable(),
                 TextColumn::make('status')
                     ->formatStateUsing(fn(string $state): string => match ($state) {
                         'pending' => 'Pending',
                         'in_progress' => 'In Progress',
-                        'approved' => 'Approved',
                         'completed' => 'Completed',
-                        'rejected' => 'Rejected',
                         default => $state,
                     })
                     ->badge()
                     ->color(fn(string $state): string => match ($state) {
                         'pending' => 'gray',
-                        'in_progress' => 'warning',
-                        'approved' => 'success',
-                        'completed' => 'info',
-                        'rejected' => 'danger',
+                        'in_progress' => 'info',
+                        'completed' => 'success',
                     })
-                    ->sortable(),
-                TextColumn::make('vehicle_registration_number')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('insurance_company')
-                    ->description(fn(RoadTrafficAccident $record): string => $record->insurance_policy_number)
-                    ->searchable()
                     ->sortable(),
                 TextColumn::make('created_at')->date(),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                Tables\Filters\SelectFilter::make('status')
+                    ->options(RTAStatusEnum::toArray())
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
-                Tables\Actions\ForceDeleteAction::make(),
-                Tables\Actions\RestoreAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\Action::make('addComment')
+                        ->label('Add Comment')
+                        ->icon('heroicon-o-chat-bubble-bottom-center-text')
+                        ->modalHeading('Add Comment')
+                        ->form([
+                            Hidden::make('road_traffic_accident_id')
+                                ->default(fn(RoadTrafficAccident $record) => $record->id),
+
+                            TextInput::make('message')
+                                ->label('Comment')
+                                ->required()
+                                ->maxLength(500),
+
+                            Toggle::make('is_hidden')
+                                ->label('Private Comment'),
+                        ])
+                        ->action(function (array $data) {
+                            try {
+                                RoadTrafficAccidentComment::create([
+                                    'road_traffic_accident_id' => $data['road_traffic_accident_id'],
+                                    'message' => $data['message'],
+                                    'is_hidden' => $data['is_hidden'] ?? false,
+                                    'created_by' => auth()->id(),
+                                ]);
+
+                                Notification::make()
+                                    ->title('Comment added successfully')
+                                    ->success()
+                                    ->send();
+                            } catch (\Exception $e) {
+                                Notification::make()
+                                    ->title('Something went wrong')
+                                    ->danger()
+                                    ->send();
+                            }
+                        }),
+                    Tables\Actions\Action::make('viewComments')
+                        ->label('View Comments')
+                        ->icon('heroicon-o-eye')
+                        ->url(fn($record) => route('filament.admin.resources.road-traffic-accidents.comments', $record)),
+                    Tables\Actions\ForceDeleteAction::make(),
+                    Tables\Actions\RestoreAction::make(),
+                ])
+                    ->icon('heroicon-m-ellipsis-vertical')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -431,7 +467,8 @@ class RoadTrafficAccidentResource extends Resource
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('created_at', 'desc');
     }
 
     public static function getRelations(): array

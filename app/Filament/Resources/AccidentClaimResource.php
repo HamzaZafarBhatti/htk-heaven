@@ -63,6 +63,14 @@ class AccidentClaimResource extends Resource
             ])
             ->actions([
                 // Tables\Actions\EditAction::make(),
+                Action::make('createClaim')
+                    ->label('Start Claim')
+                    ->color('success')
+                    ->icon('heroicon-o-plus')
+                    ->url(fn(AccidentClaim $record) => RoadTrafficAccidentResource::getUrl('create', [
+                        'accident_claim_id' => $record->id,
+                        'user_id' => $record->user_id,
+                    ])),
                 Action::make('viewDetails')
                     ->label('View')
                     ->icon('heroicon-o-eye')

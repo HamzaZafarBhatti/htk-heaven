@@ -20,4 +20,9 @@ class CreateAdmin extends CreateRecord
     {
         $this->record->assignRole('Admin');
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl(); // redirects to index
+    }
 }

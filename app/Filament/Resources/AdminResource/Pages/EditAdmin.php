@@ -21,4 +21,9 @@ class EditAdmin extends EditRecord
     {
         return 'Edit Admin'; // Change Users to Admins
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl(); // redirects to index
+    }
 }

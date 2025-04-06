@@ -3,6 +3,9 @@
     <!-- /.search-popup__overlay -->
     <div class="search-popup__content">
         <div class="user-dropdown-menu">
+            <a href="{{ route('profile.edit') }}">
+                <h2><i class="fas fa-user"></i> Profile</h2>
+            </a>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">

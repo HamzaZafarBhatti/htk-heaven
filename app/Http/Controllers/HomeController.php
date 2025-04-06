@@ -33,32 +33,9 @@ class HomeController extends Controller
     }
     public function report_claim()
     {
-        return view('frontend.report_claim');
-    }
-    public function report_claim_store(AccidentClaimRequest $request, AccidentClaimService $accidentClaimService, SiteSetting $siteSetting)
-    {
-        $data = $request->validated();
-        try {
-            $accident_claim = $accidentClaimService->store($data);
-            try {
-                Mail::to($accident_claim->email)->send(new AccidentClaimSubmitEmail(
-                    name: $accident_claim->full_name,
-                    car_registration_number: $accident_claim->car_registration_number,
-                ));
-                Mail::to($siteSetting->email)->send(new AdminAccidentClaimSubmitEmail(
-                    name: $accident_claim->full_name,
-                    car_registration_number: $accident_claim->car_registration_number,
-                    phone: $accident_claim->phone,
-                    email: $accident_claim->email,
-                ));
-            } catch (\Throwable $th) {
-                Log::error($th->getMessage());
-            }
-            return redirect()->route('home.thankyou-page');
-        } catch (\Throwable $th) {
-            Log::error($th->getMessage());
-            return back()->with('error', 'Something went wrong!');
-        }
+        return view('frontend.report_claim', [
+            'user' => auth()->user(),
+        ]);
     }
     public function accident_repairs()
     {

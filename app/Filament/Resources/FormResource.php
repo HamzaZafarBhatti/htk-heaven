@@ -26,8 +26,8 @@ class FormResource extends Resource
 
     public static function canAccess(): bool
     {
-        return auth()->user()->hasRole('Superadmin');
-        // return false;
+        // return auth()->user()->hasRole('Superadmin');
+        return false;
     }
 
     public static function form(Form $form): Form
