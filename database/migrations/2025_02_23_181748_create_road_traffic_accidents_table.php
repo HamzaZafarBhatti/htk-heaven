@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('insurance_company')->nullable();
             $table->string('insurance_policy_number')->nullable();
             $table->string('insurance_company_phone')->nullable();
-            $table->foreignId('cover_type_id')->constrained('insurance_cover_types')->restrictOnDelete()->nullable();
+            $table->foreignId('cover_type_id')->constrained('insurance_cover_types')->restrictOnDelete();
             $table->boolean('is_police_reported')->default(false);
             $table->string('cad_reference_number')->nullable();
             // vehicle details
