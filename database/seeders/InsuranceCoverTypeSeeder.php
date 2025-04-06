@@ -24,7 +24,9 @@ class InsuranceCoverTypeSeeder extends Seeder
                 'is_active' => true,
             ]
         ];
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
         DB::table('insurance_cover_types')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
         InsuranceCoverType::insert($cover_types);
     }
 }
