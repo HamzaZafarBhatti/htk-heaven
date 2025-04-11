@@ -66,7 +66,8 @@
                                     </a>
                                     <ul>
                                         {{-- <li><a href="{{ route('home.how-is-it-free') }}">How is it Free?</a></li> --}}
-                                        <li><a href="{{ route('home.replacement-vehicle') }}">Replacement Vehicle</a>
+                                        <li><a href="{{ route('service.show', ['slug' => 'comparable-vehicle']) }}">Replacement
+                                                Vehicle</a>
                                         </li>
                                         <li><a href="{{ route('home.report-claim') }}">Accident Repairs</a>
                                         </li>

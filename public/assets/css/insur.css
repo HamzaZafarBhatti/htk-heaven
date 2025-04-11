@@ -24633,9 +24633,9 @@ ul li ul .is-new-menu > a > span::after {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     flex-wrap: wrap;
-    margin-top: 33px;
+    /* margin-top: 33px; */
 }
 
 .reg-insurance__btn-two {
@@ -26930,20 +26930,11 @@ ul li ul .is-new-menu > a > span::after {
 
 .main-slider-seven__email {
     position: relative;
-    display: block;
-    max-width: 530px;
+    display: flex;
     width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transform: translateY(120px);
-    transform: translateY(120px);
-    -webkit-transition-delay: 1000ms;
-    transition-delay: 1000ms;
-    -webkit-transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
-    transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
-    transition: transform 2000ms ease, opacity 2000ms ease;
-    transition: transform 2000ms ease, opacity 2000ms ease,
-        -webkit-transform 2000ms ease;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
 }
 
 .main-slider-seven__email-box {
@@ -26956,15 +26947,16 @@ ul li ul .is-new-menu > a > span::after {
     display: block;
 }
 
-.main-slider-seven__email-input-box input[type="email"] {
+.main-slider-seven__email-input-box input[type="email"],
+.main-slider-seven__email-input-box input[type="text"] {
     height: 62px;
     width: 100%;
     background-color: var(--insur-white);
     outline: none;
     font-size: 15px;
     border: none;
-    padding-left: 60px;
-    padding-right: 160px;
+    padding-left: 20px;
+    padding-right: 130px;
     color: var(--insur-gray);
 }
 

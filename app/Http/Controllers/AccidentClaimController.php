@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AccidentClaimRequest;
 use App\Mail\AccidentClaimSubmitEmail;
 use App\Mail\AdminAccidentClaimSubmitEmail;
+use App\Models\RoadTrafficAccident;
+use App\Models\RoadTrafficAccidentComment;
 use App\Services\AccidentClaimService;
 use App\Settings\SiteSetting;
 use Illuminate\Http\Request;
@@ -16,8 +18,10 @@ class AccidentClaimController extends Controller
     //
     public function index()
     {
-        return view('frontend.dashboard.claims.index');
+        $claims = RoadTrafficAccident::with('accident_claim')->where('user_id', auth()->user()->id)->get();
+        return view('frontend.dashboard.claims.index', compact('claims'));
     }
+
     public function store(AccidentClaimRequest $request, AccidentClaimService $accidentClaimService, SiteSetting $siteSetting)
     {
         $data = $request->validated();
@@ -42,5 +46,18 @@ class AccidentClaimController extends Controller
             Log::error($th->getMessage());
             return back()->with('error', 'Something went wrong!');
         }
+    }
+
+    public function show($rta_number)
+    {
+        $id = RoadTrafficAccident::extractId($rta_number);
+        $road_traffic_accident = RoadTrafficAccident::with('accident_claim')->findOrFail($id);
+        return view('frontend.dashboard.claims.show', compact('road_traffic_accident'));
+    }
+
+    public function comments($id)
+    {
+        $comments = RoadTrafficAccidentComment::with('commenter:id,name')->where('road_traffic_accident_id', $id)->notHidden()->latest()->get();
+        return view('frontend.dashboard.claims.comments', compact('comments'));
     }
 }

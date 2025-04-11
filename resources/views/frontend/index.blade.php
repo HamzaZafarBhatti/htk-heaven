@@ -64,18 +64,13 @@
                                         <div class="main-slider-seven__content">
                                             <h2 class="main-slider-seven__title">{!! $item['title'] !!}</h2>
                                             <p class="main-slider-seven__text">{!! $item['text'] !!}</p>
-                                            <div class="main-slider-seven__email">
-                                                <form class="main-slider-seven__email-box" data-url="MC_FORM_URL">
-                                                    <div class="main-slider-seven__email-input-box">
-                                                        <input type="email" placeholder="enter your email" name="email">
-                                                        <div class="main-slider-seven__email-icon">
-                                                            <span class="icon-email"></span>
-                                                        </div>
-                                                    </div>
-                                                    <button type="submit" class="main-slider-seven__contact-btn">Contact
-                                                        Us</button>
-                                                </form>
-                                                <div class="mc-form__response"></div>
+                                            <div class="reg-insurance__btn-box">
+                                                <a href="{{ route('register') }}"
+                                                    class="reg-insurance__btn-one thm-btn-four">Register Free<span
+                                                        class="fas fa-arrow-right"></span></a>
+                                                <a href="{{ route('login') }}"
+                                                    class="reg-insurance__btn-two thm-btn-four">Sign In<span
+                                                        class="fas fa-arrow-right"></span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -195,11 +190,19 @@
             <div class="reg-insurance__inner">
                 <h3 class="reg-insurance__title">{{ $homepageSettings->claim_status_title }}</h3>
                 <p class="reg-insurance__text">{!! $homepageSettings->claim_status_text !!}</p>
-                <div class="reg-insurance__btn-box">
-                    <a href="{{ route('register') }}" class="reg-insurance__btn-one thm-btn-four">Register Free<span
-                            class="fas fa-arrow-right"></span></a>
-                    <a href="{{ route('login') }}" class="reg-insurance__btn-two thm-btn-four">Sign In<span
-                            class="fas fa-arrow-right"></span></a>
+                <div class="main-slider-seven__email">
+                    <form class="main-slider-seven__email-box" action="" method="get">
+                        @csrf
+                        <div class="main-slider-seven__email-input-box">
+                            <input type="text" id="rta_number" placeholder="Claim Reference #" name="rta_number">
+                            {{-- <div class="main-slider-seven__email-icon">
+                                <span class="icon-email"></span>
+                            </div> --}}
+                        </div>
+                        <a type="button" href="{{ route('claims.show', '123') }}"
+                            class="main-slider-seven__contact-btn check-claim">Submit</a>
+                    </form>
+                    <div class="mc-form__response"></div>
                 </div>
             </div>
         </div>
@@ -765,4 +768,15 @@
         </div>
     </section>
     <!--CTA Five End-->
+@endsection
+
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#rta_number').on('input', function() {
+                var rta_number = $(this).val();
+                $('.check-claim').attr('href', `claims/${rta_number}`)
+            })
+        })
+    </script>
 @endsection

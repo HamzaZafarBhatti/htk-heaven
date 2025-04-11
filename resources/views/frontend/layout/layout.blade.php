@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('components.head', [
+@include('frontend.components.head', [
     'rtlMode' => isset($rtlMode) ? $rtlMode : '',
     'headTitle' => isset($headTitle) ? $headTitle : '',
     'css' => isset($css) ? $css : '',
@@ -11,21 +11,21 @@
 
 <body class="custom-cursor <?php echo isset($bodyClass) ? $bodyClass : ''; ?>">
 
-    @include('components.customcursor')
+    @include('frontend.components.customcursor')
 
-    @include('components.preloader')
+    @include('frontend.components.preloader')
 
     <div class="page-wrapper">
 
         @if (!isset($header))
-            @include('components.header')
-            @include('components.strickyheader')
+            @include('frontend.components.header')
+            @include('frontend.components.strickyheader')
         @endif
 
         @include('frontend.layout.header')
 
         @if (isset($subTitle))
-            @include('components.pageheader', [
+            @include('frontend.components.pageheader', [
                 'title' => $title ?? '',
                 'subTitle' => $subTitle ?? '',
                 'header_image' => $headerImage ?? '',
@@ -37,19 +37,19 @@
         @include('frontend.layout.footer')
 
         @if (!isset($counterone))
-            @include('components.counterone')
+            @include('frontend.components.counterone')
         @endif
 
         @if (!isset($footer))
-            @include('components.footer')
+            @include('frontend.components.footer')
         @endif
     </div>
 
-    @include('components.mobilenav')
+    @include('frontend.components.mobilenav')
 
-    @include('components.searchpopup')
+    @include('frontend.components.searchpopup')
 
-    @include('components.script', [
+    @include('frontend.components.script', [
         'script' => $script ?? '',
     ])
 </body>

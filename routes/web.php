@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('claims', [AccidentClaimController::class, 'index'])->name('claims.index');
+    Route::get('claims/{rta_number}', [AccidentClaimController::class, 'show'])->name('claims.show');
+    Route::get('claims/{id}/comments', [AccidentClaimController::class, 'comments'])->name('claims.comments');
 
 
 

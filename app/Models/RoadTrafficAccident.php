@@ -161,4 +161,13 @@ class RoadTrafficAccident extends Model implements Auditable
             }
         });
     }
+
+    protected static function extractId($rta_number)
+    {
+        if (preg_match('/(\d+)$/', $rta_number, $matches)) {
+            return (int) $matches[1];
+        }
+
+        return null;
+    }
 }

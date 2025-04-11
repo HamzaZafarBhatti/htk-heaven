@@ -1,4 +1,4 @@
-@extends('frontend.dashboard.edit')
+@extends('frontend.dashboard.index')
 
 @php
     $headTitle = 'Security';

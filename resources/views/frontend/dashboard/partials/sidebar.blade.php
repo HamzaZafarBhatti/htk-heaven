@@ -9,7 +9,7 @@
                 <li class="@if (Route::is('profile.security')) active @endif">Security</li>
             </a>
             <a href="{{ route('claims.index') }}">
-                <li class="@if (Route::is('claims.index')) active @endif">My Accident Claims</li>
+                <li class="@if (Route::is(['claims.index', 'claims.show'])) active @endif">My Accident Claims</li>
             </a>
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

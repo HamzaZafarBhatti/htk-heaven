@@ -1,0 +1,77 @@
+.sidebar {
+    background: var(--insur-primary);
+    border-radius: var(--insur-bdr-radius);
+    border-color: var(--insur-bdr-color);
+    color: var(--insur-white);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.sidebar ul a:first-child li.active {
+    border-radius: 10px 10px 0 0;
+}
+
+.sidebar ul li.active {
+    background-color: var(--insur-base);
+    font-weight: 700;
+}
+
+.sidebar ul a {
+    color: inherit;
+    font-size: 1.25rem;
+}
+
+label.error {
+    color: #dc3545 !important;
+}
+
+.notification {
+    padding: 10px;
+    background: var(--insur-base);
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.table th,
+.table td {
+    vertical-align: middle;
+}
+
+#comments .modal-body {
+    padding-left: 2rem;
+}
+
+.timeline {
+    border-left: 1px solid hsl(0, 0%, 90%);
+    position: relative;
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.timeline .timeline-item {
+    position: relative;
+}
+
+.timeline .timeline-item:after {
+    position: absolute;
+    display: block;
+    top: 0.5rem;
+}
+
+.timeline .timeline-item:after {
+    background-color: hsl(0, 0%, 90%);
+    left: -22px;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
+}
