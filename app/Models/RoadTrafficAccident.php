@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Enums\RTAStatusEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
@@ -72,17 +74,22 @@ class RoadTrafficAccident extends Model implements Auditable
         'accident_claim_id',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function accident_claim()
+    public function accident_claim(): BelongsTo
     {
         return $this->belongsTo(AccidentClaim::class, 'accident_claim_id');
     }
 
-    public function cover_type()
+    public function accident_management_form(): HasOne
+    {
+        return $this->hasOne(AccidentManagementForm::class, 'road_traffic_accident_id');
+    }
+
+    public function cover_type(): BelongsTo
     {
         return $this->belongsTo(InsuranceCoverType::class, 'cover_type_id');
     }
@@ -97,7 +104,7 @@ class RoadTrafficAccident extends Model implements Auditable
         return $this->hasOne(RoadTrafficAccidentWitness::class, 'road_traffic_accident_id');
     }
 
-    public function comments()
+    public function comments(): HasMany
     {
         return $this->hasMany(RoadTrafficAccidentComment::class, 'road_traffic_accident_id');
     }
@@ -119,6 +126,12 @@ class RoadTrafficAccident extends Model implements Auditable
         'status' => RTAStatusEnum::class,
         'pictures' => 'array',
         'others' => 'array',
+    ];
+
+    protected $appends = [
+        'full_name',
+        'driver_wearing_seat_belt',
+        'rta_number',
     ];
 
     protected static function boot()
@@ -162,7 +175,7 @@ class RoadTrafficAccident extends Model implements Auditable
         });
     }
 
-    protected static function extractId($rta_number)
+    protected static function extractId($rta_number): ?int
     {
         if (preg_match('/(\d+)$/', $rta_number, $matches)) {
             return (int) $matches[1];

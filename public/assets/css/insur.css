@@ -2023,6 +2023,8 @@ ul {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     position: relative;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .search-popup__content .user-dropdown-menu h2 {
@@ -2036,6 +2038,7 @@ ul {
     overflow: hidden;
     transition: color 0.3s 0.2s; /* Add delay to color change */
     z-index: 1;
+    max-width: 280px;
 }
 
 .search-popup__content .user-dropdown-menu h2::before {

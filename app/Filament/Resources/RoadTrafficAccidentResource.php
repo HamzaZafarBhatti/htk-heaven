@@ -27,10 +27,13 @@ use Filament\Forms\Get;
 use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Database\Eloquent\Collection;
 
 class RoadTrafficAccidentResource extends Resource
 {
@@ -401,15 +404,14 @@ class RoadTrafficAccidentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
                     Tables\Actions\Action::make('addComment')
                         ->label('Add Comment')
                         ->icon('heroicon-o-chat-bubble-bottom-center-text')
+                        ->visible(fn($record) => is_null($record->deleted_at))
                         ->modalHeading('Add Comment')
                         ->form([
                             Hidden::make('road_traffic_accident_id')
-                                ->default(fn(RoadTrafficAccident $record) => $record->id),
+                                ->default(fn($record) => $record->id),
 
                             TextInput::make('message')
                                 ->label('Comment')
@@ -442,7 +444,34 @@ class RoadTrafficAccidentResource extends Resource
                     Tables\Actions\Action::make('viewComments')
                         ->label('View Comments')
                         ->icon('heroicon-o-eye')
-                        ->url(fn($record) => route('filament.admin.resources.road-traffic-accidents.comments', $record)),
+                        ->visible(fn($record) => is_null($record->deleted_at))
+                        ->url(fn($record) => route(static::getRouteBaseName() . ".comments", $record)),
+                    Tables\Actions\Action::make('startAccidentManagement')
+                        ->label('Accident Management')
+                        ->icon('heroicon-o-folder-plus')
+                        ->visible(fn($record) => is_null($record->deleted_at) && $record->accident_management_form()->count() === 0)
+                        ->url(fn($record) => route(AccidentManagementFormResource::getRouteBaseName() . '.create', ['road_traffic_accident_id' => $record])),
+                    Tables\Actions\Action::make('markInProgress')
+                        ->label('Mark In Progress')
+                        ->icon('heroicon-o-arrow-path')
+                        ->visible(function ($record) {
+                            return is_null($record->deleted_at) && $record->status !== RTAStatusEnum::IN_PROGRESS;
+                        })
+                        ->action(function ($record) {
+                            $record->update(['status' => RTAStatusEnum::IN_PROGRESS]);
+                        }),
+                    Tables\Actions\Action::make('markCompleted')
+                        ->label('Mark Completed')
+                        ->icon('heroicon-o-check-circle')
+                        ->visible(function ($record) {
+                            return is_null($record->deleted_at) && $record->status !== RTAStatusEnum::COMPLETED;
+                        })
+                        ->action(function ($record) {
+                            $record->update(['status' => RTAStatusEnum::COMPLETED]);
+                        }),
+                    Tables\Actions\EditAction::make()
+                        ->visible(fn($record) => is_null($record->deleted_at)),
+                    Tables\Actions\DeleteAction::make(),
                     Tables\Actions\ForceDeleteAction::make(),
                     Tables\Actions\RestoreAction::make(),
                 ])
@@ -450,6 +479,20 @@ class RoadTrafficAccidentResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
+                    BulkAction::make('markInProgress')
+                        ->label('Mark In Progress')
+                        ->icon('heroicon-o-arrow-path')
+                        ->action(
+                            fn(Collection $records) =>
+                            $records->each->update(['status' => RTAStatusEnum::IN_PROGRESS])
+                        ),
+                    BulkAction::make('markCompleted')
+                        ->label('Mark Completed')
+                        ->icon('heroicon-o-check-circle')
+                        ->action(
+                            fn(Collection $records) =>
+                            $records->each->update(['status' => RTAStatusEnum::COMPLETED])
+                        ),
                     Tables\Actions\DeleteBulkAction::make(),
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),

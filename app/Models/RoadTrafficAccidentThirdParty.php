@@ -41,4 +41,13 @@ class RoadTrafficAccidentThirdParty extends Model implements Auditable
     {
         return $this->belongsTo(RoadTrafficAccident::class);
     }
+
+    public function getFullNameAttribute(): string
+    {
+        return "{$this->title} {$this->first_name} {$this->last_name}";
+    }
+
+    protected $appends = [
+        'full_name',
+    ];
 }
