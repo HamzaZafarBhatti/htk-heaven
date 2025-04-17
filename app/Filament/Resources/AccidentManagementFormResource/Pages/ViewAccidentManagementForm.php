@@ -11,4 +11,9 @@ class ViewAccidentManagementForm extends ViewRecord
     protected static string $resource = AccidentManagementFormResource::class;
 
     protected static string $view = 'filament.resources.accident-management-form.pages.view';
+
+    public function getTitle(): string
+    {
+        return 'Preview';
+    }
 }

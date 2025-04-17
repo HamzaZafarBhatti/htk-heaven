@@ -13,7 +13,12 @@ class ListAccidentManagementForms extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()->label('New Form'),
         ];
+    }
+
+    public function getTitle(): string
+    {
+        return 'Accident Management';
     }
 }

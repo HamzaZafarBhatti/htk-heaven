@@ -7,9 +7,13 @@ use App\Enums\ClaimTypesEnum;
 use App\Enums\FileStatusEnum;
 use App\Enums\VehicleConditionEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use OwenIt\Auditing\Auditable as AuditingAuditable;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class AccidentManagementForm extends Model
+class AccidentManagementForm extends Model implements Auditable
 {
+    use AuditingAuditable, SoftDeletes;
     //
     protected $fillable = [
         'road_traffic_accident_id',
@@ -26,6 +30,8 @@ class AccidentManagementForm extends Model
         'settlement_amount',
         'vehicle_condition',
         'images',
+        'actions',
+        'events'
     ];
 
     public function road_traffic_accident()
@@ -40,6 +46,8 @@ class AccidentManagementForm extends Model
 
     protected $casts = [
         'images' => 'array',
+        'actions' => 'array',
+        'events' => 'array',
         'claim_type' => ClaimTypesEnum::class,
         'file_status' => FileStatusEnum::class,
         'status' => AccidentManagementStatusEnum::class,

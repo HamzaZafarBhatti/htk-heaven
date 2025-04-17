@@ -27,6 +27,7 @@ return new class extends Migration
             $table->float('settlement_amount')->default(0);
             $table->string('vehicle_condition');
             $table->json('images')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

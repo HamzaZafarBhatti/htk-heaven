@@ -6,7 +6,9 @@ use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\AccidentClaimSubmitEmail;
 use Filament\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -58,6 +60,14 @@ Route::middleware([Authenticate::class])->name('admin.')->prefix('admin')->group
         Route::get('/layout-js', [FormController::class, 'layout2'])->name('layout-js');
         // Route::get('/{record}/edit', \App\Filament\Resources\FormResource\Pages\EditForm::class)->name('edit');
     });
+});
+
+Route::get('test', function () {
+    Mail::to('hamza0952454@gmail.com')->send(new AccidentClaimSubmitEmail(
+        name: 'Hamza',
+        car_registration_number: '123123',
+    ));
+    return 'mail_sent';
 });
 
 require __DIR__ . '/auth.php';
