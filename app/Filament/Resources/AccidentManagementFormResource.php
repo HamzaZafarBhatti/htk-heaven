@@ -79,24 +79,12 @@ class AccidentManagementFormResource extends Resource
                         Select::make('status')
                             ->options(AccidentManagementStatusEnum::toArray())
                             ->required(),
-                    ]),
-                Grid::make(4)
-                    ->schema([
-                        Select::make('file_status')
-                            ->options(FileStatusEnum::toArray())
-                            ->required(),
-                        TextInput::make('current_position'),
-                        Select::make('status')
-                            ->options(AccidentManagementStatusEnum::toArray())
-                            ->required(),
                         TextInput::make('claim_handler'),
+                        TextInput::make('tp_claim_reference'),
+                        TextInput::make('tp_insurance_company_email'),
                     ]),
-                TextInput::make('tp_claim_reference'),
-                TextInput::make('tp_insurance_company_email'),
-                Grid::make(1)
-                    ->schema([
-                        Textarea::make('notes'),
-                    ]),
+                Textarea::make('notes')
+                    ->columnSpanFull(),
                 TextInput::make('settlement_amount')
                     ->numeric()
                     ->default(0),

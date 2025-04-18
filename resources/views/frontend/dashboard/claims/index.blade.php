@@ -26,9 +26,9 @@
                         <td>
                             <a class="btn btn-sm btn-info" href="{{ route('claims.show', $item->rta_number) }}"><i
                                     class="fas fa-eye"></i> View</a>
-                            <button type="button" class="btn btn-sm btn-success openModal"
+                            {{-- <button type="button" class="btn btn-sm btn-success openModal"
                                 data-claim_id="{{ $item->id }}"><i class="fas fa-comment-dots"></i>
-                                Comments</button>
+                                Comments</button> --}}
                         </td>
                     </tr>
                 @empty

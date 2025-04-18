@@ -7,6 +7,7 @@ use App\Enums\ClaimTypesEnum;
 use App\Enums\FileStatusEnum;
 use App\Enums\VehicleConditionEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use OwenIt\Auditing\Contracts\Auditable;
@@ -34,7 +35,7 @@ class AccidentManagementForm extends Model implements Auditable
         'events'
     ];
 
-    public function road_traffic_accident()
+    public function road_traffic_accident(): BelongsTo
     {
         return $this->belongsTo(RoadTrafficAccident::class, 'road_traffic_accident_id');
     }

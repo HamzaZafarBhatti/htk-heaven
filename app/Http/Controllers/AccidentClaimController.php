@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AccidentClaimRequest;
 use App\Mail\AccidentClaimSubmitEmail;
 use App\Mail\AdminAccidentClaimSubmitEmail;
+use App\Models\AccidentManagementForm;
 use App\Models\RoadTrafficAccident;
 use App\Models\RoadTrafficAccidentComment;
 use App\Services\AccidentClaimService;
@@ -51,8 +52,10 @@ class AccidentClaimController extends Controller
     public function show($rta_number)
     {
         $id = RoadTrafficAccident::extractId($rta_number);
-        $road_traffic_accident = RoadTrafficAccident::with('accident_claim')->findOrFail($id);
-        return view('frontend.dashboard.claims.show', compact('road_traffic_accident'));
+        $accidentManagementForm = AccidentManagementForm::where('road_traffic_accident_id', $id)->first();
+        $actions = $accidentManagementForm->actions ? collect($accidentManagementForm->actions)->where('is_hidden', false) : collect();
+        $events = $accidentManagementForm->events ? collect($accidentManagementForm->events)->where('is_hidden', false) : collect();
+        return view('frontend.dashboard.claims.show', compact('actions', 'events'));
     }
 
     public function comments($id)
