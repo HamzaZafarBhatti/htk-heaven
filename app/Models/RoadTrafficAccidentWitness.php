@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CountryEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -32,4 +33,29 @@ class RoadTrafficAccidentWitness extends Model implements Auditable
     {
         return $this->belongsTo(RoadTrafficAccident::class);
     }
+
+    public function getFullNameAttribute(): string
+    {
+        return implode(' ', array_filter([$this->witness_title, $this->witness_first_name, $this->witness_last_name]));
+    }
+
+    public function getFullAddressAttribute(): string
+    {
+        return implode(', ', array_filter([
+            $this->witness_address_line_1,
+            $this->witness_address_line_2,
+            $this->witness_city,
+            $this->witness_postal_code,
+            $this->witness_country->getLabel()
+        ]));
+    }
+
+    protected $casts = [
+        'witness_country' => CountryEnum::class,
+    ];
+
+    protected $appends = [
+        'full_name',
+        'full_address',
+    ];
 }

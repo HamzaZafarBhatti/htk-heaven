@@ -404,6 +404,11 @@ class RoadTrafficAccidentResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
+                    Tables\Actions\Action::make('pdfDownload')
+                        ->label('Download PDF')
+                        ->icon('heroicon-o-document-arrow-down')
+                        ->visible(fn($record) => is_null($record->deleted_at))
+                        ->url(fn($record) => route("road-traffic-accidents.download.pdf", $record->id)),
                     Tables\Actions\Action::make('addComment')
                         ->label('Add Comment')
                         ->icon('heroicon-o-chat-bubble-bottom-center-text')

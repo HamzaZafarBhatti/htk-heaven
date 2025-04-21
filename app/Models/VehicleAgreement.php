@@ -68,7 +68,7 @@ class VehicleAgreement extends Model implements Auditable
 
     public function getFullNameAttribute()
     {
-        return implode(' ', [$this->title, $this->first_name, $this->middle_name, $this->last_name]);
+        return implode(' ', array_filter([$this->title, $this->first_name, $this->middle_name, $this->last_name]));
     }
 
     public function getAgreementPeriodAttribute()

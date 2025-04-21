@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CountryEnum;
 use App\Enums\RTAStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -111,7 +112,17 @@ class RoadTrafficAccident extends Model implements Auditable
 
     public function getFullNameAttribute(): string
     {
-        return "{$this->title} {$this->first_name} {$this->last_name}";
+        return implode(' ', [$this->title, $this->first_name, $this->last_name]);
+    }
+    public function getFullAddressAttribute(): string
+    {
+        return implode(', ', array_filter([
+            $this->address_line_1,
+            $this->address_line_2,
+            $this->city,
+            $this->postal_code,
+            $this->country->getLabel()
+        ]));
     }
     public function getDriverWearingSeatBeltAttribute(): string
     {
@@ -126,10 +137,17 @@ class RoadTrafficAccident extends Model implements Auditable
         'status' => RTAStatusEnum::class,
         'pictures' => 'array',
         'others' => 'array',
+        'country' => CountryEnum::class,
+        'accident_reporting_date' => 'date',
+        'dob' => 'date',
+        'accident_date' => 'date',
+        'signature_date' => 'date',
+        'accident_time' => 'datetime',
     ];
 
     protected $appends = [
         'full_name',
+        'full_address',
         'driver_wearing_seat_belt',
         'rta_number',
     ];

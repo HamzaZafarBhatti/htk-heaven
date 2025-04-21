@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CountryEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -45,10 +46,26 @@ class RoadTrafficAccidentThirdParty extends Model implements Auditable
 
     public function getFullNameAttribute(): string
     {
-        return "{$this->title} {$this->first_name} {$this->last_name}";
+        return implode(' ', array_filter([$this->tp_title, $this->tp_first_name, $this->tp_last_name]));
     }
+
+    public function getFullAddressAttribute(): string
+    {
+        return implode(', ', array_filter([
+            $this->tp_address_line_1,
+            $this->tp_address_line_2,
+            $this->tp_city,
+            $this->tp_postal_code,
+            $this->tp_country->getLabel()
+        ]));
+    }
+
+    protected $casts = [
+        'tp_country' => CountryEnum::class,
+    ];
 
     protected $appends = [
         'full_name',
+        'full_address',
     ];
 }

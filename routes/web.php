@@ -5,6 +5,7 @@ use App\Http\Controllers\AccidentClaimController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
 use App\Mail\AccidentClaimSubmitEmail;
 use Filament\Http\Middleware\Authenticate;
@@ -29,9 +30,15 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get(
-        '/admin/road-traffic-accidents/{record}/comments',
+        '/admin/road-traffic-accidents/{id}/comments',
         [ViewRoadTrafficAccidentComments::class, '__invoke']
     )->name('filament.admin.resources.road-traffic-accidents.comments');
+
+    // PDF Downloads
+    Route::get(
+        '/admin/road-traffic-accidents/{record}/pdf',
+        [PdfController::class, 'rta_download']
+    )->name('road-traffic-accidents.download.pdf');
 });
 
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
