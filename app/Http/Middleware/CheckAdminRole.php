@@ -15,7 +15,7 @@ class CheckAdminRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (! $request->user() || ! ($request->user()->hasRole('Admin') || $request->user()->hasRole('Superadmin'))) {
+        if (! $request->user() || ! ($request->user()->hasRole('Admin') || ! $request->user()->hasRole('Superadmin'))) {
             abort(403, 'Unauthorized');
         }
         return $next($request);

@@ -128,6 +128,11 @@ class AccidentManagementFormResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
+                    Tables\Actions\Action::make('pdfDownload')
+                        ->label('Download PDF')
+                        ->icon('heroicon-o-document-arrow-down')
+                        ->visible(fn($record) => is_null($record->deleted_at))
+                        ->url(fn($record) => route("accident-management.download.pdf", $record->id)),
                     Tables\Actions\ViewAction::make(),
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\Action::make('actions')

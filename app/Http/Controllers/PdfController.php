@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AccidentManagementForm;
 use App\Models\RoadTrafficAccident;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -18,6 +20,29 @@ class PdfController extends Controller
         // return view('backend.pdfs.rta', $data);
         $name = 'RTA-' . $rta->rta_number . '.pdf';
         $pdf = Pdf::loadView('backend.pdfs.rta', $data);
+        $pdf->setPaper('a4');
+        return $pdf->download($name);
+    }
+
+    public function accident_management_download($id)
+    {
+        $accident_management = AccidentManagementForm::with('road_traffic_accident.third_party')->find($id);
+        $actions = collect($accident_management->actions)->where('is_hidden', false);
+        $events = collect($accident_management->events)->where('is_hidden', false);
+        $actions_user_ids = $actions->pluck('user_id')->unique();
+        $events_user_ids = $events->pluck('user_id')->unique();
+        $user_ids = $actions_user_ids->merge($events_user_ids)->unique()->toArray();
+        $users = User::whereIn('id', $user_ids)->pluck('name', 'id')->toArray();
+        $data = [
+            'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
+            'accident_management' => $accident_management,
+            'actions' => $actions,
+            'events' => $events,
+            'users' => $users,
+        ];
+        // return view('backend.pdfs.accident_management', $data);
+        $name = 'RTA-' . $accident_management->ref_number . '.pdf';
+        $pdf = Pdf::loadView('backend.pdfs.accident_management', $data);
         $pdf->setPaper('a4');
         return $pdf->download($name);
     }

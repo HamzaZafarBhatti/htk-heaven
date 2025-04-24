@@ -42,11 +42,17 @@ class AccidentManagementForm extends Model implements Auditable
 
     public function getRefNumberAttribute(): string
     {
-        return "SASAM" . str_pad($this->id, 7, "0", STR_PAD_LEFT);
+        return $this->tp_claim_reference . "SASAM" . str_pad($this->id, 7, "0", STR_PAD_LEFT);
+    }
+    public function getAmountAttribute(): string
+    {
+        return '£' . number_format($this->settlement_amount, 2);
     }
 
     protected $casts = [
         'images' => 'array',
+        'last_update_date' => 'date',
+        'next_update_date' => 'date',
         'actions' => 'array',
         'events' => 'array',
         'claim_type' => ClaimTypesEnum::class,
