@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CountryEnum;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -71,12 +72,36 @@ class VehicleAgreement extends Model implements Auditable
         return implode(' ', array_filter([$this->title, $this->first_name, $this->middle_name, $this->last_name]));
     }
 
+    public function getFullAddressAttribute()
+    {
+        return implode(' ', array_filter([$this->address_line_1, $this->address_line_2, $this->city, $this->postal_code, $this->country->getLabel()]));
+    }
+
+    public function getRefNumberAttribute()
+    {
+        return "SAS/{$this->id}-{$this->driver_reference}-{$this->last_name}/{$this->vehicle_registration_number}";
+    }
+
     public function getAgreementPeriodAttribute()
     {
         $start = Carbon::parse($this->start_date)->toFormattedDateString() . ' ' . Carbon::parse($this->start_time)->format('H:i A');
         $end = Carbon::parse($this->end_date)->toFormattedDateString() . ' ' . Carbon::parse($this->end_time)->format('H:i A');
         return implode(' - ', [$start, $end]);
     }
+
+    protected $casts = [
+        'country' => CountryEnum::class,
+        'license_issuing_country' => CountryEnum::class,
+        'dob' => 'date',
+        'license_expiry_date' => 'date',
+        'pco_badge_expiry_date' => 'date',
+        'customer_signature_date' => 'date',
+        'company_signature_date' => 'date',
+        'start_date' => 'date',
+        'end_date' => 'date',
+        'start_time' => 'datetime',
+        'end_time' => 'datetime',
+    ];
 
     protected $appends = [
         'vehicle_model_make_colour',

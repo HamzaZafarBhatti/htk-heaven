@@ -148,6 +148,7 @@ class VehicleAgreementResource extends Resource
                             ->required(),
                         TextInput::make('daily_rent')
                             ->prefix('£')
+                            ->numeric()
                             ->required(),
                         TextInput::make('rental_term'),
                         TextInput::make('e_reference')
@@ -256,8 +257,15 @@ class VehicleAgreementResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\Action::make('pdfDownload')
+                        ->label('Download PDF')
+                        ->icon('heroicon-o-document-arrow-down')
+                        ->visible(fn($record) => is_null($record->deleted_at))
+                        ->url(fn($record) => route("vehicle-agreements.download.pdf", $record->id)),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
