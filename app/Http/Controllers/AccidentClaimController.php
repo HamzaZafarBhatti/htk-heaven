@@ -52,7 +52,7 @@ class AccidentClaimController extends Controller
     public function show($rta_number)
     {
         $id = RoadTrafficAccident::extractId($rta_number);
-        $accidentManagementForm = AccidentManagementForm::where('road_traffic_accident_id', $id)->first();
+        $accidentManagementForm = AccidentManagementForm::where('road_traffic_accident_id', $id)->firstOrFail();
         $actions = $accidentManagementForm->actions ? collect($accidentManagementForm->actions)->where('is_hidden', false) : collect();
         $events = $accidentManagementForm->events ? collect($accidentManagementForm->events)->where('is_hidden', false) : collect();
         return view('frontend.dashboard.claims.show', compact('actions', 'events'));

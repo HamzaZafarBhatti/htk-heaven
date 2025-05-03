@@ -65,12 +65,12 @@
 
 <body>
     <div>
-        <h1 class="mb-2">Credit Hire Agreement - {{ config('app.name') }}</h1>
+        <h1 class="mb-2">Credit Hire Agreement - {{ $agreement->company_name }}</h1>
         <p class="mb-4">
             Please note this is a legally binding contract only sign this if you agree to be bound by all its terms. The
             hire period on this document is legally binding. You will be obliged to pay the entire length of the
             contract even if you wish to return the car early. Please read all terms and conditions before you sign this
-            agreement set out by {{ config('app.name') }} on this hire agreement. This Agreement may be signed by
+            agreement set out by {{ $agreement->company_name }} on this hire agreement. This Agreement may be signed by
             electronic
             signature (as defined in the Electronic Communications Act 2000) and shall have the same legal effect,
             validity and enforceability as if signed by hand written signature to the extent and as provided for in any
@@ -242,7 +242,7 @@
                 </td>
             </tr>
         </table>
-        <h2 class="mb-4">Vehicle Details ( Vehicle is owned by {{ config('app.name') }})</h2>
+        <h2 class="mb-4">Vehicle Details ( Vehicle is owned by {{ $agreement->company_name }})</h2>
         <table class="mb-2">
             <tr>
                 <td class="w-25">
@@ -280,7 +280,7 @@
             </tr>
         </table>
         <p>
-            Please read all terms and conditions before you sign this agreement set out by {{ config('app.name') }} on
+            Please read all terms and conditions before you sign this agreement set out by {{ $agreement->company_name }} on
             this
             hire agreement.
         </p>
@@ -350,7 +350,7 @@
             or any other offence involving the rental vehicle, including costs from the vehicle being clamped, seized or
             towed away. If we instruct a third party to act on our behalf you will be accountable for the financial
             implications that this will bring not only for the money outstanding but also charges incurred by the third
-            party. If {{ config('app.name') }} has to instruct a third party to collect outstanding monies owed these
+            party. If {{ $agreement->company_name }} has to instruct a third party to collect outstanding monies owed these
             charges and interest will be added to the original debt amount. You are responsible for paying the
             appropriate authority or company for any charges and costs when they ask for these payments. You will also
             be responsible for paying our reasonable administration charges for dealing with these matters.
@@ -482,7 +482,7 @@
             price of insurance will depend on hirer insurance quote. All insurances which will obtain from third
             parties, those have to pay by hirer directly. Company will only take or charge the customer rent and
             deposit.<strong>6.C</strong> If hirer fulfil our insurer requirement then we will charge driver insurance
-            and rent in advance {{ config('app.name') }} rental price for Toyota prius starts from £140.00.(only for
+            and rent in advance {{ $agreement->company_name }} rental price for Toyota prius starts from £140.00.(only for
             car).<strong>6.E</strong> There are certain requirements and terms of our insurer please read below all
             terms and requirements from our insurer.
         </p>
@@ -518,7 +518,7 @@
         </p>
         <br>
         <p>
-            Hirer has to pay Excess fees to the insurance company. Company ({{ config('app.name') }}) is not liable for
+            Hirer has to pay Excess fees to the insurance company. Company ({{ $agreement->company_name }}) is not liable for
             any excess fee. If hirer has any accident and company make claim against vehicle damage, then hirer will pay
             the Excess fees. Company <strong>6.E.3.1.</strong> £350 Accidental damage<strong>6.E.3.2.</strong> £350 Fire
             and Theft Excess<strong>6.E.3.3.</strong> £80 windscreen Excess
@@ -544,14 +544,14 @@
             company within 24 hours of an accident. Please report your accident on 0333 5777 066 or
             <a href="{{ route('home.report-claim') }}">{{ route('home.report-claim') }}</a> <strong>7.2</strong> Hirer
             is not authorised to make any claim against vehicle damage, as vehicle is owned by
-            {{ config('app.name') }}.<strong>7.3</strong> Hirer is not authorised to repair the vehicle by any accident
+            {{ $agreement->company_name }}.<strong>7.3</strong> Hirer is not authorised to repair the vehicle by any accident
             damage (faulty, non-faulty). Only Company can repair the vehicle if any accident
-            occurred.<strong>7.4</strong> {{ config('app.name') }} will make all claims against the vehicle
+            occurred.<strong>7.4</strong> {{ $agreement->company_name }} will make all claims against the vehicle
             damage to the insurance through our qualified solicitors.<strong>7.5</strong> If Hirer make any claim
             against vehicle damage this will consider breach of contract terms. And company will terminate the hire
             agreement and company will take legal action against hirer. Hirer is clearly not authorised to make any
             claim or take any money against vehicle damage from Insurance Claim. As Vehicle is owned by
-            {{ config('app.name') }}.
+            {{ $agreement->company_name }}.
         </p>
         <br>
         <p class="font-bold">
@@ -625,7 +625,7 @@
         </p>
         <br>
         <p>
-            <strong>13.1</strong> The agreement between you as hirer and us as company {{ config('app.name') }}
+            <strong>13.1</strong> The agreement between you as hirer and us as company {{ $agreement->company_name }}
             governed by English law and any dispute will be resolved by the English courts. I have read and understand
             the terms and conditions and I accept all terms and conditions.
         </p>

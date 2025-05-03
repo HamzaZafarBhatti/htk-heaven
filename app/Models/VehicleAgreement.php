@@ -60,6 +60,7 @@ class VehicleAgreement extends Model implements Auditable
         'nin_image',
         'proof_of_address1',
         'proof_of_address2',
+        'company_name',
     ];
 
     public function getVehicleModelMakeColourAttribute()

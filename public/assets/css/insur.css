@@ -12202,7 +12202,8 @@ ul {
     border-radius: var(--insur-bdr-radius);
 }
 
-.error-page__form button[type="submit"] {
+.error-page__form button[type="submit"],
+.error-page__form a[type="button"] {
     background-color: transparent;
     color: var(--insur-black);
     font-size: 22px;

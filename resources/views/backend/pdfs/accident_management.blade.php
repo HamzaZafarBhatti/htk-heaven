@@ -148,12 +148,12 @@
                 <tr>
                     <td class="w-33">
                         <p><strong>Our Driver Name:</strong>
-                            {{ $accident_management->road_traffic_accident->full_name }}
+                            {{ $accident_management->road_traffic_accident?->full_name }}
                         </p>
                     </td>
                     <td class="w-33">
                         <p><strong>Our Registration:</strong>
-                            {{ $accident_management->road_traffic_accident->vehicle_registration_number }}
+                            {{ $accident_management->road_traffic_accident?->vehicle_registration_number }}
                         </p>
                     </td>
                     <td class="w-33">
@@ -168,7 +168,7 @@
                             <strong>
                                 Date of Incident:
                             </strong>
-                            {{ $accident_management->road_traffic_accident->accident_date->format('d/m/Y') }}
+                            {{ $accident_management->road_traffic_accident?->accident_date->format('d/m/Y') }}
                         </p>
                     </td>
                 </tr>
@@ -182,64 +182,68 @@
                 {{ $accident_management->file_status->getLabel() }}
             </h1>
         </div>
-        <div style="margin-bottom: 1rem;">
-            <h2>Events</h2>
-            <table class="bordered-table">
-                <tr>
-                    <th class="w-25">Date</th>
-                    <th class="w-50">Comments</th>
-                    <th class="w-25">Notes By</th>
-                </tr>
-                @foreach ($events as $item)
+        @if ($events->count() > 0)
+            <div style="margin-bottom: 1rem;">
+                <h2>Events</h2>
+                <table class="bordered-table">
                     <tr>
-                        <td>
-                            <p>
-                                {{ \Carbon\Carbon::parse($item['date'])?->format('d/m/Y') }}
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                {{ $item['comment'] }}
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                {{ $users[$item['user_id']] }}
-                            </p>
-                        </td>
+                        <th class="w-25">Date</th>
+                        <th class="w-50">Comments</th>
+                        <th class="w-25">Notes By</th>
                     </tr>
-                @endforeach
-            </table>
-        </div>
-        <div style="margin-bottom: 1rem;">
-            <h2>Actions</h2>
-            <table class="bordered-table">
-                <tr>
-                    <th class="w-25">Action Date</th>
-                    <th class="w-50">Action Notes</th>
-                    <th class="w-25">Action By</th>
-                </tr>
-                @foreach ($actions as $item)
+                    @foreach ($events as $item)
+                        <tr>
+                            <td>
+                                <p>
+                                    {{ \Carbon\Carbon::parse($item['date'])?->format('d/m/Y') }}
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    {{ $item['comment'] }}
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    {{ $users[$item['user_id']] }}
+                                </p>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        @endif
+        @if ($actions->count() > 0)
+            <div style="margin-bottom: 1rem;">
+                <h2>Actions</h2>
+                <table class="bordered-table">
                     <tr>
-                        <td>
-                            <p>
-                                {{ \Carbon\Carbon::parse($item['date'])?->format('d/m/Y') }}
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                {{ $item['note'] }}
-                            </p>
-                        </td>
-                        <td>
-                            <p>
-                                {{ $users[$item['user_id']] }}
-                            </p>
-                        </td>
+                        <th class="w-25">Action Date</th>
+                        <th class="w-50">Action Notes</th>
+                        <th class="w-25">Action By</th>
                     </tr>
-                @endforeach
-            </table>
-        </div>
+                    @foreach ($actions as $item)
+                        <tr>
+                            <td>
+                                <p>
+                                    {{ \Carbon\Carbon::parse($item['date'])?->format('d/m/Y') }}
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    {{ $item['note'] }}
+                                </p>
+                            </td>
+                            <td>
+                                <p>
+                                    {{ $users[$item['user_id']] }}
+                                </p>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        @endif
         <div>
             <table>
                 <tr>

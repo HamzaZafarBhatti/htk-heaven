@@ -24,7 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('claims', [AccidentClaimController::class, 'index'])->name('claims.index');
-    Route::get('claims/{rta_number}', [AccidentClaimController::class, 'show'])->name('claims.show');
     Route::get('claims/{id}/comments', [AccidentClaimController::class, 'comments'])->name('claims.comments');
 
 
@@ -63,6 +62,7 @@ Route::get('/complaints-procedure', [HomeController::class, 'complaints_procedur
 Route::get('/thankyou', [HomeController::class, 'thankyou_page'])->name('home.thankyou-page');
 Route::get('/service/{slug?}', [HomeController::class, 'service_show'])->name('service.show');
 
+Route::get('claims/{rta_number}', [AccidentClaimController::class, 'show'])->name('claims.show');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/accident-repairs', [HomeController::class, 'accident_repairs'])->name('home.accident-repairs');

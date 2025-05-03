@@ -129,6 +129,11 @@ class VehicleAgreementResource extends Resource
                     ]),
                 Section::make('Vehicle Details')
                     ->schema([
+                        Grid::make(1)
+                            ->schema([
+                                TextInput::make('company_name')
+                                    ->required(),
+                            ]),
                         TextInput::make('vehicle_registration_number')
                             ->label('Vehicle Registration')
                             ->required(),

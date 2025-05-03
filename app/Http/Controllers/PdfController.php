@@ -29,12 +29,19 @@ class PdfController extends Controller
     public function accident_management_download($id)
     {
         $accident_management = AccidentManagementForm::with('road_traffic_accident.third_party')->find($id);
-        $actions = collect($accident_management->actions)->where('is_hidden', false);
-        $events = collect($accident_management->events)->where('is_hidden', false);
-        $actions_user_ids = $actions->pluck('user_id')->unique();
-        $events_user_ids = $events->pluck('user_id')->unique();
-        $user_ids = $actions_user_ids->merge($events_user_ids)->unique()->toArray();
-        $users = User::whereIn('id', $user_ids)->pluck('name', 'id')->toArray();
+        $actions = $accident_management->actions ? collect($accident_management->actions)->where('is_hidden', false) : collect();
+        $events = $accident_management->events ? collect($accident_management->events)->where('is_hidden', false) : collect();
+        $users = [];
+        if ($actions->count() > 0 || $events->count() > 0) {
+            if ($actions->count() > 0) {
+                $actions_user_ids = $actions->pluck('user_id')->unique();
+            }
+            if ($events->count() > 0) {
+                $events_user_ids = $events->pluck('user_id')->unique();
+            }
+            $user_ids = $actions_user_ids->merge($events_user_ids)->unique()->toArray();
+            $users = User::whereIn('id', $user_ids)->pluck('name', 'id')->toArray();
+        }
         $data = [
             'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
             'accident_management' => $accident_management,
