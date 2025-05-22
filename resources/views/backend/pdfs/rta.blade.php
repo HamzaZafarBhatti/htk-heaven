@@ -227,7 +227,7 @@
                     </td>
                     <td class="w-25">
                         <p class="font-bold">Cover Type</p>
-                        <p>{{ $rta->cover_type->name }}</p>
+                        <p>{{ $rta->cover_type?->name }}</p>
                     </td>
                     <td class="w-25">
                         <p class="font-bold">Insurance Company Phone</p>
