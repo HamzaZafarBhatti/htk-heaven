@@ -33,6 +33,8 @@ class PdfController extends Controller
         $events = $accident_management->events ? collect($accident_management->events)->where('is_hidden', false) : collect();
         $users = [];
         if ($actions->count() > 0 || $events->count() > 0) {
+            $actions_user_ids = collect();
+            $events_user_ids = collect();
             if ($actions->count() > 0) {
                 $actions_user_ids = $actions->pluck('user_id')->unique();
             }
