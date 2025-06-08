@@ -165,7 +165,7 @@
                             </ul>
                         @endif
                         <div class="about-eight__btn-box">
-                            <a href="#!" class="about-eight__btn thm-btn-four">Discover More<span
+                            <a href="{{ route('home.index') }}" class="about-eight__btn thm-btn-four">Discover More<span
                                     class="fas fa-arrow-right"></span></a>
                         </div>
                     </div>
