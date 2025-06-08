@@ -441,7 +441,7 @@
     <!--Why Choose Six End-->
 
     <!--Testimonial Seven Start-->
-    <section class="testimonial-seven">
+    {{-- <section class="testimonial-seven">
         <div class="testimonial-seven__sec-img float-bob-x">
             <img src="{{ asset('storage/' . $homepageSettings->feedback_background_image) }}" alt="">
         </div>
@@ -708,7 +708,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Testimonial Seven End-->
 
     <!--Process Two Start-->
