@@ -716,7 +716,7 @@
         <div class="container">
             <div class="section-title-five text-center">
                 <span class="section-title-five__tagline">{{ $homepageSettings->process_tagline }}</span>
-                <h2 class="section-title-five__title">{{ $homepageSettings->process_text }}</h2>
+                <h2 class="section-title-five__title">{!! $homepageSettings->process_text !!}</h2>
             </div>
             <div class="process-two__inner">
                 @if ($homepageSettings->process_items)
