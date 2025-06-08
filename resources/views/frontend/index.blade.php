@@ -219,7 +219,7 @@
             @if ($homepageSettings->service_items)
                 <div class="row">
                     @foreach ($homepageSettings->service_items as $item)
-                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp"
+                        <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInUp"
                             data-wow-delay="{{ $loop->iteration * 100 }}ms">
                             <div class="services-seven__single">
                                 <h3 class="services-seven__title"><a href="">{{ $item['title'] }}</a></h3>
@@ -250,7 +250,7 @@
     <!--Services Seven End-->
 
     <!--Team Six Start-->
-    <section class="team-six">
+    {{-- <section class="team-six">
         <div class="container">
             <div class="section-title-five text-center">
                 <span class="section-title-five__tagline">Our Team</span>
@@ -334,7 +334,7 @@
                 <!--Team Six Single End-->
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--Team Six End-->
 
     <!--Counter Four Start-->
