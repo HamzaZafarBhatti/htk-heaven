@@ -177,15 +177,15 @@
 
     <!--Reg Insurance Start-->
     <section class="reg-insurance">
-        <div class="reg-insurance__bg"
+        {{-- <div class="reg-insurance__bg"
             style="background-image: url('{{ asset('assets/images/update-17-06-2023/backgrounds/reg-insurance-bg.jpg') }}')">
-        </div>
+        </div> --}}
         <div class="reg-insurance__shape-1 float-bob-y"
             style="background-image: url('{{ asset('storage/' . $homepageSettings->claim_status_background_image) }}')">
         </div>
-        <div class="reg-insurance__shape-2 float-bob-x">
+        {{-- <div class="reg-insurance__shape-2 float-bob-x">
             <img src="{{ asset('assets/images/update-17-06-2023/shapes/reg-insurance-shape-2.png') }}" alt="">
-        </div>
+        </div> --}}
         <div class="container">
             <div class="reg-insurance__inner">
                 <h3 class="reg-insurance__title">{{ $homepageSettings->claim_status_title }}</h3>
