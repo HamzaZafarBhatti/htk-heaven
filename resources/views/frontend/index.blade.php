@@ -219,7 +219,7 @@
             @if ($homepageSettings->service_items)
                 <div class="row">
                     @foreach ($homepageSettings->service_items as $item)
-                        <div class="col-xl-6 col-lg-6 col-md-6 wow fadeInUp"
+                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp"
                             data-wow-delay="{{ $loop->iteration * 100 }}ms">
                             <div class="services-seven__single">
                                 <h3 class="services-seven__title"><a href="">{{ $item['title'] }}</a></h3>
