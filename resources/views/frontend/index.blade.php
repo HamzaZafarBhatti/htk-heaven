@@ -250,7 +250,7 @@
     <!--Services Seven End-->
 
     <!--Team Six Start-->
-    {{-- <section class="team-six">
+    <section class="team-six">
         <div class="container">
             <div class="section-title-five text-center">
                 <span class="section-title-five__tagline">Our Team</span>
@@ -334,7 +334,7 @@
                 <!--Team Six Single End-->
             </div>
         </div>
-    </section> --}}
+    </section>
     <!--Team Six End-->
 
     <!--Counter Four Start-->
