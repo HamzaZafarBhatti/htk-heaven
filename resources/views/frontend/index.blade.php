@@ -779,7 +779,7 @@
     <!--Process Two End-->
 
     <!--CTA Five Start-->
-    <section class="cta-five cta-six">
+    {{-- <section class="cta-five cta-six">
         <div class="cta-five__shape-1 float-bob-y"></div>
         <div class="cta-five__shape-2 float-bob-x"></div>
         <div class="container">
@@ -796,7 +796,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--CTA Five End-->
 @endsection
 
