@@ -1,5 +1,24 @@
 @extends('frontend.layout.layout')
 
+@section('styles')
+    <style>
+        .process-two__list li::before {
+            top: 0 !important;
+            right: 0 !important;
+        }
+
+        .process-two__arrow {
+            right: -20px !important;
+        }
+
+        @media (min-width: 1199px) {
+            .process-two__list li {
+                width: 33.3333% !important;
+            }
+        }
+    </style>
+@endsection
+
 @php
     $headTitle = 'Home';
     $header = 'false';
@@ -734,7 +753,9 @@
                                         </div>
                                     </div>
                                     <h3 class="process-two__title">{{ $item['title'] }}</h3>
-                                    <p class="process-two__text">{!! $item['text'] !!}</p>
+                                    <div>
+                                        <p class="process-two__text">{!! $item['text'] !!}</p>
+                                    </div>
                                     <div class="process-two__btn">
                                         <a href=""><span class="fa fa-arrow-right"></span>view details</a>
                                     </div>
