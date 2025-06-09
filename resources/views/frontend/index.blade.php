@@ -11,6 +11,10 @@
             right: -20px !important;
         }
 
+        .process-two__list {
+            align-items: top !important;
+        }
+
         @media (min-width: 1199px) {
             .process-two__list li {
                 width: 33.3333% !important;
