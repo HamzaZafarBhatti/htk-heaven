@@ -15,6 +15,11 @@
             align-items: unset !important;
         }
 
+        .process-two__text {
+            width: 95% !important;
+            margin: auto !important;
+        }
+
         @media (min-width: 1199px) {
             .process-two__list li {
                 width: 33.3333% !important;
@@ -759,9 +764,7 @@
                                         </div>
                                     </div>
                                     <h3 class="process-two__title">{{ $item['title'] }}</h3>
-                                    <div>
-                                        <p class="process-two__text">{!! $item['text'] !!}</p>
-                                    </div>
+                                    <p class="process-two__text">{!! $item['text'] !!}</p>
                                     <div class="process-two__btn">
                                         <a href=""><span class="fa fa-arrow-right"></span>view details</a>
                                     </div>
