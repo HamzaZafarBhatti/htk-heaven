@@ -11,7 +11,7 @@
                         <div class="footer-widget-four__logo">
                             <a href="{{ route('home.index') }}">
                                 <img src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}"
-                                    alt="">
+                                    alt="" width="100%">
                             </a>
                         </div>
                         {{-- <div class="footer-widget-four__about-text-box">
