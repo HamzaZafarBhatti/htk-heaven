@@ -12,7 +12,7 @@
         }
 
         .process-two__list {
-            align-items: top !important;
+            align-items: unset !important;
         }
 
         @media (min-width: 1199px) {
@@ -747,9 +747,11 @@
                         @foreach ($homepageSettings->process_items as $item)
                             <li>
                                 <div class="process-two__single">
-                                    <div class="process-two__arrow">
-                                        <i class="fas fa-angle-double-right"></i>
-                                    </div>
+                                    @if (!$loop->last)
+                                        <div class="process-two__arrow">
+                                            <i class="fas fa-angle-double-right"></i>
+                                        </div>
+                                    @endif
                                     <div class="process-two__img-border">
                                         <div class="process-two__img">
                                             <img src="{{ asset('storage/' . $item['image']) }}" alt="">
