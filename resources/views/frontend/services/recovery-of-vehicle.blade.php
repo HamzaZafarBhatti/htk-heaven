@@ -7,8 +7,16 @@
     // $headerImage = $service->header_image;
     $header = 'false';
     $counterone = 'false';
-    $css2 = '<link rel="stylesheet" href="' . asset('assets/css/color-5.css?v=') . time() . '" /><link rel="stylesheet" href="' . asset('assets/css/service.css?v=') . time() . '" />';
+    $css2 =
+        '<link rel="stylesheet" href="' .
+        asset('assets/css/color-5.css?v=') .
+        time() .
+        '" /><link rel="stylesheet" href="' .
+        asset('assets/css/service.css?v=') .
+        time() .
+        '" />';
     $script = '<script src="' . asset('assets/js/insur.js') . '"></script>';
+    $footer = 'false';
 @endphp
 
 @section('styles')

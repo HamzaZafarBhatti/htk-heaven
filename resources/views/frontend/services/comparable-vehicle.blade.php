@@ -16,6 +16,7 @@
         time() .
         '" />';
     $script = '<script src="' . asset('assets/js/insur.js') . '"></script>';
+    $footer = 'false';
 @endphp
 
 @section('styles')
