@@ -10,14 +10,14 @@
                     <div class="footer-widget-four__column footer-widget-four__about">
                         <div class="footer-widget-four__logo">
                             <a href="><img
-                                        src="{{ asset('assets/images/update-17-06-2023/resources/footer-logo-three.png') }}"
+                                        src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}"
                                 alt=""></a>
                         </div>
-                        <div class="footer-widget-four__about-text-box">
+                        {{-- <div class="footer-widget-four__about-text-box">
                             <p class="footer-widget__about-text">Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit, sed do eiusmod tempor
                                 incididunt ut labore et dolore magna</p>
-                        </div>
+                        </div> --}}
                         <div class="site-footer-four__social">
                             <a href="{{ $site_settings->facebook }}"><i class="fab fa-facebook-f"></i></a>
                             <a href="{{ $site_settings->tiktok }}"><i class="fab fa-tiktok"></i></a>
