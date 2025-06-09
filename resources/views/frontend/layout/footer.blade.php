@@ -9,9 +9,10 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <div class="footer-widget-four__column footer-widget-four__about">
                         <div class="footer-widget-four__logo">
-                            <a href="><img
-                                        src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}"
-                                alt=""></a>
+                            <a href="{{ route('home.index') }}">
+                                <img src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}"
+                                    alt="">
+                            </a>
                         </div>
                         {{-- <div class="footer-widget-four__about-text-box">
                             <p class="footer-widget__about-text">Lorem ipsum dolor sit amet, consectetur
@@ -75,7 +76,8 @@
                                 </div>
                                 <div class="content">
                                     <p>E-mail:</p>
-                                    <h3><a href="mailto:{{ $site_settings->email }}">{{ $site_settings->email }}</a></h3>
+                                    <h3><a href="mailto:{{ $site_settings->email }}">{{ $site_settings->email }}</a>
+                                    </h3>
                                 </div>
                             </li>
                         </ul>
@@ -116,7 +118,8 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="site-footer-four__bottom-inner">
-                        <p class="site-footer-four__bottom-text">© All Copyright {{ now()->format('Y') }} by <a href="https://www.upwork.com/freelancers/~01558c47eff3d1eca3" target="_blank">Hamza</a>
+                        <p class="site-footer-four__bottom-text">© All Copyright {{ now()->format('Y') }} by <a
+                                href="https://www.upwork.com/freelancers/~01558c47eff3d1eca3" target="_blank">Hamza</a>
                         </p>
                     </div>
                 </div>
