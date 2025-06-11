@@ -31,11 +31,11 @@
                         <h3 class="footer-widget-four__title">Our Services</h3>
                         <ul class="footer-widget-four__services-list list-unstyled clearfix">
                             <li>
-                                <a href="">About</a>
+                                <a href="{{ route('home.index') }}#about-us">About</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="">Insurance</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="">Latest Portfolio</a>
                             </li>
@@ -43,7 +43,7 @@
                                 <a href="">Our Faqs</a>
                             </li>
                             <li>
-                                <a href="">Get in Touch</a>
+                                <a href="{{ route('home.report-claim') }}">Get in Touch</a>
                             </li>
                         </ul>
                     </div>

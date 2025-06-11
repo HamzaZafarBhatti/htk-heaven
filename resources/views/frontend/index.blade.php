@@ -1,5 +1,10 @@
 @extends('frontend.layout.layout')
 
+@section('meta_tags')
+    <meta name="title" content="{{ $pageMetaSettings->home_title }}">
+    <meta name="description" content="{{ $pageMetaSettings->home_description }}">
+@endsection
+
 @section('styles')
     <style>
         .process-two__list li::before {
@@ -432,17 +437,17 @@
     <!--Counter Four End-->
 
     <!--Why Choose Six Start-->
-    <section class="why-choose-six">
+    <section class="why-choose-six" id="about-us">
         <div class="container">
             <div class="why-choose-six__top">
                 <div class="section-title-five text-left">
                     <span class="section-title-five__tagline">{{ $homepageSettings->why_us_tagline }}</span>
                     <h2 class="section-title-five__title">{{ $homepageSettings->why_us_title }}</h2>
                 </div>
-                <div class="why-choose-six__btn-box">
+                {{-- <div class="why-choose-six__btn-box">
                     <a href="}" class="why-choose-six__btn thm-btn-four">View More<span
                             class="fas fa-arrow-right"></span></a>
-                </div>
+                </div> --}}
             </div>
             @if ($homepageSettings->why_us_items)
                 <div class="row">

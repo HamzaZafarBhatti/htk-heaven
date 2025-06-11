@@ -57,7 +57,7 @@
                             <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                             <ul class="main-menu__list">
                                 <li class="{{ Route::is('home.index') ? 'current' : '' }}">
-                                    <a href="{{ route('home.index') }}">How it Works</a>
+                                    <a href="{{ route('home.index') }}">Home</a>
                                 </li>
                                 <li class="dropdown">
                                     <a href="#"
@@ -66,10 +66,12 @@
                                     </a>
                                     <ul>
                                         {{-- <li><a href="{{ route('home.how-is-it-free') }}">How is it Free?</a></li> --}}
-                                        <li><a href="{{ route('service.show', ['slug' => 'comparable-vehicle']) }}">Replacement
-                                                Vehicle</a>
+                                        <li>
+                                            <a href="{{ route('home.index') }}#about-us">
+                                                About Us
+                                            </a>
                                         </li>
-                                        <li><a href="{{ route('home.report-claim') }}">Accident Repairs</a>
+                                        <li><a href="{{ route('home.report-claim') }}">Contact Us</a>
                                         </li>
                                     </ul>
                                 </li>

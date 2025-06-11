@@ -10,6 +10,7 @@ use App\Models\InsuranceCoverType;
 use App\Models\Service;
 use App\Services\AccidentClaimService;
 use App\Settings\HomePageSetting;
+use App\Settings\PageMetaSetting;
 use App\Settings\SiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -17,10 +18,11 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-    public function index(HomePageSetting $homepageSettings)
+    public function index(HomePageSetting $homepageSettings, PageMetaSetting $pageMetaSettings)
     {
         return view('frontend.index', [
             'homepageSettings' => $homepageSettings,
+            'pageMetaSettings' => $pageMetaSettings,
         ]);
     }
     public function how_is_it_free()
@@ -50,6 +52,10 @@ class HomeController extends Controller
     {
         return view('frontend.thankyou_page');
     }
+    function about_us()
+    {
+        return view('frontend.about_us');
+    }
     public function privacy_policy()
     {
         return view('frontend.privacy_policy');
@@ -67,11 +73,10 @@ class HomeController extends Controller
         return view('frontend.complaints_procedure');
     }
 
-    public function service_show($slug)
+    public function service_show($slug, PageMetaSetting $pageMetaSettings)
     {
-        // $service = Service::whereSlug($slug)->firstOrFail();
         $serviceName = ucfirst(str_replace('-', ' ', $slug));
 
-        return view("frontend.services.$slug", compact('serviceName'));
+        return view("frontend.services.$slug", compact('serviceName', 'pageMetaSettings'));
     }
 }

@@ -1,5 +1,10 @@
 @extends('frontend.layout.layout')
 
+@section('meta_tags')
+    <meta name="title" content="{{ $pageMetaSettings->vehicle_repair_title }}">
+    <meta name="description" content="{{ $pageMetaSettings->vehicle_repair_description }}">
+@endsection
+
 @php
     $headTitle = $serviceName;
     $title = 'Service';
