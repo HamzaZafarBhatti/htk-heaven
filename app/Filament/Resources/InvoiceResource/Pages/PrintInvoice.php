@@ -18,9 +18,9 @@ class PrintInvoice extends Page
     protected function getHeaderActions(): array
     {
         return [
-            Actions\Action::make('print')
-                ->label('Print Invoice')
-                ->icon('heroicon-o-printer')
+            Actions\Action::make('download')
+                ->label('Download Invoice')
+                ->icon('heroicon-o-download')
                 ->color('success')
                 ->url(fn() => route('invoice.download.pdf', $this->record->id)),
         ];
