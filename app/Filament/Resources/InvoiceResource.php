@@ -67,7 +67,7 @@ class InvoiceResource extends Resource
                                 Forms\Components\TextInput::make('unit_price')
                                     ->numeric()
                                     ->required()
-                                    ->prefix('$'),
+                                    ->prefix('£'),
                                 Forms\Components\TextInput::make('tax_rate')
                                     ->numeric()
                                     ->default(0)
@@ -78,7 +78,7 @@ class InvoiceResource extends Resource
                                     ->suffix('%'),
                                 Forms\Components\TextInput::make('total')
                                     ->numeric()
-                                    ->prefix('$')
+                                    ->prefix('£')
                                     ->readOnly()
                                     ->dehydrated()
                                     ->afterStateHydrated(function ($component, $state) {
@@ -103,21 +103,21 @@ class InvoiceResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('total_amount')
                             ->numeric()
-                            ->prefix('$')
+                            ->prefix('£')
                             ->readOnly()
                             ->afterStateHydrated(function ($component, $state) {
                                 $component->state(number_format($state, 2));
                             }),
                         Forms\Components\TextInput::make('tax_amount')
                             ->numeric()
-                            ->prefix('$')
+                            ->prefix('£')
                             ->readOnly()
                             ->afterStateHydrated(function ($component, $state) {
                                 $component->state(number_format($state, 2));
                             }),
                         Forms\Components\TextInput::make('discount_amount')
                             ->numeric()
-                            ->prefix('$')
+                            ->prefix('£')
                             ->default(0)
                             ->readOnly()
                             ->afterStateHydrated(function ($component, $state) {
@@ -125,7 +125,7 @@ class InvoiceResource extends Resource
                             }),
                         Forms\Components\TextInput::make('grand_total')
                             ->numeric()
-                            ->prefix('$')
+                            ->prefix('£')
                             ->readOnly()
                             ->afterStateHydrated(function ($component, $state) {
                                 $component->state(number_format($state, 2));
