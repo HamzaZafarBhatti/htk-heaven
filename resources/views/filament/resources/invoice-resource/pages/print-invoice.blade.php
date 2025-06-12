@@ -1,6 +1,16 @@
 {{-- // resources/views/filament/resources/invoice-resource/pages/print-invoice.blade.php --}}
 <x-filament-panels::page>
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
+        <div class="flex justify-between flex-col items-center mb-8">
+            <div class="mb-4">
+                <img src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}" alt="Logo" class="mx-auto" width="25%">
+            </div>
+            <div class="text-center font-semibold">
+                <p class="text-gray-600">{{ $site_settings->address }}</p>
+                <p class="text-gray-600">Phone: {{ $site_settings->phone }}</p>
+                <p class="text-gray-600">Email: {{ $site_settings->email }}</p>
+            </div>
+        </div>
         <div class="flex justify-between items-center mb-8">
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">Invoice</h1>
@@ -12,14 +22,9 @@
             </div>
         </div>
 
-        <div class="flex justify-between mb-8">
+        <div class="mb-8">
             <div>
-                <h2 class="font-semibold text-gray-800">From:</h2>
-                <p class="text-gray-600">{{ $site_settings->address  }}</p>
-                <p class="text-gray-600">Phone: {{ $site_settings->phone }}</p>
-            </div>
-            <div class="text-right">
-                <h2 class="font-semibold text-gray-800">To:</h2>
+                <h2 class="font-semibold text-gray-800">Customer</h2>
                 <p class="text-gray-600">{{ $record->customer->name }}</p>
                 <p class="text-gray-600">{{ $record->customer->address }}</p>
                 <p class="text-gray-600">Phone: {{ $record->customer->phone }}</p>
@@ -29,7 +34,7 @@
         </div>
 
         <div class="mb-8">
-            <table class="min-w-full divide-y divide-gray-200">
+            <table class="w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <tr>
                         <th scope="col"
