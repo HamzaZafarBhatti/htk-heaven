@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Invoice;
+use App\Observers\InvoiceObserver;
 use App\Settings\HomePageSetting;
 use App\Settings\SiteSetting;
 use Illuminate\Support\Facades\View;
@@ -22,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Invoice::observe(InvoiceObserver::class);
+
         View::share('site_settings', app(SiteSetting::class));
     }
 }

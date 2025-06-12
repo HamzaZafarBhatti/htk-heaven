@@ -29,6 +29,23 @@
                 </div>
             </div>
             <div class="col-12">
+                <div class="comment-form__input-box">
+                    <input type="text" placeholder="Phone" name="phone" value="{{ old('phone', $user->phone) }}">
+                    @error('phone')
+                        <label class="invalid-feedback eror">{{ $message }}</label>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="comment-form__input-box">
+                    <input type="text" placeholder="Address" name="address"
+                        value="{{ old('address', $user->address) }}">
+                    @error('address')
+                        <label class="invalid-feedback eror">{{ $message }}</label>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-12">
                 <div class="comment-form__btn-box">
                     <button type="submit" class="thm-btn comment-form__btn">Save</button>
                 </div>

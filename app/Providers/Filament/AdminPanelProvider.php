@@ -41,6 +41,7 @@ class AdminPanelProvider extends PanelProvider
                 Pages\Dashboard::class,
             ])
             ->navigationGroups([
+                'Billing',
                 'Forms',
                 'Users',
                 'Settings',
