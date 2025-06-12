@@ -1,4 +1,4 @@
-{{-- // resources/views/filament/resources/invoice-resource/pages/print-invoice.blade.php --}}
+
 <x-filament-panels::page>
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
         <div class="flex justify-between flex-col items-center mb-8">
@@ -28,8 +28,6 @@
                 <p class="text-gray-600">{{ $record->customer->name }}</p>
                 <p class="text-gray-600">{{ $record->customer->address }}</p>
                 <p class="text-gray-600">Phone: {{ $record->customer->phone }}</p>
-                {{-- <p class="text-gray-600">Vehicle: {{ $record->vehicle->make }} {{ $record->vehicle->model }}
-                    ({{ $record->vehicle->license_plate }})</p> --}}
             </div>
         </div>
 

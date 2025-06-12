@@ -46,6 +46,10 @@ Route::middleware('auth')->group(function () {
         '/admin/vehicle-agreements/{record}/pdf',
         [PdfController::class, 'vehicle_hire_download']
     )->name('vehicle-agreements.download.pdf');
+    Route::get(
+        '/admin/invoice/{record}/pdf',
+        [PdfController::class, 'invoice_download']
+    )->name('invoice.download.pdf');
 });
 
 Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);

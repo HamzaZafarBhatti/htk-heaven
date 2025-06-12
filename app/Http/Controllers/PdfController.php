@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\CountryEnum;
 use App\Models\AccidentManagementForm;
+use App\Models\Invoice;
 use App\Models\RoadTrafficAccident;
 use App\Models\User;
 use App\Models\VehicleAgreement;
@@ -16,7 +17,7 @@ class PdfController extends Controller
     {
         $rta = RoadTrafficAccident::with('cover_type', 'third_party', 'witness')->find($id);
         $data = [
-            'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
+            // 'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
             'rta' => $rta,
         ];
         // return view('backend.pdfs.rta', $data);
@@ -45,7 +46,7 @@ class PdfController extends Controller
             $users = User::whereIn('id', $user_ids)->pluck('name', 'id')->toArray();
         }
         $data = [
-            'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
+            // 'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
             'accident_management' => $accident_management,
             'actions' => $actions,
             'events' => $events,
@@ -62,12 +63,26 @@ class PdfController extends Controller
     {
         $agreement = VehicleAgreement::find($id);
         $data = [
-            'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
+            // 'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
             'agreement' => $agreement,
         ];
         // return view('backend.pdfs.agreement', $data);
         $name = str_replace('/', '-', $agreement->ref_number) . '.pdf';
         $pdf = Pdf::loadView('backend.pdfs.agreement', $data);
+        $pdf->setPaper('a4');
+        return $pdf->download($name);
+    }
+
+    public function invoice_download($id)
+    {
+        $invoice = Invoice::with('customer', 'items')->find($id);
+        $data = [
+            // 'logo' => asset('assets/images/update-17-06-2023/resources/main-menu-logo.png'),
+            'invoice' => $invoice,
+        ];
+        // return view('backend.pdfs.invoice', $data);
+        $name = $invoice->invoice_number . '.pdf';
+        $pdf = Pdf::loadView('backend.pdfs.invoice', $data);
         $pdf->setPaper('a4');
         return $pdf->download($name);
     }

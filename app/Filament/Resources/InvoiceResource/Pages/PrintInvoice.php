@@ -22,7 +22,7 @@ class PrintInvoice extends Page
                 ->label('Print Invoice')
                 ->icon('heroicon-o-printer')
                 ->color('success')
-                ->extraAttributes(['onclick' => 'window.print(); return false;']),
+                ->url(fn() => route('invoice.download.pdf', $this->record->id)),
         ];
     }
 }
