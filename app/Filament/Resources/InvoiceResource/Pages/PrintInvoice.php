@@ -20,7 +20,7 @@ class PrintInvoice extends Page
         return [
             Actions\Action::make('download')
                 ->label('Download Invoice')
-                ->icon('heroicon-o-download')
+                ->icon('heroicon-o-document-arrow-down')
                 ->color('success')
                 ->url(fn() => route('invoice.download.pdf', $this->record->id)),
         ];
