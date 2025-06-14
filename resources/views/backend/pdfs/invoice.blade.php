@@ -89,7 +89,7 @@
                     <span>-£{{ number_format($invoice->discount_amount, 2) }}</span>
                 </div>
                 <div class="total-row">
-                    <span>Tax:</span>
+                    <span>VAT:</span>
                     <span>£{{ number_format($invoice->tax_amount, 2) }}</span>
                 </div>
                 <div class="grand-total">

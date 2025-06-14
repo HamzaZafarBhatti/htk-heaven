@@ -126,6 +126,7 @@ class InvoiceResource extends Resource
                                 $component->state(number_format($state, 2));
                             }),
                         Forms\Components\TextInput::make('tax_amount')
+                            ->label('VAT Amount')
                             ->numeric()
                             ->prefix('£')
                             ->readOnly()

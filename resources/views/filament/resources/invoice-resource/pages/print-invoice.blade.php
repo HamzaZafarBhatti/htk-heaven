@@ -106,7 +106,7 @@
                     <span>-£{{ number_format($record->discount_amount, 2) }}</span>
                 </div>
                 <div class="flex justify-between py-2 border-b">
-                    <span class="font-medium">Tax:</span>
+                    <span class="font-medium">VAT:</span>
                     <span>£{{ number_format($record->tax_amount, 2) }}</span>
                 </div>
                 <div class="flex justify-between py-2 font-bold text-lg">
