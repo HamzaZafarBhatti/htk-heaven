@@ -30,6 +30,22 @@ class InvoiceResource extends Resource
             ->schema([
                 Forms\Components\Section::make('Invoice Information')
                     ->schema([
+                        Forms\Components\FileUpload::make('logo')
+                            ->label('Company Logo')
+                            ->image()
+                            ->directory('invoices/logos')
+                            ->columnSpanFull(),
+                        Forms\Components\TextInput::make('title')
+                            ->required(),
+                        Forms\Components\TextInput::make('company_name')
+                            ->required(fn($get) => filled($get('logo'))),
+                        Forms\Components\TextInput::make('company_address')
+                            ->required(fn($get) => filled($get('logo'))),
+                        Forms\Components\TextInput::make('company_phone')
+                            ->required(fn($get) => filled($get('logo'))),
+                        Forms\Components\TextInput::make('company_email')
+                            ->email()
+                            ->required(fn($get) => filled($get('logo'))),
                         Forms\Components\TextInput::make('invoice_number')
                             ->default('SAS-INV-' . now()->format('Ymd') . '-' . strtoupper(Str::random(4)))
                             ->required()
@@ -69,6 +85,7 @@ class InvoiceResource extends Resource
                                     ->required()
                                     ->prefix('£'),
                                 Forms\Components\TextInput::make('tax_rate')
+                                    ->label('VAT Rate')
                                     ->numeric()
                                     ->default(0)
                                     ->suffix('%'),

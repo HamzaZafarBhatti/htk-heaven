@@ -24,6 +24,12 @@ class Invoice extends Model implements Auditable
         'tax_amount',
         'discount_amount',
         'grand_total',
+        'logo',
+        'company_name',
+        'company_address',
+        'company_phone',
+        'company_email',
+        'title',
     ];
 
     public function customer(): BelongsTo

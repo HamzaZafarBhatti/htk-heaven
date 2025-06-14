@@ -2,13 +2,33 @@
         <div class="invoice-container">
             <div class="invoice-header">
                 <div class="logo-container">
-                    <img src="{{ 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('assets/images/update-17-06-2023/resources/main-menu-logo.png'))) }}"
-                        alt="Logo" class="invoice-logo">
+                    @if ($invoice->logo)
+                        <img src="{{ 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('storage/' . $invoice->logo))) }}"
+                            alt="Logo" class="invoice-logo">
+                    @else
+                        <img src="{{ 'data:image/png;base64,' . base64_encode(file_get_contents(public_path('assets/images/update-17-06-2023/resources/main-menu-logo.png'))) }}"
+                            alt="Logo" class="invoice-logo">
+                    @endif
                 </div>
                 <div class="shop-info">
-                    <p>{{ $site_settings->address }}</p>
-                    <p>Phone: {{ $site_settings->phone }}</p>
-                    <p>Email: {{ $site_settings->email }}</p>
+                    @if ($invoice->company_name)
+                        <h2 style="margin: 0;">{{ $invoice->company_name }}</h2>
+                    @endif
+                    @if ($invoice->company_address)
+                        <p>{{ $invoice->company_address }}</p>
+                    @else
+                        <p>{{ $site_settings->address }}</p>
+                    @endif
+                    @if ($invoice->company_phone)
+                        <p>Phone: {{ $invoice->company_phone }}</p>
+                    @else
+                        <p>Phone: {{ $site_settings->phone }}</p>
+                    @endif
+                    @if ($invoice->company_email)
+                        <p>Email: {{ $invoice->company_email }}</p>
+                    @else
+                        <p>Email: {{ $site_settings->email }}</p>
+                    @endif
                 </div>
             </div>
 
@@ -30,6 +50,10 @@
                 <p>Phone: {{ $invoice->customer->phone }}</p>
             </div>
 
+            <div class="invoice-subtitle">
+                <h2 style="margin: 0;">{{ $invoice->title }}</h2>
+            </div>
+
             <table class="invoice-items">
                 <thead>
                     <tr>
@@ -37,7 +61,7 @@
                         <th>Qty</th>
                         <th>Unit Price</th>
                         <th>Discount</th>
-                        <th>Tax</th>
+                        <th>VAT</th>
                         <th>Total</th>
                     </tr>
                 </thead>
@@ -145,11 +169,16 @@
             text-align: right;
         }
 
-        .customer-section {
+        .customer-section{
             margin-bottom: 10px;
         }
 
-        .customer-section h2 {
+        .invoice-subtitle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .customer-section h2{
             font-size: 18px;
             margin: 0 0 10px 0;
             color: #222;

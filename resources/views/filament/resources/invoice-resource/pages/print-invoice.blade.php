@@ -1,14 +1,33 @@
-
 <x-filament-panels::page>
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm">
         <div class="flex justify-between flex-col items-center mb-8">
             <div class="mb-4">
-                <img src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}" alt="Logo" class="mx-auto" width="25%">
+                @if ($record->logo)
+                    <img src="{{ asset('storage/' . $record->logo) }}" alt="Logo" class="mx-auto" width="25%">
+                @else
+                    <img src="{{ asset('assets/images/update-17-06-2023/resources/main-menu-logo.png') }}" alt="Logo"
+                        class="mx-auto" width="25%">
+                @endif
             </div>
             <div class="text-center font-semibold">
-                <p class="text-gray-600">{{ $site_settings->address }}</p>
-                <p class="text-gray-600">Phone: {{ $site_settings->phone }}</p>
-                <p class="text-gray-600">Email: {{ $site_settings->email }}</p>
+                @if ($record->company_name)
+                    <h1 class="text-2xl text-gray-800">{{ $record->company_name }}</h1>
+                @endif
+                @if ($record->company_address)
+                    <p class="text-gray-600">{{ $record->company_address }}</p>
+                @else
+                    <p class="text-gray-600">{{ $site_settings->address }}</p>
+                @endif
+                @if ($record->company_phone)
+                    <p class="text-gray-600">Phone: {{ $record->company_phone }}</p>
+                @else
+                    <p class="text-gray-600">Phone: {{ $site_settings->phone }}</p>
+                @endif
+                @if ($record->company_email)
+                    <p class="text-gray-600">Email: {{ $record->company_email }}</p>
+                @else
+                    <p class="text-gray-600">Email: {{ $site_settings->email }}</p>
+                @endif
             </div>
         </div>
         <div class="flex justify-between items-center mb-8">
@@ -29,6 +48,10 @@
                 <p class="text-gray-600">{{ $record->customer->address }}</p>
                 <p class="text-gray-600">Phone: {{ $record->customer->phone }}</p>
             </div>
+        </div>
+
+        <div class="mb-8 text-center">
+            <h2 class="text-2xl font-semibold text-gray-800">{{ $record->title }}</h2>
         </div>
 
         <div class="mb-8">
