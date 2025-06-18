@@ -60,20 +60,27 @@
                                     <a href="{{ route('home.index') }}">Home</a>
                                 </li>
                                 <li class="dropdown">
-                                    <a href="#"
-                                        class="{{ Route::is([/* 'home.how-is-it-free', */ 'home.replacement-vehicle', 'home.report-claim']) ? 'current' : '' }}">
+                                    <a href="#" class="{{ Route::is('service.show') ? 'current' : '' }}">
                                         Our Services
                                     </a>
                                     <ul>
-                                        {{-- <li><a href="{{ route('home.how-is-it-free') }}">How is it Free?</a></li> --}}
-                                        <li>
-                                            <a href="{{ route('home.index') }}#about-us">
-                                                About Us
-                                            </a>
-                                        </li>
-                                        <li><a href="{{ route('home.report-claim') }}">Contact Us</a>
-                                        </li>
+                                        @if ($homepageSettings->service_items)
+                                            @foreach ($homepageSettings->service_items as $item)
+                                                <li>
+                                                    <a
+                                                        href="{{ route('service.show', ['slug' => $item['url_slug']]) }}">
+                                                        {{ $item['title'] }}
+                                                    </a>
+                                                </li>
+                                            @endforeach
+                                        @endif
                                     </ul>
+                                </li>
+                                <li class="{{-- {{ Route::is('home.index') ? 'current' : '' }} --}}">
+                                    <a href="{{ route('home.index') }}#about-us">About Us</a>
+                                </li>
+                                <li class="{{ Route::is('home.report-claim') ? 'current' : '' }}">
+                                    <a href="{{ route('home.report-claim') }}">Contact Us</a>
                                 </li>
                             </ul>
                         </div>

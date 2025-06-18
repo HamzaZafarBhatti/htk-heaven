@@ -21606,6 +21606,12 @@ body.megamenu-popup-active .mobile-nav__content {
         height: 35px;
     }
 }
+@media (max-width: 768px) {
+    .thm-btn-three {
+        font-size: 12px !important;
+        padding: 14px 16px 12px !important;
+    }
+}
 
 .megamenu-popup .megamenu-clickable--close a::before,
 .megamenu-popup .megamenu-clickable--close a::after {

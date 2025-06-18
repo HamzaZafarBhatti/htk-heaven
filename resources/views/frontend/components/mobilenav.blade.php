@@ -14,6 +14,14 @@
 
         <ul class="mobile-nav__contact list-unstyled">
             <li>
+
+                <div class="main-menu-seven__get-quote-btn-box">
+                    <a href="{{ route('home.report-claim') }}"
+                        class="thm-btn-three main-menu-seven__get-quote-btn">Report a
+                        Claim<span class="fas fa-paper-plane"></span></a>
+                </div>
+            </li>
+            <li>
                 <i class="fa fa-envelope"></i>
                 <a href="mailto:{{ $site_settings->email }}">{{ $site_settings->email }}</a>
             </li>

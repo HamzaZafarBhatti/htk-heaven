@@ -73,10 +73,10 @@ class HomeController extends Controller
         return view('frontend.complaints_procedure');
     }
 
-    public function service_show($slug, PageMetaSetting $pageMetaSettings)
+    public function service_show($slug, PageMetaSetting $pageMetaSettings, HomePageSetting $homepageSettings)
     {
         $serviceName = ucfirst(str_replace('-', ' ', $slug));
 
-        return view("frontend.services.$slug", compact('serviceName', 'pageMetaSettings'));
+        return view("frontend.services.$slug", compact('serviceName', 'pageMetaSettings', 'homepageSettings'));
     }
 }
