@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-    public function index(HomePageSetting $homepageSettings, PageMetaSetting $pageMetaSettings)
+    public function __construct(private HomePageSetting $homepageSettings) {}
+
+    public function index(PageMetaSetting $pageMetaSettings)
     {
         return view('frontend.index', [
-            'homepageSettings' => $homepageSettings,
+            'homepageSettings' => $this->homepageSettings,
             'pageMetaSettings' => $pageMetaSettings,
         ]);
     }
@@ -37,6 +39,7 @@ class HomeController extends Controller
     {
         return view('frontend.report_claim', [
             'user' => auth()->user(),
+            'homepageSettings' => $this->homepageSettings,
         ]);
     }
     public function accident_repairs()
@@ -73,10 +76,14 @@ class HomeController extends Controller
         return view('frontend.complaints_procedure');
     }
 
-    public function service_show($slug, PageMetaSetting $pageMetaSettings, HomePageSetting $homepageSettings)
+    public function service_show($slug, PageMetaSetting $pageMetaSettings)
     {
         $serviceName = ucfirst(str_replace('-', ' ', $slug));
 
-        return view("frontend.services.$slug", compact('serviceName', 'pageMetaSettings', 'homepageSettings'));
+        return view("frontend.services.$slug", [
+            'serviceName' => $serviceName,
+            'pageMetaSettings' => $pageMetaSettings,
+            'homepageSettings' => $this->homepageSettings
+        ]);
     }
 }
