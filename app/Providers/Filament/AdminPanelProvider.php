@@ -47,6 +47,7 @@ class AdminPanelProvider extends PanelProvider
                 'Users',
                 'Settings',
             ])
+            ->databaseNotifications()
             ->sidebarCollapsibleOnDesktop()
             ->userMenuItems(
                 [
