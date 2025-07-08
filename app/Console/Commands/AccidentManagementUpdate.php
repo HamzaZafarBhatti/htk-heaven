@@ -6,6 +6,7 @@ use App\Models\AccidentManagementForm;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Filament\Notifications\Notification;
+use Illuminate\Support\Facades\Log;
 
 class AccidentManagementUpdate extends Command
 {
@@ -28,6 +29,7 @@ class AccidentManagementUpdate extends Command
      */
     public function handle()
     {
+        Log::info('Testing');
         $updates = AccidentManagementForm::with('road_traffic_accident')->whereDate('next_update_date', '<=', now())
             ->get();
 
@@ -36,8 +38,6 @@ class AccidentManagementUpdate extends Command
         }
 
         $recipients = User::role(['Superadmin', 'Admin'])->get();
-
-        // return;
 
         foreach ($updates as $update) {
             foreach ($recipients as $recipient) {
