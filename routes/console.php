@@ -10,4 +10,4 @@ Artisan::command('inspire', function () {
 
 
 Schedule::command('app:accident-management-update')
-    ->everyMinute();
+    ->dailyAt('01:00');
