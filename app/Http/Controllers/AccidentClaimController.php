@@ -9,6 +9,7 @@ use App\Models\AccidentManagementForm;
 use App\Models\RoadTrafficAccident;
 use App\Models\RoadTrafficAccidentComment;
 use App\Services\AccidentClaimService;
+use App\Settings\HomePageSetting;
 use App\Settings\SiteSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -17,10 +18,15 @@ use Illuminate\Support\Facades\Mail;
 class AccidentClaimController extends Controller
 {
     //
+    public function __construct(private HomePageSetting $homepageSettings) {}
+
     public function index()
     {
         $claims = RoadTrafficAccident::with('accident_claim')->where('user_id', auth()->user()->id)->get();
-        return view('frontend.dashboard.claims.index', compact('claims'));
+        return view('frontend.dashboard.claims.index', [
+            'claims' => $claims,
+            'homepageSettings' => $this->homepageSettings,
+        ]);
     }
 
     public function store(AccidentClaimRequest $request, AccidentClaimService $accidentClaimService, SiteSetting $siteSetting)
@@ -49,18 +55,25 @@ class AccidentClaimController extends Controller
         }
     }
 
-    public function show($rta_number)
+    public function show($rta_number,)
     {
         $id = RoadTrafficAccident::extractId($rta_number);
         $accidentManagementForm = AccidentManagementForm::where('road_traffic_accident_id', $id)->firstOrFail();
         $actions = $accidentManagementForm->actions ? collect($accidentManagementForm->actions)->where('is_hidden', false) : collect();
         $events = $accidentManagementForm->events ? collect($accidentManagementForm->events)->where('is_hidden', false) : collect();
-        return view('frontend.dashboard.claims.show', compact('actions', 'events'));
+        return view('frontend.dashboard.claims.show', [
+            'actions' => $actions,
+            'events' => $events,
+            'homepageSettings' => $this->homepageSettings,
+        ]);
     }
 
     public function comments($id)
     {
         $comments = RoadTrafficAccidentComment::with('commenter:id,name')->where('road_traffic_accident_id', $id)->notHidden()->latest()->get();
-        return view('frontend.dashboard.claims.comments', compact('comments'));
+        return view('frontend.dashboard.claims.comments', [
+            'comments' => $comments,
+            'homepageSettings' => $this->homepageSettings,
+        ]);
     }
 }
